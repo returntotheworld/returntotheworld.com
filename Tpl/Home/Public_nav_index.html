@@ -1,0 +1,148 @@
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!--[if lt IE 9]>
+<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->        
+<meta property="qc:admins" content="73113635665455576375" />
+<link rel="stylesheet" href="__CSS__/bootstrap.min.css" />
+<link rel="shortcut icon" href="__IMG__/icon/favicon.ico" />
+<style type="text/css">
+    .head_content{
+        background: url("{$ppt.0.pp_img}")no-repeat;
+    }
+</style>
+<link rel="stylesheet" href="__CSS__/my.css" />
+<!-- 头像转动 -->
+<link rel="stylesheet" href="__CSS__/animation.css" />
+<link rel="stylesheet" href="__CSS__/lanrenzhijia.css" />
+<!-- /头像转动 -->
+    </head>
+    <script src="__JS__/jquery-1.10.1.min.js" ></script>
+    <!-- // <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script> -->
+    <script src="__JS__/bootstrap.min.js" ></script>
+<!-- 导航栏悬浮效果 -->
+    <script src="__JS__/jquery.zlight.menu.1.0.min.js" ></script>
+    <script type="text/javascript">
+        $(function(){
+                // lanrenzhijia
+                $("#lanrenzhijia div a").hover(function(){
+                    $("img", this).stop().animate({top:"-170px"},{queue:false,duration:170});
+                }, function() {
+                    $("img", this).stop().animate({top:"0px"},{queue:false,duration:170});
+                });
+            });
+    </script>
+    <script>
+    $(document).ready(function(){
+        $('.top-top1').zlightMenu();
+    });
+    
+    </script>
+
+
+<!--/导航栏悬浮效果 -->
+    <script language="javascript">
+    var bgarr = ["http://saber-img.qiniudn.com/xuejian.jpg","http://saber-img.qiniudn.com/aisaberbg3.jpg","http://saber-img.qiniudn.com/aisaberbg7.jpg","http://saber-img.qiniudn.com/aisaberbg8.jpg","http://saber-img.qiniudn.com/aisaberbg9.jpg","http://7xk6om.com1.z0.glb.clouddn.com/萝莉夏日海滩壁纸.jpg","http://saber-img.qiniudn.com/穹妹美图.jpg","http://saber-img.qiniudn.com/Nekopara-BG1.jpg","http://7xk6om.com1.z0.glb.clouddn.com/miku2.jpg","http://saber-img.qiniudn.com/miku0.jpg","http://7xk6om.com1.z0.glb.clouddn.com/saberbg4.jpg","http://7xk6om.com1.z0.glb.clouddn.com/miku1.jpg","http://7xk6om.com1.z0.glb.clouddn.com/saberbg2.jpg","http://7xk6om.com1.z0.glb.clouddn.com/%E5%B1%81%E5%90%95%E5%B0%BE%E7%94%B0%E3%83%9D%E3%83%88%E3%83%95.jpg","http://7xk6om.com1.z0.glb.clouddn.com/四季映姫.jpg","http://7xk6om.com1.z0.glb.clouddn.com/loli.jpg","http://7xk6om.com1.z0.glb.clouddn.com/miku3.jpg","http://7xk6om.com1.z0.glb.clouddn.com/car.jpg","http://7xk6om.com1.z0.glb.clouddn.com/ef1.jpg","http://7xk6om.com1.z0.glb.clouddn.com/ef2.jpg","http://7xk6om.com1.z0.glb.clouddn.com/ef4.jpg","http://7xk6om.com1.z0.glb.clouddn.com/%E5%A6%B9%E3%81%AE%E5%BD%A21.jpg","http://7xk6om.com1.z0.glb.clouddn.com/%E6%B0%B4%E4%B8%ADmiku_2.jpg","http://7xk6om.com1.z0.glb.clouddn.com/websitebg0.jpg","http://7xk6om.com1.z0.glb.clouddn.com/re0.jpg","http://7xk6om.com1.z0.glb.clouddn.com/haitan.jpg","http://7xli4a.com1.z0.glb.clouddn.com/rttw/img/zhuoku116.jpg"];
+    var bgindex = ~~(Math.random()*bgarr.length);
+</script>
+
+
+    <body>  
+<script>
+    document.body.style.backgroundImage="url("+bgarr[bgindex]+")";
+    document.body.style.background="background-size:100%";
+</script>
+        <header class="head_content" style="background-position-x: 41.17%;">
+            <div class="plur"></div>
+            <div class="h_content">
+                <div class="head_div">
+                <div class="cycle_div">
+                    <a class="github_a" href="https://www.facebook.com/profile.php?id=100010215671782" target="_blank" style="left: -15px; top: 190px;">
+                            <span class="github_icon"></span>
+                    </a>
+                    <a class="sina_a" href="http://weibo.com/u/5609270032" target="_blank" style="left: 285px; top: 79px;">
+                            <span class="sina_icon"></span>
+                    </a>
+                    <div class="head_anima">
+                        <img class="green_cycle_img" src="__IMG__/icon/green_cycle.svg">
+                        <img class="yellow_cycle_img" src="__IMG__/icon/yellow_cycle.svg">
+                        <img class="blue_cycle_img" src="__IMG__/icon/blue_cycle.svg">                
+<!--                         <div id="lanrenzhijia" class="clear">
+                          <div class="head_img"><a href="htmldrive.net"><img src="__IMG__/icon/image-1.jpg" alt="" /></a></div>
+                        </div> -->
+                        <img class="head_img" src="__IMG__/icon/head.jpg">
+                        
+                    </div>
+                </div>      
+                </div>
+                <div class="motto_div">
+                    <h1 class="blog_title"><a href="/" rel="home">{$Think.config.NAME}.</a></h1>
+                    <h2 class="blog_description"><a href="/">{$system.title2}</a></h2>
+                </div>
+            </div>
+        </header>
+
+<!--         <div class="top-top">
+            <div class="container">
+                <div class="col-md-5 top-left"><a class="from">{:getOs()}</a></div>
+                <div class="col-md-5 top-right">
+                    <empty name="Think.session.nickname">
+                    	<a href="{:U('Common/loginqq',array("type"=>"qq"))}" class="from" >QQ访问</a>
+					<else />
+						{$Think.session.nickname} <a class='from' href="{:U('Common/out')}">退出</a>
+					</empty>
+                </div>
+            </div>
+        </div> -->
+        <div class="top-top1" id="mynav">
+        <div class="container ">
+            <div class="row header">
+    <!--                 <div class="col-md-4 logo">
+                        <a title="{$Think.config.NAME}" href="/"><img src="__IMG__/icon/logo.png" /></a>
+                        <h5 class="hidden-xs">{$system.title2}</h5>               
+                    </div> -->
+                    <div class="nav-dh col-md-5 ">
+                        <nav class="navbar ">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">导航</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand visible-xs" href="#">博客导航</a>
+                                </div>
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav">
+                                    <li class="{$index} dh"><a href="{:U('/index')}">首页</a></li>
+                                    <li class="{$about} dh"><a href="{:U('/about')}">关于我</a></li>
+                                    <li class="dropdown dh {$class}">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">分类<span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                        <volist name="pid" id="vo">
+                                            <li><a href="{:U('/class-'.$vo['t_id'])}" ><i class="icon-ok-sign"></i> {$vo.t_name}</a></li>
+                                            <li class="divider"></li>
+                                        </volist>           
+                                      </ul>
+                                    </li>
+                                    <li class="dh {$feel}"><a href="{:U('/feel')}">说说</a></li>
+                                    <li class="dh {$album}"><a href="{:U('/album')}">相册</a></li>
+                                    <li class="dh {$friends}"><a href="{:U('/friends')}">邻居</a></li>
+                                    <li class="dh {$gust}"><a href="{:U('/gust')}">留言板</a></li>
+                                </ul>
+                                <!-- 搜索栏 -->
+                                <div class="search d7">
+                                    <form action="{:U('Class/search')}" method="get">
+                                      <input type="text" placeholder="搜索从这里开始..." name="key">
+                                      <button type="submit"class="glyphicon glyphicon-search"></button>
+                                    </form>
+                                </div>
+                                <!-- /搜索栏 --> 
+                            </div>
+                        </nav>
+                    </div> 
+                </div>
+            </div>
+            </div>
+        <div class="container ">
+            

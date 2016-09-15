@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script src="js/jquery-1.11.1.min.js"></script>
+
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function(){
+	    var aarr = ["http://7xli4a.com1.z0.glb.clouddn.com/qzone/audio/%E6%8A%98%E5%AD%90%E6%88%8F.mp3","http://7xli4a.com1.z0.glb.clouddn.com/qzone/audio/%E7%BA%A2%E8%89%B2%E9%AB%98%E8%B7%9F%E9%9E%8B.mp3","http://7xli4a.com1.z0.glb.clouddn.com/qzone/audio/%E8%8A%B1%E9%A6%99.mp3"];
+        var aindex = ~~(Math.random()*aarr.length);
+
+	new jPlayerPlaylist({
+		jPlayer: "#jquery_jplayer_2",
+		cssSelectorAncestor: "#jp_container_2"
+	}, [
+		{
+			title:"惊喜听",
+			mp3:""+aarr[aindex]+"",
+			oga:""
+		},
+		{
+			title:"歌曲02",
+			mp3:"http://www.haook.cn/mp3test/2.mp3",
+			oga:""
+		},
+
+		{
+			title:"歌曲03",
+			mp3:"http://www.haook.cn/mp3test/3.mp3",
+			oga:""
+		},
+		{
+			title:"歌曲05",
+			mp3:"http://www.haook.cn/mp3test/5.mp3",
+			oga:""
+		}
+	], {
+		swfPath: "../../dist/jplayer",
+		supplied: "oga, mp3",
+		wmode: "window",
+		useStateClassSkin: true,
+		autoBlur: true,
+		smoothPlayBar: true,
+		keyEnabled: true
+	});
+});
+//]]>
+</script>
+</head>
+<body>
+<!-- main -->
+	<div class="audio-record-list">
+		<!-- <h1 class="w3ls">网页音乐播放器</h1> -->
+		<img src="images/2.jpg">
+		<div id="jquery_jplayer_2" class="jp-jplayer"></div>
+		<div id="jp_container_2" class="jp-audio" role="application" aria-label="media player">
+			<div class="title">
+				<h2>音乐播放器</h2>
+				<a class="heart-agile" href="#"><img onclick="changeImg(this, 'images/buttonA_on.jpg')" src="images/buttonA_off.jpg"></a>
+			</div>
+			<div class="jp-type-playlist">
+						<div class="jp-progress">
+						<div class="jp-seek-bar">
+							<div class="jp-play-bar"></div>
+						</div>
+					</div>
+				<div class="jp-gui jp-interface">
+			
+					<div class="jp-controls">
+						<button class="jp-play" role="button" tabindex="0">play</button>
+						<button class="jp-previous" role="button" tabindex="0">previous</button>
+						<button class="jp-next" role="button" tabindex="0">next</button>
+					</div>
+			
+					<div class="jp-volume-controls">
+						<button class="jp-mute" role="button" tabindex="0">mute</button>
+						<!-- <button class="jp-volume-max" role="button" tabindex="0">max volume</button> -->
+						<div class="jp-volume-bar">
+							<div class="jp-volume-bar-value"></div>
+						</div>
+					</div>
+					<div class="jp-time-holder">
+						<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+						<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+					</div>
+				</div>
+				<div class="jp-playlist">
+					<ul>
+						<li>&nbsp;</li>
+					</ul>
+				</div>
+				<div class="jp-no-solution">
+					<span>需要更新</span>
+					要播放媒体，您将需要更新您的浏览器到最新的版本!<a href="http://www.haook.cn" target="_blank">haook.cn</a>.
+				</div>
+			</div>
+		</div>			
+	</div>
+<!-- //main -->
+<!-- script for play-list -->
+<link href="css/jplayer.blue.monday.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
+<script type="text/javascript" src="js/jplayer.playlist.min.js"></script>
+
+<!-- //script for play-list -->
+    <script type="text/javascript">
+    function changeImg(img, newimg) {
+    img.src = newimg;
+    }
+
+
+    </script>
+	  <script type="text/javascript">
+			function changeImg(img) {
+			if ( img.src.indexOf("_on") > 0 ) {
+				img.src = img.src.replace("_on","_off");
+			}
+			else {
+				img.src = img.src.replace("_off","_on");
+			}
+		} 
+		</script>
+</body>
+</html>
