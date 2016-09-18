@@ -413,7 +413,22 @@ a.nivo-prevNav {left:15px;}
     -moz-background-size: cover;
     top: -2px;
 }
+.facebook_a{
+    top: -25px;
+    left: 120px;
+}
 
+.facebook_icon{
+    background: url('../Img/icon/1474126845_facebook_circle_color.png') no-repeat;
+    display: block;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    background-size: cover;
+    -moz-background-size: cover;
+    top: -2px;
+}
 .sina_a{
     background-color: #bd4141;
     top: 135px;

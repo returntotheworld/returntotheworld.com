@@ -22,8 +22,10 @@ $(function(){
     //icon的移动轨迹
     var icon_1 = $('.github_a');
     var icon_2 = $('.sina_a');
+    var icon_3 = $('.facebook_a');
     var g_i = 0;
     var s_i = 320;
+    var f_i = 440;
     var a_hover = false;
     function aMove(){
         if(!a_hover){
@@ -44,7 +46,15 @@ $(function(){
                 s_i = 1;
                 icon_2.css({'left':x_arr[s_i]+'px','top':y_arr[s_i]+'px'});
                 s_i++;
-            }    
+            }
+            if(f_i <= 640){
+                icon_3.css({'left':x_arr[f_i]+'px','top':y_arr[f_i]+'px'});
+                f_i++;
+            }else{
+                f_i = 1;
+                icon_3.css({'left':x_arr[f_i]+'px','top':y_arr[f_i]+'px'});
+                f_i++;
+            }     
         }
         
     }
