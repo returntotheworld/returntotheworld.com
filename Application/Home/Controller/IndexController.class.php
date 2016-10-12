@@ -14,8 +14,15 @@ class IndexController extends CommonController {
 		if(!$articles=S('articles')){$articles = M('article')->where('a_view > 0')->order('a_time desc')->join('lt_tag ON lt_tag.t_id = lt_article.pid')->limit(0,6)->select();setS("articles", $articles);}
 		$this->articles=$articles;
 		if(!$ppt=S('ppt')){$ppt = M('ppt')->where(array("pp_view"=>1))->order("pp_time desc")->limit(3)->select();setS("ppt", $ppt);}
+		$jieri=$this->jieri();
 		$this->ppt = $ppt;
+		$this->jieri = $jieri;
 		$this->display();
+    }
+    public function jieri(){
+    	$jieri=intval(date("md"));
+    	// setS("jieri", $jieri);
+    	return $jieri;
     }
     public function fetch_pages(){
     	$item_per_page = 6;  

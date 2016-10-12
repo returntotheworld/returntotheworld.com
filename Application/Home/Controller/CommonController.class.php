@@ -62,8 +62,17 @@ class CommonController extends Controller{
 		//------------------------------------------------------右侧------------------------------------------------------------------------
 		if(!$tag = S('tag')){
 			$tag = $article->where("a_keyword != '' and a_view > 0")->field('a_keyword,a_id,a_time')->order('a_time desc')->select();
-			for($i=1;$i<=count($tag);$i++){
-				$tag[$i-1]['key']=$i;
+			for($i=0;$i<=count($tag);$i++){
+				$strt.=$tag[$i]['a_keyword'].',';
+			}
+			$strt = explode(',', $strt);
+			$strt = array_unique($strt);
+			for($i=0;$i<=count($strt);$i++){
+				if (!empty($strt[$i])){
+					$tag[$i]['key']=$i+1;
+				    $tag[$i]['a_keyword']=$strt[$i];
+				}
+				
 			}setS('tag',$tag);
 		}
 		$this->assign('tag',$tag);

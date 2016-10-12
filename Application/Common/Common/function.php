@@ -198,7 +198,31 @@
 	        return TRUE;
 	    }
     }
-	
+	// 独立发送邮件
+	function is_sendEmail($to, $subject, $content) {
+	    vendor('phpmailer.class#phpmailer');
+	    $mail = new phpmailer();
+	    if (C('MAIL_SMTP')) {
+	        $mail->IsSMTP();
+	    }
+	    $mail->Host = C('MAIL_HOST');
+	    $mail->SMTPAuth = C('MAIL_SMTPAUTH');
+	    $mail->Username = C('MAIL_USERNAME');
+	    $mail->Password = C('MAIL_PASSWORD');
+	    $mail->SMTPSecure = C('MAIL_SECURE');
+	    $mail->CharSet = C('MAIL_CHARSET');
+	    $mail->From = C('MAIL_USERNAME');
+	    $mail->AddAddress($to);
+	    $mail->FromName = '回这世界博客';
+	    $mail->IsHTML(C('MAIL_ISHTML'));
+	    $mail->Subject = $subject;
+	    $mail->Body = $content;
+	    if (!$mail->Send()) {
+	        return FALSE;
+	    } else {
+	        return TRUE;
+	    }
+    }
 	// 获取日
 	function getDay($date){
 		if($date=='') return '0';
@@ -280,13 +304,22 @@
 	function getKeyword($str){
 		$str = explode(',', $str);
 		foreach($str as $v){
-			$tmp .=  '&nbsp;&nbsp;<a href="./Class/search.html?key='.$v.'" class="article-tag" data-toggle="tooltip" data-placement="top" title="'.$v.'">'.$v.'</a>&nbsp;&nbsp;'; 
+			$tmp .=  '&nbsp;&nbsp;<a href="/Class/tag.html?key='.$v.'" class="article-tag" data-toggle="tooltip" data-placement="top" title="'.$v.'">'.$v.'</a>&nbsp;&nbsp;'; 
 		}
 		return $tmp;
 	}
 	
 	// 过滤关键词
 	function getTag($str){
-		$str = explode(',', $str);
-		return $str[0];
+		$article = M('article');
+		$map['a_keyword']=array('like',"%$str%");
+        $map['a_view']=array('gt','0');
+		$data = $article->where($map)->field('a_keyword,a_id,a_time')->order('a_time desc')->select();
+		$strcount='（'.count($data).'）';
+		if (count($data)>1) {
+			$str =  '<a href="/Class/tag.html?key='.$str.'" >'.$str.$strcount.'</a>'; 
+		}else{
+			$str =  '<a href="/article-'.$data[0]['a_id'].'">'.$str.'</a>'; 
+		}
+		return $str;
 	}

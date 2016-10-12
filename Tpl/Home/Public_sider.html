@@ -3,12 +3,12 @@
 	<h4><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;我的标签</h4>
 	    <ul class="tag-ul">
 	      	<volist name="tag" id="v" empty="暂时没有标签">
-	      	<if condition="$v['key'] % 6 ==1"><li class="label label-default"><a href="{:U('/article-'.$v['a_id'])}">{$v.a_keyword|getTag}</a></li></if>
-	      	<if condition="$v['key'] % 6 ==2"><li class="label label-primary "><a href="{:U('/article-'.$v['a_id'])}">{$v.a_keyword|getTag}</a></li></if>
-	      	<if condition="$v['key'] % 6 ==3"><li class="label label-success "><a href="{:U('/article-'.$v['a_id'])}">{$v.a_keyword|getTag}</a></li></if>
-	        <if condition="$v['key'] % 6 ==4"><li class="label label-info "><a href="{:U('/article-'.$v['a_id'])}">{$v.a_keyword|getTag}</a></li></if>
-	        <if condition="$v['key'] % 6 ==5"><li class="label label-warning "><a href="{:U('/article-'.$v['a_id'])}">{$v.a_keyword|getTag}</a></li></if>
-	        <if condition="$v['key'] % 6 ==0"><li class="label label-danger  tag-end "><a href="{:U('/article-'.$v['a_id'])}">{$v.a_keyword|getTag}</a></li></if>
+	      	<if condition="$v['key'] % 6 ==1"><li class="label label-default">{$v.a_keyword|getTag}</li></if>
+	      	<if condition="$v['key'] % 6 ==2"><li class="label label-primary ">{$v.a_keyword|getTag}</li></if>
+	      	<if condition="$v['key'] % 6 ==3"><li class="label label-success ">{$v.a_keyword|getTag}</li></if>
+	        <if condition="$v['key'] % 6 ==4"><li class="label label-info ">{$v.a_keyword|getTag}</li></if>
+	        <if condition="$v['key'] % 6 ==5"><li class="label label-warning ">{$v.a_keyword|getTag}</li></if>
+	        <if condition="$v['key'] % 6 ==0"><li class="label label-danger  tag-end ">{$v.a_keyword|getTag}</li></if>
 	      	</volist>
 	    </ul>
 	</div>

@@ -72,29 +72,29 @@ $(document).ready(function() {
 
 				return false;
 
-			}else if(!email){
+			// }else if(!email){
 
-				$("#email").parent(".input-group").addClass("has-warning");
+			// 	$("#email").parent(".input-group").addClass("has-warning");
 
-				return false;
+			// 	return false;
 
-			}else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
+			// }else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
 
-				$("#email").parent(".input-group").addClass("has-error");
+			// 	$("#email").parent(".input-group").addClass("has-error");
 
-				return false;
+			// 	return false;
 
-			}else if(!content_text){
+			// }else if(!content_text){
 
-				$("#content-text").parent(".form-group").addClass("has-error");
+			// 	$("#content-text").parent(".form-group").addClass("has-error");
 
-				return false;
+			// 	return false;
 
-			}else if(!txt_check){
+			// }else if(!txt_check){
 
-				$("#txt_check").parent(".input-group").addClass("has-error");
+			// 	$("#txt_check").parent(".input-group").addClass("has-error");
 
-				return false;
+			// 	return false;
 
 			}
 
@@ -175,29 +175,29 @@ $(document).ready(function() {
 
 				return false;
 
-			}else if(!email){
+			// }else if(!email){
 
-				$("#email").parent(".input-group").addClass("has-warning");
+			// 	$("#email").parent(".input-group").addClass("has-warning");
 
-				return false;
+			// 	return false;
 
-			}else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
+			// }else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
 
-				$("#email").parent(".input-group").addClass("has-error");
+			// 	$("#email").parent(".input-group").addClass("has-error");
 
-				return false;
+			// 	return false;
 
-			}else if(!content_text){
+			// }else if(!content_text){
 
-				$("#content-text").parent(".form-group").addClass("has-error");
+			// 	$("#content-text").parent(".form-group").addClass("has-error");
 
-				return false;
+			// 	return false;
 
-			}else if(!txt_check){
+			// }else if(!txt_check){
 
-				$("#txt_check").parent(".input-group").addClass("has-error");
+			// 	$("#txt_check").parent(".input-group").addClass("has-error");
 
-				return false;
+			// 	return false;
 
 			}
 
@@ -322,29 +322,29 @@ $(document).ready(function() {
 
 				return false;
 
-			}else if(!email){
+			// }else if(!email){
 
-				$("#email").parent(".input-group").addClass("has-warning");
+			// 	$("#email").parent(".input-group").addClass("has-warning");
 
-				return false;
+			// 	return false;
 
-			}else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
+			// }else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
 
-				$("#email").parent(".input-group").addClass("has-error");
+			// 	$("#email").parent(".input-group").addClass("has-error");
 
-				return false;
+			// 	return false;
 
-			}else if(!content_text){
+			// }else if(!content_text){
 
-				$("#content-text").parent(".form-group").addClass("has-error");
+			// 	$("#content-text").parent(".form-group").addClass("has-error");
 
-				return false;
+			// 	return false;
 
-			}else if(!txt_check){
+			// }else if(!txt_check){
 
-				$("#txt_check").parent(".input-group").addClass("has-error");
+			// 	$("#txt_check").parent(".input-group").addClass("has-error");
 
-				return false;
+			// 	return false;
 
 			}
 
@@ -427,29 +427,29 @@ $(document).ready(function() {
 
 				return false;
 
-			}else if(!email){
+			// }else if(!email){
 
-				$("#email").parent(".input-group").addClass("has-warning");
+			// 	$("#email").parent(".input-group").addClass("has-warning");
 
-				return false;
+			// 	return false;
 
-			}else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
+			// }else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
 
-				$("#email").parent(".input-group").addClass("has-error");
+			// 	$("#email").parent(".input-group").addClass("has-error");
 
-				return false;
+			// 	return false;
 
-			}else if(!content_text){
+			// }else if(!content_text){
 
-				$("#content-text").parent(".form-group").addClass("has-error");
+			// 	$("#content-text").parent(".form-group").addClass("has-error");
 
-				return false;
+			// 	return false;
 
-			}else if(!txt_check){
+			// }else if(!txt_check){
 
-				$("#txt_check").parent(".input-group").addClass("has-error");
+			// 	$("#txt_check").parent(".input-group").addClass("has-error");
 
-				return false;
+			// 	return false;
 
 			}
 
@@ -540,35 +540,35 @@ $(document).ready(function() {
 
 				return false;
 
-			}else if(!email){
+			// }else if(!email){
 
-				$("#email").parent(".input-group").addClass("has-warning");
+			// 	$("#email").parent(".input-group").addClass("has-warning");
 
-				$("#email").parent(".input-group").find('span').removeClass('hidden');
+			// 	$("#email").parent(".input-group").find('span').removeClass('hidden');
 
-				return false;
+			// 	return false;
 
-			}else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
+			// }else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
 
-				$("#email").parent(".input-group").addClass("has-error");
+			// 	$("#email").parent(".input-group").addClass("has-error");
 
-				$("#email").parent(".input-group").find('span').removeClass('hidden');
+			// 	$("#email").parent(".input-group").find('span').removeClass('hidden');
 
-				return false;
+			// 	return false;
 
-			}else if(!content_text){
+			// }else if(!content_text){
 
-				$("#content-text").parent(".form-group").addClass("has-error");
+			// 	$("#content-text").parent(".form-group").addClass("has-error");
 
-				return false;
+			// 	return false;
 
-			}else if(!txt_check){
+			// }else if(!txt_check){
 
-				$("#txt_check").parent(".input-group").addClass("has-error");
+			// 	$("#txt_check").parent(".input-group").addClass("has-error");
 
-				$("#txt_check").parent(".input-group").find('span').removeClass('hidden');
+			// 	$("#txt_check").parent(".input-group").find('span').removeClass('hidden');
 
-				return false;
+			// 	return false;
 
 			}
 

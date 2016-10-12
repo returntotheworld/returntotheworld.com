@@ -47,4 +47,21 @@ class ClassController extends CommonController {
         $this->assign('page',$show);
         $this->display();
     }
+    public function tag($key=''){  
+        $this->assign('class','active');  
+        $key = I('get.key');
+        $tmp = M('article');
+        $map['a_keyword']=array('like',"%$key%");
+        $map['a_view']=array('gt','0');
+        $count = $tmp->where($map)->count();
+        $Page  = new \Think\PageHome($count,5);
+        foreach($map as $key=>$val) {
+            $Page->parameter[$key]   =   urlencode($val);
+        }
+        $show  = $Page->show();
+        $article = $tmp->where($map)->order('a_time desc')->join('lt_tag ON lt_tag.t_id = lt_article.pid')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $this->assign('article',$article);
+        $this->assign('page',$show);
+        $this->display('search');
+    }
 }

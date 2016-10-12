@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>phpmailer</title>
+	<style type="text/css">
+		*{margin:0px;padding:0px;font-size:16px;}
+		a{text-decoration: none;}
+		a:hover{text-decoration: underline;}
+		.panel-header{text-align: center;}
+		h1,h2,h3,h4,h5,h6{text-align: center;}
+		header{padding:5px 10px 5px 10px;}
+		.row{padding:10px;width:500px;margin:auto;}
+		.form-group{clear:both;padding-top:20px;padding-bottom: 20px;}
+		label{width:33%;margin-right: 11%;display: block;float: left;}
+		.input{width:50%;float: left;border-radius:5px;height:20px;padding-left:10px;}
+		.input:focus{border-radius: 3px;}
+		.btn{padding:5px 10px 5px 10px;text-align: center;border-radius: 5px;background:#9cb2c5;color:white;}
+		.btn:focus{border-radius:5px;}
+		.btn-primary{background:#1a2e4d;}
+		.btn-success{background:#24bc0e;}
+		textarea{resize:none;height:200px!important;}
+		.clear{clear:both;}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="panel">
+			<div class="panel-header">
+				<h1>PHPMailer</h1>
+			</div>
+			<div class="panel-body">
+				<form action="{:url('admin/tool/phpmailer')}" method="post">
+					<div class='row'>
+						<header>
+							<h2>邮箱配置</h2>
+						</header>
+						<div class="form-group">
+							<label for='mail-name'>邮箱</label>
+							<input class="input" type="text" name="name" id="mail-name" placeholder="邮箱地址">
+						</div>
+						<div class="form-group">
+							<label for='mail-pass'>邮箱密码</label>
+							<input class="input" type="password" name="password" id="mail-pass" placeholder="邮箱密码 //授权码">
+						</div>
+					</div>
+					<div class="row">
+						<header>
+							<h2>邮件内容</h2>
+						</header>
+						<div class="form-group">
+							<label for='mail-qq'>接收邮箱</label>
+							<input class="input" type="text" name="tomail" id="mail-qq" placeholder="接收邮箱">
+						</div>
+						<div class="form-group">
+							<label for='mail-title'>邮件标题</label>
+							<input class="input" type="text" name="title" id="mail-title" placeholder="邮件标题">
+						</div>
+						<div class="form-group">
+							<label for='mail-content'>邮件内容</label>
+							<textarea class="input" name="mailcontent" id="mail-content" placeholder="邮件内容"></textarea>
+							<div class="clear"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group">
+							<label>&nbsp;</label>
+							<button type="submit" class='btn btn-primary'>提交</button>
+							<button type="reset" class='btn btn-success'>重新</button>
+						</div>
+					</div>
+					</div>
+				</form>
+			</div>
+			<div class="panel-footer">
+				
+			</div>
+		</div>
+	</div>
+
+
+
+</body>
+</html>

@@ -59,7 +59,7 @@ class AlbumController extends CommonController {
 			$this->error('提交方式不正确',0,0);
 		}else{
 			if(check_verify(I('post.txt_check')) == false){
-        		$this->ajaxReturn(array("att"=>1,"msg"=>"验证码错误！"));
+        		// $this->ajaxReturn(array("att"=>1,"msg"=>"验证码错误！"));
         	}
 			// 判断是否是QQ登陆
 			if($_SESSION['nickimg']){

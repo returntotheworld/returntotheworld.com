@@ -1,0 +1,84 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<title>在线文件编辑器</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		table{text-align: center;}
+		.fileMes{width: 800px;height: auto;margin: 0 auto;background: #abcdef;}
+		.fileMes table tr{height: 30px;}
+		.fileMes table tr td{border: 1px #fff solid;padding: 10px;}
+		.updata{width: 800px;height:auto;margin: 0 auto;background: #fff;}
+		.updata textarea{width: 100%;height: 300px;text-align: left;}
+		.btn{width:100px;height: 30px; }
+		.createFile{width:500px;height:auto;margin: 0 auto;margin-bottom:20px;margin-left:400px; }
+	</style>
+	<script type="text/javascript">
+	function backIndex(){
+		location.href = 'index.php';
+	}
+	function clearTxt(){
+		document.getElementById('txt');
+		txt.innerHTML = "";
+	}
+	</script>
+
+</head>
+
+<body bgcolor="#CCCCCC">
+	<div style="width:1000px;height:auto;background:#CCCCCC;margin:0 auto;">
+	<br/><br/>
+	<h2 align="center" style="font-size:26px;font-weight:bold;">文件在线管理</h2>
+	<br/><br/>
+	<hr/>
+	<br/><br/>
+	<?php
+	if($action == 'updata'){
+	?>
+		<div class="updata">
+			<form action="index.php" method="post" name="myform">
+				<textarea id="txt" name="filecontent"><?php echo $fileContent; ?></textarea>
+				<input type="hidden" value="<?php echo $_GET['filename']; ?>" name="filename" />
+				<input class="btn" type="button" onclick="backIndex();" value="返回" name="back" />
+				<input class="btn" style="float:right;margin-left:20px;" onclick="clearTxt()" type="button" value="清空" />
+				<a href="index.php"><input class="btn" style="float:right;" type="submit" value="保存" /></a>
+			</form>
+		</div>
+		<br/><br/>
+	<?php
+	}
+	?>
+	<!--创建文件-->
+	<div class="createFile">
+		<form action="index.php" method="post" name="myform2">
+			<input  type="hidden" name="action" value="create" />
+			<input style="width:200px;height:30px;" type="text" name="filename" />
+			<input class="btn" type="submit" value="创建" />
+		</form>
+	</div>
+	<div class="fileMes">
+		<table style="width:100%;height:auto;">
+			<tr style="background:#0099CC;">
+				<th>序号</th><th>文件名</th><th>文件类型</th><th>文件大小</th><th>创建日期</th><th colspan="2">其他操作</th>
+			</tr>
+			<?php
+				foreach ($fileMes as $v){ 
+			?>
+				<tr>
+					<td><?php echo $v['fileCode'];?></td>
+					<td><?php echo $v['fileName'];?></td>
+					<td><?php echo $v['fileType'];?></td>
+					<td><?php echo $v['fileSize'];?></td>
+					<td><?php echo date("Y-m-d",$v['filemtime']);?></td>
+					<td><a href=index.php?action=updata&filename=<?php echo $v['fileName']; ?> >修改</a></td>
+					<td><a href=index.php?action=del&filename=<?php echo $v['fileName']; ?> >删除</a></td>
+				</tr>
+			<?php
+				}
+			?>
+		</table>
+	</div>
+	</div>
+</body>
+
+</html>
