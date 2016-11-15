@@ -1,4 +1,20 @@
-	<include file="Public:nav"/>
+	<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>{$info.a_title} - {$Think.config.NAME}</title>
+    <meta name="keywords" content="{$info.a_keyword}" />
+    <meta name="description" content="{$info.a_remark}" />
+    <meta name="version" content="{$Think.config.NAME} v{$version}" />
+    <meta name="author" content="{$system.author}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="__CSS__/shCore.min.css" />
+    <script src="__JS__/shCore.min.js" ></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.config.clipboardSwf = '__IMG__/clipboard.swf';
+        SyntaxHighlighter.all();
+    </script>
+    <include file="Public:nav"/>
 	<div class="row aerousel">
 	<ol class="breadcrumb">
 		  <li><a href="index.html">网站首页</a></li>
@@ -60,6 +76,154 @@
             </div>
        	</div>
     </div>
+    <script type="text/javascript">
+            //相册特效
+
+        $('.fancybox-buttons').fancybox({
+
+            openEffect  : 'none',
+
+            closeEffect : 'none',   
+
+            prevEffect : 'none',
+
+            nextEffect : 'none',    
+
+            closeBtn  : false,  
+
+            helpers : {
+
+                title : {
+
+                    type : 'inside'
+
+                },
+
+                buttons : {}
+
+            },
+
+            afterLoad : function() {
+
+                this.title = '第 ' + (this.index + 1) + '张 共 ' + this.group.length + (this.title ? ' - ' + this.title : '张');
+
+            }
+
+        });
+
+
+
+        //验证相册评论数据
+
+        $('.btn-add-album').click(function(){
+
+            $("#name").parent(".input-group").removeClass("has-error");
+
+            $("#email").parent(".input-group").removeClass("has-warning");
+
+            $("#email").parent(".input-group").removeClass("has-error");
+
+            $("#content-text").parent(".form-group").removeClass("has-error");
+
+            $("#txt_check").parent(".input-group").removeClass("has-error");
+
+            var jump = $("#jump").val();
+
+            var send = $("input[name='send']:checked").val();
+
+            var rember = $("input[name='rember']:checked").val();
+
+            var id = $("#alid").val();
+
+            var alname = $("#alname").val();
+
+            var name=$('#name').val();
+
+            var alc_url =$('#url').val();
+
+            var email=$('#email').val();
+
+            var content_text=$('#content-text').val();
+
+            var txt_check=$('#txt_check').val();
+
+            if(!name){
+
+                $("#name").parent(".input-group").addClass("has-error");
+
+                return false;
+
+            // }else if(!email){
+
+            //  $("#email").parent(".input-group").addClass("has-warning");
+
+            //  return false;
+
+            // }else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
+
+            //  $("#email").parent(".input-group").addClass("has-error");
+
+            //  return false;
+
+            // }else if(!content_text){
+
+            //  $("#content-text").parent(".form-group").addClass("has-error");
+
+            //  return false;
+
+            // }else if(!txt_check){
+
+            //  $("#txt_check").parent(".input-group").addClass("has-error");
+
+            //  return false;
+
+            }
+
+            $(".btn-add-album").attr("disabled",true);
+
+            var index = layer.load(1,{time: 5*1000});
+            $.ajax({
+
+                type:"post",
+
+                url:"/index.php/home/Album/addAlbumContent",
+
+                async:true,
+
+                dataType:'json',
+
+                data:{"alc_pid":id,"alname":alname,"alc_name":name,"alc_email":email,"alc_url":alc_url,"alc_content":content_text,"txt_check":txt_check,"send":send,"rember":rember},
+
+                success:function(data){
+                    layer.close(index);
+
+                    if(data.att == 1){
+                        layer.msg(data.msg, {icon: 5,
+                            time: 2000, //20s后自动关闭
+                        });
+
+                        $("#txt_check").parent(".input-group").addClass("has-error");
+
+                        $(".btn-add-album").removeAttr('disabled');
+
+                        return false;                       
+
+                    }else{
+
+                        layer.msg(data.msg, {icon: 1,
+                            time: 3000, //20s后自动关闭
+                        }, function(){
+                            window.location.href=jump;
+                        });
+
+                    }
+
+                }
+
+            });
+
+        });
+    </script>
     </div>
 	</div>
 	<include file="Public:sider"/>

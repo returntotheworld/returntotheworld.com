@@ -1,3 +1,17 @@
+    <head>
+    <meta charset="utf-8">
+    <title>{$info.a_title} - {$Think.config.NAME}</title>
+    <meta name="keywords" content="{$info.a_keyword}" />
+    <meta name="description" content="{$info.a_remark}" />
+    <meta name="version" content="{$Think.config.NAME} v{$version}" />
+    <meta name="author" content="{$system.author}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="__CSS__/shCore.min.css" />
+    <script src="__JS__/shCore.min.js" ></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.config.clipboardSwf = '__IMG__/clipboard.swf';
+        SyntaxHighlighter.all();
+    </script>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!--[if lt IE 9]>
 <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -15,12 +29,15 @@
 <!-- <link href="__CSS__/jieri/{$jieri}/style.css" rel="stylesheet" type="text/css" id="my_style"> -->
 <!-- 头像转动 -->
 <link rel="stylesheet" href="__CSS__/animation.css" />
-<link rel="stylesheet" href="__CSS__/lanrenzhijia.css" />
+<!-- <link rel="stylesheet" href="__CSS__/lanrenzhijia.css" /> -->
 <!-- /头像转动 -->
     </head>
     <!-- // <script src="__JS__/jquery-1.10.1.min.js" ></script> -->
     <script src="__JS__/jquery.js"></script>
     <script src="__JS__/bootstrap.min.js" ></script>
+    <link href="__CSS__/nprogress.css" rel="stylesheet" />
+
+<script src="__JS__/nprogress.js"></script>
 <!-- 导航栏悬浮效果 -->
     <!-- // <script src="__JS__/jquery.zlight.menu.1.0.min.js" ></script> -->
     <script type="text/javascript">
@@ -89,7 +106,7 @@
                                     <li class="dh {$friends}"><a href="{:U('/friends')}">邻居</a></li>
                                     <li class="dh {$gust}"><a href="{:U('/gust')}">留言板</a></li>
                                     <li class="dh {$video}"><a href="{:U('/video')}">影视</a></li>
-                                    <li id="loading"><button class="btn btn-danger">Loading...</button></li>
+
                                 </ul>
                                 <!-- 搜索栏 -->
                                 <div class="search d7">

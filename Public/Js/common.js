@@ -35,7 +35,6 @@ $(document).ready(function() {
 		//验证文章评论数据
 
 		$('.btn-add').click(function(){
-
 			$("#name").parent(".input-group").removeClass("has-error");
 
 			$("#email").parent(".input-group").removeClass("has-warning");
@@ -102,7 +101,7 @@ $(document).ready(function() {
 			var index = layer.load(1,{time: 5*1000});
 			$.ajax({
 				type:"post",
-				url:"/Article/addArticleContent",
+				url:"/index.php/home/Article/addArticleContent",
 				async:true,
 
 				dataType:'json',
@@ -208,7 +207,7 @@ $(document).ready(function() {
 
 				type:"post",
 
-				url:"/Feel/addFeelContent",
+				url:"/index.php/home/Feel/addFeelContent",
 
 				async:true,
 
@@ -355,7 +354,7 @@ $(document).ready(function() {
 
 				type:"post",
 
-				url:"/Album/addAlbumContent",
+				url:"/index.php/home/Album/addAlbumContent",
 
 				async:true,
 
@@ -460,7 +459,7 @@ $(document).ready(function() {
 
 				type:"post",
 
-				url:"/Friends/addLink",
+				url:"/index.php/home/Friends/addLink",
 
 				async:true,
 
@@ -579,7 +578,7 @@ $(document).ready(function() {
 
 				type:"post",
 
-				url:"/Gust/addContent",
+				url:"/index.php/home/Gust/addContent",
 
 				async:true,
 

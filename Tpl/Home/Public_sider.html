@@ -19,7 +19,7 @@
 	      	<volist name="s_article" id="vo">
 	        <notempty name="vo.a_id">
 	         	<li>
-	           		<a href="{:U('/article-'.$vo['a_id'])}" title="{$vo.a_title}" class="rand-img image-light"><img src="{$vo.a_img}" class="article-img" alt="{$vo.a_title}" title="{$vo.a_title}" /></a>
+	           		<a href="{:U('/article-'.$vo['a_id'])}" title="{$vo.a_title}" class="rand-img image-light"><img src="{$vo.a_img}" class="article-img" alt="{$vo.a_title}" title="{$vo.a_title}" width="120px" height="80px" /></a>
 	           		<div class="rand-title"><a href="{:U('/article-'.$vo['a_id'])}">{$vo.a_title|msubstr=0,15,'utf-8',true}</a></div>
 	           		<div class="rand-remark">{$vo.a_remark|strip_tags|msubstr=0,35,'utf-8',true}</div>
 	              </li>
@@ -135,4 +135,29 @@
 </div>
 </div>
 </div>
+<script type="text/javascript" src="__PUBLIC__/layer-v2.4/layer/layer.js"></script>
+<script src="__JS__/common.js"></script>
+<script src="__JS__/rl_exp.js"></script>   	
+<script src="__JS__/jquery.fancybox.js"></script>	
 <!-- pjax-containerheader -->
+<script>
+        /*banner 初始化*/
+        $(window).load(function() {
+         $('#slider').nivoSlider({
+            effect: 'random',        // 过渡效果
+            controlNav: false,       // 是否显示图片导航控制按钮（,2,3... ）
+            pauseOnHover: true,      // 鼠标县浮时是否停止动画
+            manualAdvance: false,    // 是否手动切换 
+            animSpeed: 100,          // 图片过渡时间   
+            pauseTime: 2000,         // 图片显示时间
+            pauseOnHover: false,
+            manualAdvance: false,
+        });
+        });
+    $(document).ready(function(){
+        $('body').show();
+        $('.version').text(NProgress.version);
+        NProgress.start();
+        setTimeout(function() { NProgress.done(); $('.fade').removeClass('out'); }, 1000);
+    })
+</script>

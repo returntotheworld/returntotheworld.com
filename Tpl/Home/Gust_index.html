@@ -56,7 +56,128 @@
             </div>
 		</div>
 		</div>
-		</div>		
+		</div>
+		<script type="text/javascript">
+				//验证留言数据
+
+		$('.btn-add-gust').click(function(){
+
+			$('.form-control-feedback').addClass('hidden');
+
+			$("#name").parent(".input-group").removeClass("has-error");
+
+			$("#email").parent(".input-group").removeClass("has-warning");
+
+			$("#email").parent(".input-group").removeClass("has-error");
+
+			$("#content-text").parent(".form-group").removeClass("has-error");
+
+			$("#txt_check").parent(".input-group").removeClass("has-error");
+
+			var jump = $("#jump").val();
+
+			var send = $("input[name='send']:checked").val();
+
+			var rember = $("input[name='rember']:checked").val();
+
+			var name=$('#name').val();
+
+			var g_url =$('#url').val();
+
+			var email=$('#email').val();
+
+			var content_text=$('#content-text').val();
+
+			var txt_check=$('#txt_check').val();
+
+			if(!name){
+
+				$("#name").parent(".input-group").addClass("has-error");
+
+				$("#name").parent(".input-group").find('span').removeClass('hidden');
+
+				return false;
+
+			// }else if(!email){
+
+			// 	$("#email").parent(".input-group").addClass("has-warning");
+
+			// 	$("#email").parent(".input-group").find('span').removeClass('hidden');
+
+			// 	return false;
+
+			// }else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
+
+			// 	$("#email").parent(".input-group").addClass("has-error");
+
+			// 	$("#email").parent(".input-group").find('span').removeClass('hidden');
+
+			// 	return false;
+
+			// }else if(!content_text){
+
+			// 	$("#content-text").parent(".form-group").addClass("has-error");
+
+			// 	return false;
+
+			// }else if(!txt_check){
+
+			// 	$("#txt_check").parent(".input-group").addClass("has-error");
+
+			// 	$("#txt_check").parent(".input-group").find('span').removeClass('hidden');
+
+			// 	return false;
+
+			}
+
+			$(".btn-add-gust").attr("disabled",true);
+
+			var index = layer.load(1,{time: 5*1000});
+			$.ajax({
+
+				type:"post",
+
+				url:"/index.php/home/Gust/addContent",
+
+				async:true,
+
+				dataType:'json',
+
+				data:{"g_name":name,"g_email":email,"g_url":g_url,"g_content":content_text,"txt_check":txt_check,"send":send,"rember":rember},
+
+				success:function(data){
+					layer.close(index);
+
+					if(data.att == 1){
+						layer.msg(data.msg, {icon: 5,
+			                time: 2000, //20s后自动关闭
+			            });
+
+						$("#txt_check").parent(".input-group").addClass("has-error");
+
+						$("#txt_check").parent(".input-group").find('span').removeClass('hidden');
+
+						$(".btn-add-gust").removeAttr('disabled');
+
+						return false;						
+
+					}else{
+
+						layer.msg(data.msg, {icon: 1,
+			                time: 3000, //20s后自动关闭
+			            }, function(){
+			            	window.location.href=jump;
+			            });
+
+					}
+
+				}
+
+			});
+
+		});
+
+		 </script>		
 	</div>
 	<include file="Public:sider"/>
 	</body>
