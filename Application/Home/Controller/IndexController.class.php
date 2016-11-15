@@ -17,6 +17,8 @@ class IndexController extends CommonController {
 		$jieri=$this->jieri();
 		$this->ppt = $ppt;
 		$this->jieri = $jieri;
+
+
 		$this->display();
     }
     public function jieri(){

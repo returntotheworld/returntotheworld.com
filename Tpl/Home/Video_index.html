@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>分类 - {$Think.config.NAME}</title>
+    <meta name="keywords" content="{$keyword}" />
+	<meta name="keywords" content="{$system.keyword}" />
+	<meta name="description" content="{$system.remark}" />
+	<meta name="version" content="{$Think.config.NAME} v{$version}" />
+	<meta name="author" content="{$system.author}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <include file="Public:nav"/>
+      	<div class="row aerousel">
+      		<ol class="breadcrumb">
+		  	<li><a href="index.html">网站首页</a></li>
+		  	<li class="active">分类</li>
+			</ol>
+			<div class="col-md-8 row-l index">
+
+			<volist name="article" id="vi" empty="暂时没有文章">	
+			<article>
+				<h5>
+					<eq name="v.a_original" value="1">
+						<span class="original">【原创】</span>
+					<else />
+						<span class="reprint">【转载】</span>
+					</eq>
+					<a href="{:U('/video/index1?id='.$vi['id'])}">{$vi.title}</a>
+					<eq name="v.a_view" value="2">
+						<img  class="title_r hidden-xs" src="__IMG__/icon/tuijian.gif"/>
+					</eq>
+				</h5>
+				<div class="clearfix" >           
+					<p class="article-remark"> 
+						<a class="article-img-a image-light hidden-xs" href="{:U('/video/index1?id='.$vi['id'])}"><img src="{$vi.coveraddress}" class="article-img" alt="{$v.title}" title="{$v.title}" /></a>
+						{$vi.description}
+						<a href="{:U('/video/index1?id='.$vi['id'])}" class="article-look">继续阅读→</a>
+					</p>
+					<footer class="article-footer"> 
+						<div class="article-footer-l">
+							<span class="glyphicon glyphicon-tags blog-icon"></span>{$vi.id}
+						</div>
+						<div class="article-footer-r">
+							<span class="glyphicon glyphicon-fire blog-icon"></span>
+							<a>{$vi.count}</a>&nbsp;
+							<span class="glyphicon glyphicon-comment blog-icon"></span>
+							<a>{$vi.count}</a>
+						</div>
+					</footer>
+				</div>
+		</article>
+		</volist>
+		{$page}
+		</div>	
+    <include file="Public:sider"/>
+    <include file="Public:foot"/>
+</body>
+</html>
