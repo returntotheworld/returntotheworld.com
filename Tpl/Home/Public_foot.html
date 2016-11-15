@@ -1,3 +1,30 @@
+
+        <div id="player1" class="aplayer" style="display:none;"></div>
+        <div id="player3" class="aplayer" style="display:none;"></div>
+        <div id="player4" class="aplayer" style="display:none;"></div>
+        <div id="player5" class="aplayer"></div>
+        <div id="player2" class="aplayer" style="display:none;"></div>
+<script src="__JS__/pjax.js"></script>
+<script type="text/javascript">
+
+        $(document).ready(function(){
+            $('#loading').hide();
+        });
+        $(document).pjax('a', '#pjax-container');
+        $(document).on('pjax:send', function() {
+            $('#loading').show();
+            var index = layer.load(1, {
+			  shade: [0.1,'#fff'] //0.1透明度的白色背景
+			});
+        });
+        $(document).on('pjax:complete', function() {
+            $('#loading').fadeOut(1000);
+        });
+</script>
+<!-- 音乐播放器脚本 -->
+<script src="__PUBLIC__/APlayer/dist/APlayer.min.js"></script>
+<script src="__PUBLIC__/APlayer/demo/demo.js"></script>
+<!-- /音乐播放器脚本 -->
 <div class="container-footer">
 	<div class="container footer">
 		<div class="row footer-all">
@@ -84,12 +111,9 @@
 	</div>
 </div>
 <div id="toTop" class="hidden-xs" style="display: none;"><span class="glyphicon glyphicon-chevron-up toTop-img"></span></div>
+
 <script type="text/javascript" src="__PUBLIC__/layer-v2.4/layer/layer.js"></script>
 <script src="__JS__/common.js"></script>
 <script src="__JS__/rl_exp.js"></script>   	
 <script src="__JS__/jquery.fancybox.js"></script>	
 <script src="__JS__/html5.js"></script>	
-<!-- 音乐播放器脚本 -->
-<script src="__PUBLIC__/APlayer/dist/APlayer.min.js"></script>
-<script src="__PUBLIC__/APlayer/demo/demo.js"></script>
-<!-- /音乐播放器脚本 -->

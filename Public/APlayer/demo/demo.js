@@ -62,7 +62,7 @@ var ap3 = new APlayer({
         author: '小倉唯',
         url: 'http://devtest.qiniudn.com/回レ！雪月花.mp3',
         pic: 'http://devtest.qiniudn.com/回レ！雪月花.jpg',
-        lrc: "回レ！雪月花.lrc"
+        lrc: "/Public/APlayer/demo/あっちゅ～ま青春!.lrc"
     }
 });
 
@@ -99,7 +99,7 @@ var aindex = ~~(Math.random()*aarr.length);
 var ap5 = new APlayer({
     element: document.getElementById('player5'),
     narrow: false,
-    autoplay: false,
+    autoplay: true,
     showlrc: 2,
     mutex: true,
     theme: '#ad7a86',

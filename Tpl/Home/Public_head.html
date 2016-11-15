@@ -1,0 +1,42 @@
+<extend name="common"/>
+<block name="head">
+<link rel="stylesheet" href="__CSS__/bootstrap.min.css" />
+<link rel="shortcut icon" href="__IMG__/icon/favicon.ico" />
+<style type="text/css">
+    .head_content{
+        background: url('{$ppt.1.pp_img}')no-repeat;
+    }
+</style>
+<link rel="stylesheet" href="__CSS__/my.css" />
+<!-- 头像转动 -->
+<link rel="stylesheet" href="__CSS__/animation.css" />
+<!-- /头像转动 -->
+    </head>
+    <!-- // <script src="__JS__/jquery-1.10.1.min.js" ></script> -->
+    <script src="__JS__/jquery.js"></script>
+    <script src="__JS__/bootstrap.min.js" ></script>
+<!-- 导航栏悬浮效果 -->
+    <!-- // <script src="__JS__/jquery.zlight.menu.1.0.min.js" ></script> -->
+    <script type="text/javascript">
+        $(function(){
+                // lanrenzhijia
+                $("#lanrenzhijia div a").hover(function(){
+                    $("img", this).stop().animate({top:"-170px"},{queue:false,duration:170});
+                }, function() {
+                    $("img", this).stop().animate({top:"0px"},{queue:false,duration:170});
+                });
+            });
+    </script>
+    <script>
+    // $(document).ready(function(){
+    //     $('.top-top1').zlightMenu();
+    // });
+    
+    </script>
+<!--/导航栏悬浮效果 -->
+    <script language="javascript">
+    var bgarr = ["http://saber-img.qiniudn.com/xuejian.jpg","http://saber-img.qiniudn.com/aisaberbg3.jpg","http://saber-img.qiniudn.com/aisaberbg7.jpg","http://saber-img.qiniudn.com/aisaberbg8.jpg","http://saber-img.qiniudn.com/aisaberbg9.jpg","http://7xk6om.com1.z0.glb.clouddn.com/萝莉夏日海滩壁纸.jpg","http://saber-img.qiniudn.com/穹妹美图.jpg","http://saber-img.qiniudn.com/Nekopara-BG1.jpg","http://7xk6om.com1.z0.glb.clouddn.com/miku2.jpg","http://saber-img.qiniudn.com/miku0.jpg","http://7xk6om.com1.z0.glb.clouddn.com/saberbg4.jpg","http://7xk6om.com1.z0.glb.clouddn.com/miku1.jpg","http://7xk6om.com1.z0.glb.clouddn.com/saberbg2.jpg","http://7xk6om.com1.z0.glb.clouddn.com/%E5%B1%81%E5%90%95%E5%B0%BE%E7%94%B0%E3%83%9D%E3%83%88%E3%83%95.jpg","http://7xk6om.com1.z0.glb.clouddn.com/四季映姫.jpg","http://7xk6om.com1.z0.glb.clouddn.com/loli.jpg","http://7xk6om.com1.z0.glb.clouddn.com/miku3.jpg","http://7xk6om.com1.z0.glb.clouddn.com/car.jpg","http://7xk6om.com1.z0.glb.clouddn.com/ef1.jpg","http://7xk6om.com1.z0.glb.clouddn.com/ef2.jpg","http://7xk6om.com1.z0.glb.clouddn.com/ef4.jpg","http://7xk6om.com1.z0.glb.clouddn.com/%E5%A6%B9%E3%81%AE%E5%BD%A21.jpg","http://7xk6om.com1.z0.glb.clouddn.com/%E6%B0%B4%E4%B8%ADmiku_2.jpg","http://7xk6om.com1.z0.glb.clouddn.com/websitebg0.jpg","http://7xk6om.com1.z0.glb.clouddn.com/re0.jpg","http://7xk6om.com1.z0.glb.clouddn.com/haitan.jpg","http://7xli4a.com1.z0.glb.clouddn.com/rttw/img/zhuoku116.jpg"];
+    var bgindex = ~~(Math.random()*bgarr.length);
+</script>
+</block>
+            

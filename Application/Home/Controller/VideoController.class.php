@@ -14,7 +14,7 @@ class VideoController extends CommonController {
     }
     
     public function index(){
-	  	$this->assign('class','active');
+	  	$this->assign('video','active');
 	    $id =I('get.id');
     	$tmp = M('video');
     	$count = $tmp->where(array('pid'=>$id))->count();
@@ -27,12 +27,12 @@ class VideoController extends CommonController {
     }
     public function index1($id=0){
     	$article = M('video')->where(array("id"=>$id))->select();
-        $article[0]['idd']="<iframe src='/danmu/miniplayer/player.php?id=".$article[0]['id']."' style='height:650px;width:700px;' allowfullscreen></iframe>";
+        $article[0]['idd']="<iframe src='/danmu/miniplayer/player.php?id=".$article[0]['id']."' style='height:502px;width:740px;' allowfullscreen frameborder='no'></iframe>";
 		$this->assign('info',$article[0]);
     	$this->display();
     }
     public function search($key=''){  
-	    $this->assign('class','active');  
+	    $this->assign('video','active');  
         $key = I('get.key');
 		$tmp = M('article');
         $map['a_title']=array('like',"%$key%");

@@ -7,18 +7,19 @@
 <link rel="stylesheet" href="__CSS__/bootstrap.min.css" />
 <link rel="shortcut icon" href="__IMG__/icon/favicon.ico" />
 <style type="text/css">
-    .head_content{
-        background: url('{$ppt.1.pp_img}')no-repeat;
-    }
+/*    .head_content{
+        background: url("{$ppt.0.pp_img}")no-repeat;
+    }*/
 </style>
 <link rel="stylesheet" href="__CSS__/my.css" />
+<!-- <link href="__CSS__/jieri/{$jieri}/style.css" rel="stylesheet" type="text/css" id="my_style"> -->
 <!-- 头像转动 -->
 <link rel="stylesheet" href="__CSS__/animation.css" />
 <link rel="stylesheet" href="__CSS__/lanrenzhijia.css" />
 <!-- /头像转动 -->
     </head>
     <!-- // <script src="__JS__/jquery-1.10.1.min.js" ></script> -->
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+    <script src="__JS__/jquery.js"></script>
     <script src="__JS__/bootstrap.min.js" ></script>
 <!-- 导航栏悬浮效果 -->
     <!-- // <script src="__JS__/jquery.zlight.menu.1.0.min.js" ></script> -->
@@ -52,52 +53,7 @@
     document.body.style.backgroundImage="url("+bgarr[bgindex]+")";
     document.body.style.background="background-size:100%";
 </script>
-        <header class="head_content" style="background-position-x: 41.17%;">
-            <div class="plur"></div>
-            <div class="h_content">
-                <div class="head_div">
-                <div class="cycle_div">
-                    <a class="github_a" href="https://www.facebook.com/profile.php?id=100010215671782" target="_blank" style="left: -15px; top: 190px;">
-                            <span class="github_icon"></span>
-                    </a>
-                    <a class="facebook_a" href="https://github.com/returntotheworld" target="_blank" style="left: 120px; top: -25px;">
-                            <span class="facebook_icon"></span>
-                    </a>
-                    <a class="sina_a" href="http://weibo.com/u/5609270032" target="_blank" style="left: 285px; top: 79px;">
-                            <span class="sina_icon"></span>
-                    </a>
-                    <div class="head_anima">
-                        <img class="green_cycle_img" src="__IMG__/icon/green_cycle.svg">
-                        <img class="yellow_cycle_img" src="__IMG__/icon/yellow_cycle.svg">
-                        <img class="blue_cycle_img" src="__IMG__/icon/blue_cycle.svg">                
-<!--                         <div id="lanrenzhijia" class="clear">
-                          <div class="head_img"><a href="htmldrive.net"><img src="__IMG__/icon/image-1.jpg" alt="" /></a></div>
-                        </div> -->
-                        <img class="head_img" src="__IMG__/icon/head.jpg">
-                        
-                    </div>
-                </div>      
-                </div>
-                <div class="motto_div">
-                    <h1 class="blog_title"><a href="/" rel="home">{$Think.config.NAME}.</a></h1>
-                    <h2 class="blog_description"><a href="/">{$system.title2}</a></h2>
-                </div>
-            </div>
-        </header>
-
-<!--         <div class="top-top">
-            <div class="container">
-                <div class="col-md-5 top-left"><a class="from">{:getOs()}</a></div>
-                <div class="col-md-5 top-right">
-                    <empty name="Think.session.nickname">
-                    	<a href="{:U('Common/loginqq',array("type"=>"qq"))}" class="from" >QQ访问</a>
-					<else />
-						{$Think.session.nickname} <a class='from' href="{:U('Common/out')}">退出</a>
-					</empty>
-                </div>
-            </div>
-        </div> -->
-        <div class="top-top1" id="mynav"style="height: 50px; line-height: 50px; position: fixed; top: 0px; left: 0px; padding: 0px; margin: 0px; background-color: rgb(50, 50, 49);">
+<div class="top-top1" id="mynav"style="height: 50px; line-height: 50px; position: fixed; top: 0px; left: 0px; padding: 0px; margin: 0px; background-color: rgb(50, 50, 49);">
         <div class="container ">
             <div class="row header">
     <!--                 <div class="col-md-4 logo">
@@ -133,6 +89,7 @@
                                     <li class="dh {$friends}"><a href="{:U('/friends')}">邻居</a></li>
                                     <li class="dh {$gust}"><a href="{:U('/gust')}">留言板</a></li>
                                     <li class="dh {$video}"><a href="{:U('/video')}">影视</a></li>
+                                    <li id="loading"><button class="btn btn-danger">Loading...</button></li>
                                 </ul>
                                 <!-- 搜索栏 -->
                                 <div class="search d7">
@@ -148,5 +105,52 @@
                 </div>
             </div>
             </div>
-        <div class="container ">
+        
+
+<!--         <div class="top-top">
+            <div class="container">
+                <div class="col-md-5 top-left"><a class="from">{:getOs()}</a></div>
+                <div class="col-md-5 top-right">
+                    <empty name="Think.session.nickname">
+                    	<a href="{:U('Common/loginqq',array("type"=>"qq"))}" class="from" >QQ访问</a>
+					<else />
+						{$Think.session.nickname} <a class='from' href="{:U('Common/out')}">退出</a>
+					</empty>
+                </div>
+            </div>
+        </div> -->
+        
+        <div class="container " id="pjax-container">
+        <header class="head_content" >
+            <div class="plur"></div>
+            <div class="h_content">
+                <div class="head_div">
+                <div class="cycle_div">
+                    <a class="github_a" href="https://www.facebook.com/profile.php?id=100010215671782" target="_blank" style="left: -15px; top: 190px;">
+                            <span class="github_icon"></span>
+                    </a>
+                    <a class="facebook_a" href="https://github.com/returntotheworld" target="_blank" style="left: 120px; top: -25px;">
+                            <span class="facebook_icon"></span>
+                    </a>
+                    <a class="sina_a" href="http://weibo.com/u/5609270032" target="_blank" style="left: 285px; top: 79px;">
+                            <span class="sina_icon"></span>
+                    </a>
+                    <div class="head_anima">
+                        <img class="green_cycle_img" src="__IMG__/icon/green_cycle.svg">
+                        <img class="yellow_cycle_img" src="__IMG__/icon/yellow_cycle.svg">
+                        <img class="blue_cycle_img" src="__IMG__/icon/blue_cycle.svg">                
+<!--                         <div id="lanrenzhijia" class="clear">
+                          <div class="head_img"><a href="htmldrive.net"><img src="__IMG__/icon/image-1.jpg" alt="" /></a></div>
+                        </div> -->
+                        <img class="head_img" src="__IMG__/icon/head.jpg">
+                        
+                    </div>
+                </div>      
+                </div>
+                <div class="motto_div">
+                    <h1 class="blog_title"><a href="/" rel="home">{$Think.config.NAME}.</a></h1>
+                    <h2 class="blog_description"><a href="/">{$system.title2}</a></h2>
+                </div>
+            </div>
+        </header>
             
