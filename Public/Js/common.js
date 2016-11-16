@@ -30,7 +30,7 @@ $(document).ready(function() {
 
 			}, 800)
 
-		})
+		});
 
 		// //验证文章评论数据
 
@@ -245,7 +245,7 @@ $(document).ready(function() {
 
 		// });
 
-		相册特效
+		//相册特效
 
 		$('.fancybox-buttons').fancybox({
 

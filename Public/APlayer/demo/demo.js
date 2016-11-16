@@ -13,6 +13,7 @@ var ap1 = new APlayer({
         pic: 'http://devtest.qiniudn.com/Preparation.jpg'
     }
 });
+
 ap1.on('play', function () {
     console.log('play');
 });
@@ -184,3 +185,10 @@ var ap5 = new APlayer({
         // }
     ]
 });
+
+window.onblur = function () { 
+    ap5.pause();
+}; 
+window.onfocus = function () { 
+    ap5.play();
+};
