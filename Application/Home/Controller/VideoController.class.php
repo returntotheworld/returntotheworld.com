@@ -23,13 +23,23 @@ class VideoController extends CommonController {
         $article = $tmp->order('id desc')->limit($Page->firstRow.','.$Page->listRows)->select();
 		$this->assign('article',$article);
 		$this->assign('page',$show);
-        $this->display();
+        if (array_key_exists('HTTP_X_PJAX', $_SERVER) && $_SERVER['HTTP_X_PJAX']) {
+            $this->display('','','','','pjax/'); //浏览器支持Pjax功能，直接渲染输出页面
+        } else {
+            layout(true); //开启模板
+            $this->display(); //浏览器不支持Pjax功能，使用默认的链接响应机制（加载模板）
+        }
     }
     public function index1($id=0){
     	$article = M('video')->where(array("id"=>$id))->select();
         $article[0]['idd']="<iframe src='/danmu/miniplayer/player.php?id=".$article[0]['id']."' style='height:502px;width:740px;' allowfullscreen frameborder='no'></iframe>";
 		$this->assign('info',$article[0]);
-    	$this->display();
+        if (array_key_exists('HTTP_X_PJAX', $_SERVER) && $_SERVER['HTTP_X_PJAX']) {
+            $this->display('','','','','pjax/'); //浏览器支持Pjax功能，直接渲染输出页面
+        } else {
+            layout(true); //开启模板
+            $this->display(); //浏览器不支持Pjax功能，使用默认的链接响应机制（加载模板）
+        }
     }
     public function search($key=''){  
 	    $this->assign('video','active');  

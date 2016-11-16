@@ -27,7 +27,12 @@ class ClassController extends CommonController {
         $article = $tmp->where('a_view > 0')->order('a_time desc')->join('lt_tag ON lt_tag.t_id = lt_article.pid')->where(array('lt_article.pid'=>$id))->limit($Page->firstRow.','.$Page->listRows)->select();
         $this->assign('article',$article);
         $this->assign('page',$show);
-        $this->display();
+        if (array_key_exists('HTTP_X_PJAX', $_SERVER) && $_SERVER['HTTP_X_PJAX']) {
+            $this->display('','','','','pjax/'); //浏览器支持Pjax功能，直接渲染输出页面
+        } else {
+            layout(true); //开启模板
+            $this->display(); //浏览器不支持Pjax功能，使用默认的链接响应机制（加载模板）
+        }
     }
     
     public function search($key=''){  
@@ -45,7 +50,13 @@ class ClassController extends CommonController {
         $article = $tmp->where($map)->order('a_time desc')->join('lt_tag ON lt_tag.t_id = lt_article.pid')->limit($Page->firstRow.','.$Page->listRows)->select();
         $this->assign('article',$article);
         $this->assign('page',$show);
-        $this->display();
+        if (array_key_exists('HTTP_X_PJAX', $_SERVER) && $_SERVER['HTTP_X_PJAX']) {
+            $this->display('','','','','pjax/'); //浏览器支持Pjax功能，直接渲染输出页面
+        } else {
+            layout(true); //开启模板
+            $this->display(); //浏览器不支持Pjax功能，使用默认的链接响应机制（加载模板）
+        }
+        // $this->display(); //浏览器不支持Pjax功能，使用默认的链接响应机制（加载模板）
     }
     public function tag($key=''){  
         $this->assign('class','active');  

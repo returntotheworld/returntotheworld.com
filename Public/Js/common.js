@@ -32,220 +32,220 @@ $(document).ready(function() {
 
 		})
 
-		//验证文章评论数据
+		// //验证文章评论数据
 
-		$('.btn-add').click(function(){
-			$("#name").parent(".input-group").removeClass("has-error");
+		// $('.btn-add').click(function(){
+		// 	$("#name").parent(".input-group").removeClass("has-error");
 
-			$("#email").parent(".input-group").removeClass("has-warning");
+		// 	$("#email").parent(".input-group").removeClass("has-warning");
 
-			$("#email").parent(".input-group").removeClass("has-error");
+		// 	$("#email").parent(".input-group").removeClass("has-error");
 
-			$("#content-text").parent(".form-group").removeClass("has-error");
+		// 	$("#content-text").parent(".form-group").removeClass("has-error");
 
-			$("#txt_check").parent(".input-group").removeClass("has-error");
+		// 	$("#txt_check").parent(".input-group").removeClass("has-error");
 
-			var jump = $("#jump").val();
+		// 	var jump = $("#jump").val();
 
-			var send = $("input[name='send']:checked").val();
+		// 	var send = $("input[name='send']:checked").val();
 
-			var rember = $("input[name='rember']:checked").val();
+		// 	var rember = $("input[name='rember']:checked").val();
 
-			var id = $("#aid").val();
+		// 	var id = $("#aid").val();
 
-			var title = $("#atitle").val();
+		// 	var title = $("#atitle").val();
 
-			var name=$('#name').val();
+		// 	var name=$('#name').val();
 
-			var ac_url =$('#url').val();
+		// 	var ac_url =$('#url').val();
 
-			var email=$('#email').val();
+		// 	var email=$('#email').val();
 
-			var content_text=$('#content-text').val();
+		// 	var content_text=$('#content-text').val();
 
-			var txt_check=$('#txt_check').val();
+		// 	var txt_check=$('#txt_check').val();
 
-			if(!name){
+		// 	if(!name){
 
-				$("#name").parent(".input-group").addClass("has-error");
+		// 		$("#name").parent(".input-group").addClass("has-error");
 
-				return false;
+		// 		return false;
 
-			// }else if(!email){
+		// 	// }else if(!email){
 
-			// 	$("#email").parent(".input-group").addClass("has-warning");
+		// 	// 	$("#email").parent(".input-group").addClass("has-warning");
 
-			// 	return false;
+		// 	// 	return false;
 
-			// }else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
+		// 	// }else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
 
-			// 	$("#email").parent(".input-group").addClass("has-error");
+		// 	// 	$("#email").parent(".input-group").addClass("has-error");
 
-			// 	return false;
+		// 	// 	return false;
 
-			// }else if(!content_text){
+		// 	// }else if(!content_text){
 
-			// 	$("#content-text").parent(".form-group").addClass("has-error");
+		// 	// 	$("#content-text").parent(".form-group").addClass("has-error");
 
-			// 	return false;
+		// 	// 	return false;
 
-			// }else if(!txt_check){
+		// 	// }else if(!txt_check){
 
-			// 	$("#txt_check").parent(".input-group").addClass("has-error");
+		// 	// 	$("#txt_check").parent(".input-group").addClass("has-error");
 
-			// 	return false;
+		// 	// 	return false;
 
-			}
+		// 	}
 
-			$(".btn-add").attr("disabled",true);
-			var index = layer.load(1,{time: 5*1000});
-			$.ajax({
-				type:"post",
-				url:"/index.php/home/Article/addArticleContent",
-				async:true,
+		// 	$(".btn-add").attr("disabled",true);
+		// 	var index = layer.load(1,{time: 5*1000});
+		// 	$.ajax({
+		// 		type:"post",
+		// 		url:"/index.php/home/Article/addArticleContent",
+		// 		async:true,
 
-				dataType:'json',
+		// 		dataType:'json',
 
-				data:{"ac_pid":id,"title":title,"ac_name":name,"ac_email":email,"ac_url":ac_url,"ac_content":content_text,"txt_check":txt_check,"send":send,"rember":rember},
+		// 		data:{"ac_pid":id,"title":title,"ac_name":name,"ac_email":email,"ac_url":ac_url,"ac_content":content_text,"txt_check":txt_check,"send":send,"rember":rember},
 
-				success:function(data){
-					layer.close(index);
-					if(data.att == 1){
-						layer.msg(data.msg, {icon: 5,
-			                time: 2000, //20s后自动关闭
-			            });
-						$("#txt_check").parent(".input-group").addClass("has-error");
+		// 		success:function(data){
+		// 			layer.close(index);
+		// 			if(data.att == 1){
+		// 				layer.msg(data.msg, {icon: 5,
+		// 	                time: 2000, //20s后自动关闭
+		// 	            });
+		// 				$("#txt_check").parent(".input-group").addClass("has-error");
 
-						$(".btn-add").removeAttr('disabled');
+		// 				$(".btn-add").removeAttr('disabled');
 
-						return false;						
+		// 				return false;						
 
-					}else{
+		// 			}else{
                         
-						layer.msg(data.msg, {icon: 1,
-			                time: 3000, //20s后自动关闭
-			            }, function(){
-			            	window.location.href=jump;
-			            });
-					}
+		// 				layer.msg(data.msg, {icon: 1,
+		// 	                time: 3000, //20s后自动关闭
+		// 	            }, function(){
+		// 	            	window.location.href=jump;
+		// 	            });
+		// 			}
 
-				}
-			});
+		// 		}
+		// 	});
 
-		});
+		// });
 
-		//验证说说评论数据
+		// //验证说说评论数据
 
-		$('.btn-add-say').click(function(){
+		// $('.btn-add-say').click(function(){
 
-			$("#name").parent(".input-group").removeClass("has-error");
+		// 	$("#name").parent(".input-group").removeClass("has-error");
 
-			$("#email").parent(".input-group").removeClass("has-warning");
+		// 	$("#email").parent(".input-group").removeClass("has-warning");
 
-			$("#email").parent(".input-group").removeClass("has-error");
+		// 	$("#email").parent(".input-group").removeClass("has-error");
 
-			$("#content-text").parent(".form-group").removeClass("has-error");
+		// 	$("#content-text").parent(".form-group").removeClass("has-error");
 
-			$("#txt_check").parent(".input-group").removeClass("has-error");
+		// 	$("#txt_check").parent(".input-group").removeClass("has-error");
 
-			var jump = $("#jump").val();
+		// 	var jump = $("#jump").val();
 
-			var send = $("input[name='send']:checked").val();
+		// 	var send = $("input[name='send']:checked").val();
 
-			var rember = $("input[name='rember']:checked").val();
+		// 	var rember = $("input[name='rember']:checked").val();
 
-			var id = $("#sid").val();
+		// 	var id = $("#sid").val();
 
-			var title = $("#stitle").val();
+		// 	var title = $("#stitle").val();
 
-			var name=$('#name').val();
+		// 	var name=$('#name').val();
 
-			var sc_url =$('#url').val();
+		// 	var sc_url =$('#url').val();
 
-			var email=$('#email').val();
+		// 	var email=$('#email').val();
 
-			var content_text=$('#content-text').val();
+		// 	var content_text=$('#content-text').val();
 
-			var txt_check=$('#txt_check').val();
+		// 	var txt_check=$('#txt_check').val();
 
-			if(!name){
+		// 	if(!name){
 
-				$("#name").parent(".input-group").addClass("has-error");
+		// 		$("#name").parent(".input-group").addClass("has-error");
 
-				return false;
+		// 		return false;
 
-			// }else if(!email){
+		// 	// }else if(!email){
 
-			// 	$("#email").parent(".input-group").addClass("has-warning");
+		// 	// 	$("#email").parent(".input-group").addClass("has-warning");
 
-			// 	return false;
+		// 	// 	return false;
 
-			// }else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
+		// 	// }else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
 
-			// 	$("#email").parent(".input-group").addClass("has-error");
+		// 	// 	$("#email").parent(".input-group").addClass("has-error");
 
-			// 	return false;
+		// 	// 	return false;
 
-			// }else if(!content_text){
+		// 	// }else if(!content_text){
 
-			// 	$("#content-text").parent(".form-group").addClass("has-error");
+		// 	// 	$("#content-text").parent(".form-group").addClass("has-error");
 
-			// 	return false;
+		// 	// 	return false;
 
-			// }else if(!txt_check){
+		// 	// }else if(!txt_check){
 
-			// 	$("#txt_check").parent(".input-group").addClass("has-error");
+		// 	// 	$("#txt_check").parent(".input-group").addClass("has-error");
 
-			// 	return false;
+		// 	// 	return false;
 
-			}
+		// 	}
 
-			$(".btn-add-say").attr("disabled",true);
+		// 	$(".btn-add-say").attr("disabled",true);
 
-			var index = layer.load(1,{time: 5*1000});
-			$.ajax({
+		// 	var index = layer.load(1,{time: 5*1000});
+		// 	$.ajax({
 
-				type:"post",
+		// 		type:"post",
 
-				url:"/index.php/home/Feel/addFeelContent",
+		// 		url:"/index.php/home/Feel/addFeelContent",
 
-				async:true,
+		// 		async:true,
 
-				dataType:'json',
+		// 		dataType:'json',
 
-				data:{"sc_pid":id,"title":title,"sc_name":name,"sc_email":email,"sc_url":sc_url,"sc_content":content_text,"txt_check":txt_check,"send":send,"rember":rember},
+		// 		data:{"sc_pid":id,"title":title,"sc_name":name,"sc_email":email,"sc_url":sc_url,"sc_content":content_text,"txt_check":txt_check,"send":send,"rember":rember},
 
-				success:function(data){
-					layer.close(index);
+		// 		success:function(data){
+		// 			layer.close(index);
 
-					if(data.att == 1){
-						layer.msg(data.msg, {icon: 5,
-			                time: 2000, //20s后自动关闭
-			            });
+		// 			if(data.att == 1){
+		// 				layer.msg(data.msg, {icon: 5,
+		// 	                time: 2000, //20s后自动关闭
+		// 	            });
 
-						$("#txt_check").parent(".input-group").addClass("has-error");
+		// 				$("#txt_check").parent(".input-group").addClass("has-error");
 
-						$(".btn-add-say").removeAttr('disabled');
+		// 				$(".btn-add-say").removeAttr('disabled');
 
-						return false;						
+		// 				return false;						
 
-					}else{
+		// 			}else{
 
-						layer.msg(data.msg, {icon: 1,
-			                time: 3000, //20s后自动关闭
-			            }, function(){
-			            	window.location.href=jump;
-			            });
+		// 				layer.msg(data.msg, {icon: 1,
+		// 	                time: 3000, //20s后自动关闭
+		// 	            }, function(){
+		// 	            	window.location.href=jump;
+		// 	            });
 
-					}
+		// 			}
 
-				}
+		// 		}
 
-			});
+		// 	});
 
-		});
+		// });
 
-		//相册特效
+		相册特效
 
 		$('.fancybox-buttons').fancybox({
 
@@ -281,341 +281,341 @@ $(document).ready(function() {
 
 
 
-		//验证相册评论数据
+// 		//验证相册评论数据
 
-		$('.btn-add-album').click(function(){
+// 		$('.btn-add-album').click(function(){
 
-			$("#name").parent(".input-group").removeClass("has-error");
+// 			$("#name").parent(".input-group").removeClass("has-error");
 
-			$("#email").parent(".input-group").removeClass("has-warning");
+// 			$("#email").parent(".input-group").removeClass("has-warning");
 
-			$("#email").parent(".input-group").removeClass("has-error");
+// 			$("#email").parent(".input-group").removeClass("has-error");
 
-			$("#content-text").parent(".form-group").removeClass("has-error");
+// 			$("#content-text").parent(".form-group").removeClass("has-error");
 
-			$("#txt_check").parent(".input-group").removeClass("has-error");
+// 			$("#txt_check").parent(".input-group").removeClass("has-error");
 
-			var jump = $("#jump").val();
+// 			var jump = $("#jump").val();
 
-			var send = $("input[name='send']:checked").val();
+// 			var send = $("input[name='send']:checked").val();
 
-			var rember = $("input[name='rember']:checked").val();
+// 			var rember = $("input[name='rember']:checked").val();
 
-			var id = $("#alid").val();
+// 			var id = $("#alid").val();
 
-			var alname = $("#alname").val();
+// 			var alname = $("#alname").val();
 
-			var name=$('#name').val();
+// 			var name=$('#name').val();
 
-			var alc_url =$('#url').val();
+// 			var alc_url =$('#url').val();
 
-			var email=$('#email').val();
+// 			var email=$('#email').val();
 
-			var content_text=$('#content-text').val();
+// 			var content_text=$('#content-text').val();
 
-			var txt_check=$('#txt_check').val();
+// 			var txt_check=$('#txt_check').val();
 
-			if(!name){
+// 			if(!name){
 
-				$("#name").parent(".input-group").addClass("has-error");
+// 				$("#name").parent(".input-group").addClass("has-error");
 
-				return false;
+// 				return false;
 
-			// }else if(!email){
+// 			// }else if(!email){
 
-			// 	$("#email").parent(".input-group").addClass("has-warning");
+// 			// 	$("#email").parent(".input-group").addClass("has-warning");
 
-			// 	return false;
+// 			// 	return false;
 
-			// }else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
+// 			// }else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
 
-			// 	$("#email").parent(".input-group").addClass("has-error");
+// 			// 	$("#email").parent(".input-group").addClass("has-error");
 
-			// 	return false;
+// 			// 	return false;
 
-			// }else if(!content_text){
+// 			// }else if(!content_text){
 
-			// 	$("#content-text").parent(".form-group").addClass("has-error");
+// 			// 	$("#content-text").parent(".form-group").addClass("has-error");
 
-			// 	return false;
+// 			// 	return false;
 
-			// }else if(!txt_check){
+// 			// }else if(!txt_check){
 
-			// 	$("#txt_check").parent(".input-group").addClass("has-error");
+// 			// 	$("#txt_check").parent(".input-group").addClass("has-error");
 
-			// 	return false;
+// 			// 	return false;
 
-			}
+// 			}
 
-			$(".btn-add-album").attr("disabled",true);
+// 			$(".btn-add-album").attr("disabled",true);
 
-			var index = layer.load(1,{time: 5*1000});
-			$.ajax({
+// 			var index = layer.load(1,{time: 5*1000});
+// 			$.ajax({
 
-				type:"post",
+// 				type:"post",
 
-				url:"/index.php/home/Album/addAlbumContent",
+// 				url:"/index.php/home/Album/addAlbumContent",
 
-				async:true,
+// 				async:true,
 
-				dataType:'json',
+// 				dataType:'json',
 
-				data:{"alc_pid":id,"alname":alname,"alc_name":name,"alc_email":email,"alc_url":alc_url,"alc_content":content_text,"txt_check":txt_check,"send":send,"rember":rember},
+// 				data:{"alc_pid":id,"alname":alname,"alc_name":name,"alc_email":email,"alc_url":alc_url,"alc_content":content_text,"txt_check":txt_check,"send":send,"rember":rember},
 
-				success:function(data){
-					layer.close(index);
+// 				success:function(data){
+// 					layer.close(index);
 
-					if(data.att == 1){
-						layer.msg(data.msg, {icon: 5,
-			                time: 2000, //20s后自动关闭
-			            });
+// 					if(data.att == 1){
+// 						layer.msg(data.msg, {icon: 5,
+// 			                time: 2000, //20s后自动关闭
+// 			            });
 
-						$("#txt_check").parent(".input-group").addClass("has-error");
+// 						$("#txt_check").parent(".input-group").addClass("has-error");
 
-						$(".btn-add-album").removeAttr('disabled');
+// 						$(".btn-add-album").removeAttr('disabled');
 
-						return false;						
+// 						return false;						
 
-					}else{
+// 					}else{
 
-						layer.msg(data.msg, {icon: 1,
-			                time: 3000, //20s后自动关闭
-			            }, function(){
-			            	window.location.href=jump;
-			            });
+// 						layer.msg(data.msg, {icon: 1,
+// 			                time: 3000, //20s后自动关闭
+// 			            }, function(){
+// 			            	window.location.href=jump;
+// 			            });
 
-					}
+// 					}
 
-				}
+// 				}
 
-			});
+// 			});
 
-		});
+// 		});
 
 		
 
-		//验证申请链接数据
+// 		//验证申请链接数据
 
-		$('.btn-add-link').click(function(){
+// 		$('.btn-add-link').click(function(){
 
-			$("#name").parent(".input-group").removeClass("has-error");
+// 			$("#name").parent(".input-group").removeClass("has-error");
 
-			$("#email").parent(".input-group").removeClass("has-warning");
+// 			$("#email").parent(".input-group").removeClass("has-warning");
 
-			$("#email").parent(".input-group").removeClass("has-error");
+// 			$("#email").parent(".input-group").removeClass("has-error");
 
-			$("#content-text").parent(".form-group").removeClass("has-error");
+// 			$("#content-text").parent(".form-group").removeClass("has-error");
 
-			$("#txt_check").parent(".input-group").removeClass("has-error");
+// 			$("#txt_check").parent(".input-group").removeClass("has-error");
 
-			var jump = $("#jump").val();
+// 			var jump = $("#jump").val();
 
-			var name=$('#name').val();
+// 			var name=$('#name').val();
 
-			var l_url =$('#url').val();
+// 			var l_url =$('#url').val();
 
-			var email=$('#email').val();
+// 			var email=$('#email').val();
 
-			var content_text=$('#content-text').val();
+// 			var content_text=$('#content-text').val();
 
-			var txt_check=$('#txt_check').val();
+// 			var txt_check=$('#txt_check').val();
 
-			if(!name){
+// 			if(!name){
 
-				$("#name").parent(".input-group").addClass("has-error");
+// 				$("#name").parent(".input-group").addClass("has-error");
 
-				return false;
+// 				return false;
 
-			// }else if(!email){
+// 			// }else if(!email){
 
-			// 	$("#email").parent(".input-group").addClass("has-warning");
+// 			// 	$("#email").parent(".input-group").addClass("has-warning");
 
-			// 	return false;
+// 			// 	return false;
 
-			// }else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
+// 			// }else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
 
-			// 	$("#email").parent(".input-group").addClass("has-error");
+// 			// 	$("#email").parent(".input-group").addClass("has-error");
 
-			// 	return false;
+// 			// 	return false;
 
-			// }else if(!content_text){
+// 			// }else if(!content_text){
 
-			// 	$("#content-text").parent(".form-group").addClass("has-error");
+// 			// 	$("#content-text").parent(".form-group").addClass("has-error");
 
-			// 	return false;
+// 			// 	return false;
 
-			// }else if(!txt_check){
+// 			// }else if(!txt_check){
 
-			// 	$("#txt_check").parent(".input-group").addClass("has-error");
+// 			// 	$("#txt_check").parent(".input-group").addClass("has-error");
 
-			// 	return false;
+// 			// 	return false;
 
-			}
+// 			}
 
-			$(".btn-add-link").attr("disabled",true);
+// 			$(".btn-add-link").attr("disabled",true);
 
-			var index = layer.load(1,{time: 5*1000});
-			$.ajax({
+// 			var index = layer.load(1,{time: 5*1000});
+// 			$.ajax({
 
-				type:"post",
+// 				type:"post",
 
-				url:"/index.php/home/Friends/addLink",
+// 				url:"/index.php/home/Friends/addLink",
 
-				async:true,
+// 				async:true,
 
-				dataType:'json',
+// 				dataType:'json',
 
-				data:{"l_name":name,"l_email":email,"l_url":l_url,"l_content":content_text,"txt_check":txt_check,"l_sort":100,"l_view":0},
+// 				data:{"l_name":name,"l_email":email,"l_url":l_url,"l_content":content_text,"txt_check":txt_check,"l_sort":100,"l_view":0},
 
-				success:function(data){
-					layer.close(index);
+// 				success:function(data){
+// 					layer.close(index);
 
-					if(data.att == 1){
-						layer.msg(data.msg, {icon: 5,
-			                time: 2000, //20s后自动关闭
-			            });
+// 					if(data.att == 1){
+// 						layer.msg(data.msg, {icon: 5,
+// 			                time: 2000, //20s后自动关闭
+// 			            });
 
-						$("#txt_check").parent(".input-group").addClass("has-error");
+// 						$("#txt_check").parent(".input-group").addClass("has-error");
 
-						$(".btn-add-link").removeAttr('disabled');
+// 						$(".btn-add-link").removeAttr('disabled');
 
-						return false;						
+// 						return false;						
 
-					}else{
+// 					}else{
 
-						layer.msg(data.msg, {icon: 1,
-			                time: 3000, //20s后自动关闭
-			            }, function(){
-			            	window.location.href=jump;
-			            });
+// 						layer.msg(data.msg, {icon: 1,
+// 			                time: 3000, //20s后自动关闭
+// 			            }, function(){
+// 			            	window.location.href=jump;
+// 			            });
 
-					}
+// 					}
 
-				}
+// 				}
 
-			});
+// 			});
 
-		});
+// 		});
 
 		
 
-		//验证留言数据
+// 		//验证留言数据
 
-		$('.btn-add-gust').click(function(){
+// 		$('.btn-add-gust').click(function(){
 
-			$('.form-control-feedback').addClass('hidden');
+// 			$('.form-control-feedback').addClass('hidden');
 
-			$("#name").parent(".input-group").removeClass("has-error");
+// 			$("#name").parent(".input-group").removeClass("has-error");
 
-			$("#email").parent(".input-group").removeClass("has-warning");
+// 			$("#email").parent(".input-group").removeClass("has-warning");
 
-			$("#email").parent(".input-group").removeClass("has-error");
+// 			$("#email").parent(".input-group").removeClass("has-error");
 
-			$("#content-text").parent(".form-group").removeClass("has-error");
+// 			$("#content-text").parent(".form-group").removeClass("has-error");
 
-			$("#txt_check").parent(".input-group").removeClass("has-error");
+// 			$("#txt_check").parent(".input-group").removeClass("has-error");
 
-			var jump = $("#jump").val();
+// 			var jump = $("#jump").val();
 
-			var send = $("input[name='send']:checked").val();
+// 			var send = $("input[name='send']:checked").val();
 
-			var rember = $("input[name='rember']:checked").val();
+// 			var rember = $("input[name='rember']:checked").val();
 
-			var name=$('#name').val();
+// 			var name=$('#name').val();
 
-			var g_url =$('#url').val();
+// 			var g_url =$('#url').val();
 
-			var email=$('#email').val();
+// 			var email=$('#email').val();
 
-			var content_text=$('#content-text').val();
+// 			var content_text=$('#content-text').val();
 
-			var txt_check=$('#txt_check').val();
+// 			var txt_check=$('#txt_check').val();
 
-			if(!name){
+// 			if(!name){
 
-				$("#name").parent(".input-group").addClass("has-error");
+// 				$("#name").parent(".input-group").addClass("has-error");
 
-				$("#name").parent(".input-group").find('span').removeClass('hidden');
+// 				$("#name").parent(".input-group").find('span').removeClass('hidden');
 
-				return false;
+// 				return false;
 
-			// }else if(!email){
+// 			// }else if(!email){
 
-			// 	$("#email").parent(".input-group").addClass("has-warning");
+// 			// 	$("#email").parent(".input-group").addClass("has-warning");
 
-			// 	$("#email").parent(".input-group").find('span').removeClass('hidden');
+// 			// 	$("#email").parent(".input-group").find('span').removeClass('hidden');
 
-			// 	return false;
+// 			// 	return false;
 
-			// }else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
+// 			// }else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
 
-			// 	$("#email").parent(".input-group").addClass("has-error");
+// 			// 	$("#email").parent(".input-group").addClass("has-error");
 
-			// 	$("#email").parent(".input-group").find('span').removeClass('hidden');
+// 			// 	$("#email").parent(".input-group").find('span').removeClass('hidden');
 
-			// 	return false;
+// 			// 	return false;
 
-			// }else if(!content_text){
+// 			// }else if(!content_text){
 
-			// 	$("#content-text").parent(".form-group").addClass("has-error");
+// 			// 	$("#content-text").parent(".form-group").addClass("has-error");
 
-			// 	return false;
+// 			// 	return false;
 
-			// }else if(!txt_check){
+// 			// }else if(!txt_check){
 
-			// 	$("#txt_check").parent(".input-group").addClass("has-error");
+// 			// 	$("#txt_check").parent(".input-group").addClass("has-error");
 
-			// 	$("#txt_check").parent(".input-group").find('span').removeClass('hidden');
+// 			// 	$("#txt_check").parent(".input-group").find('span').removeClass('hidden');
 
-			// 	return false;
+// 			// 	return false;
 
-			}
+// 			}
 
-			$(".btn-add-gust").attr("disabled",true);
+// 			$(".btn-add-gust").attr("disabled",true);
 
-			var index = layer.load(1,{time: 5*1000});
-			$.ajax({
+// 			var index = layer.load(1,{time: 5*1000});
+// 			$.ajax({
 
-				type:"post",
+// 				type:"post",
 
-				url:"/index.php/home/Gust/addContent",
+// 				url:"/index.php/home/Gust/addContent",
 
-				async:true,
+// 				async:true,
 
-				dataType:'json',
+// 				dataType:'json',
 
-				data:{"g_name":name,"g_email":email,"g_url":g_url,"g_content":content_text,"txt_check":txt_check,"send":send,"rember":rember},
+// 				data:{"g_name":name,"g_email":email,"g_url":g_url,"g_content":content_text,"txt_check":txt_check,"send":send,"rember":rember},
 
-				success:function(data){
-					layer.close(index);
+// 				success:function(data){
+// 					layer.close(index);
 
-					if(data.att == 1){
-						layer.msg(data.msg, {icon: 5,
-			                time: 2000, //20s后自动关闭
-			            });
+// 					if(data.att == 1){
+// 						layer.msg(data.msg, {icon: 5,
+// 			                time: 2000, //20s后自动关闭
+// 			            });
 
-						$("#txt_check").parent(".input-group").addClass("has-error");
+// 						$("#txt_check").parent(".input-group").addClass("has-error");
 
-						$("#txt_check").parent(".input-group").find('span').removeClass('hidden');
+// 						$("#txt_check").parent(".input-group").find('span').removeClass('hidden');
 
-						$(".btn-add-gust").removeAttr('disabled');
+// 						$(".btn-add-gust").removeAttr('disabled');
 
-						return false;						
+// 						return false;						
 
-					}else{
+// 					}else{
 
-						layer.msg(data.msg, {icon: 1,
-			                time: 3000, //20s后自动关闭
-			            }, function(){
-			            	window.location.href=jump;
-			            });
+// 						layer.msg(data.msg, {icon: 1,
+// 			                time: 3000, //20s后自动关闭
+// 			            }, function(){
+// 			            	window.location.href=jump;
+// 			            });
 
-					}
+// 					}
 
-				}
+// 				}
 
-			});
+// 			});
 
-		});
+// 		});
 
-});
+// });

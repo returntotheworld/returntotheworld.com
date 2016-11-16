@@ -1,10 +1,10 @@
-<include file="Public:nav"/>
+
 	<div class="row aerousel">
-        <ol class="breadcrumb">
-            <li><a href="index.html">网站首页</a></li>
-            <li><a href="album.html">相册</a></li>
-            <li class="active">{$albums.al_name}</li>
-        </ol>
+	<ol class="breadcrumb">
+		  <li><a href="index.html">网站首页</a></li>
+		  <li><a href="album.html">相册</a></li>
+		  <li class="active">{$albums.al_name}</li>
+	</ol>
 	<div class="col-md-8 row-l">
 		<div class="row album-look">
 		<volist name="pictureList" id="v" >
@@ -60,7 +60,45 @@
             </div>
        	</div>
     </div>
+    <script src="__JS__/jquery.fancybox.js"></script>   
+    <script src="__JS__/jquery.fancybox.pack.js"></script>   
     <script type="text/javascript">
+            //相册特效
+
+        $('.fancybox-buttons').fancybox({
+
+            openEffect  : 'none',
+
+            closeEffect : 'none',   
+
+            prevEffect : 'none',
+
+            nextEffect : 'none',    
+
+            closeBtn  : false,  
+
+            helpers : {
+
+                title : {
+
+                    type : 'inside'
+
+                },
+
+                buttons : {}
+
+            },
+
+            afterLoad : function() {
+
+                this.title = '第 ' + (this.index + 1) + '张 共 ' + this.group.length + (this.title ? ' - ' + this.title : '张');
+
+            }
+
+        });
+
+
+
         //验证相册评论数据
 
         $('.btn-add-album').click(function(){
@@ -175,3 +213,5 @@
     </div>
 	</div>
 	<include file="Public:sider"/>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>{$info.a_title} - {$Think.config.NAME}</title>
+    <meta name="keywords" content="{$info.a_keyword}" />
+    <meta name="description" content="{$info.a_remark}" />
+    <meta name="version" content="{$Think.config.NAME} v{$version}" />
+    <meta name="author" content="{$system.author}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="__CSS__/shCore.min.css" />
+    <script src="__JS__/shCore.min.js" ></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.config.clipboardSwf = '__IMG__/clipboard.swf';
+        SyntaxHighlighter.all();
+    </script>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!--[if lt IE 9]>
+<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->        
+<meta property="qc:admins" content="73113635665455576375" />
+<link rel="stylesheet" href="__CSS__/bootstrap.min.css" />
+<link rel="shortcut icon" href="__IMG__/icon/favicon.ico" />
+<style type="text/css">
+/*    .head_content{
+        background: url("{$ppt.0.pp_img}")no-repeat;
+    }*/
+</style>
+<link rel="stylesheet" href="__CSS__/my.css" />
+<!-- <link href="__CSS__/jieri/{$jieri}/style.css" rel="stylesheet" type="text/css" id="my_style"> -->
+<!-- 头像转动 -->
+<link rel="stylesheet" href="__CSS__/animation.css" />
+<!-- <link rel="stylesheet" href="__CSS__/lanrenzhijia.css" /> -->
+<!-- /头像转动 -->
+    </head>
+    <!-- // <script src="__JS__/jquery-1.10.1.min.js" ></script> -->
+    <script src="__JS__/jquery.js"></script>
+    <script src="__JS__/bootstrap.min.js" ></script>
+
+<!-- 导航栏悬浮效果 -->
+    <!-- // <script src="__JS__/jquery.zlight.menu.1.0.min.js" ></script> -->
+    <script type="text/javascript">
+        $(function(){
+                // lanrenzhijia
+                $("#lanrenzhijia div a").hover(function(){
+                    $("img", this).stop().animate({top:"-170px"},{queue:false,duration:170});
+                }, function() {
+                    $("img", this).stop().animate({top:"0px"},{queue:false,duration:170});
+                });
+            });
+    </script>
+    <script>
+    // $(document).ready(function(){
+    //     $('.top-top1').zlightMenu();
+    // });
+    
+    </script>
+
+
+<!--/导航栏悬浮效果 -->
+    <script language="javascript">
+    var bgarr = ["http://saber-img.qiniudn.com/xuejian.jpg","http://saber-img.qiniudn.com/aisaberbg3.jpg","http://saber-img.qiniudn.com/aisaberbg7.jpg","http://saber-img.qiniudn.com/aisaberbg8.jpg","http://saber-img.qiniudn.com/aisaberbg9.jpg","http://7xk6om.com1.z0.glb.clouddn.com/萝莉夏日海滩壁纸.jpg","http://saber-img.qiniudn.com/穹妹美图.jpg","http://saber-img.qiniudn.com/Nekopara-BG1.jpg","http://7xk6om.com1.z0.glb.clouddn.com/miku2.jpg","http://saber-img.qiniudn.com/miku0.jpg","http://7xk6om.com1.z0.glb.clouddn.com/saberbg4.jpg","http://7xk6om.com1.z0.glb.clouddn.com/miku1.jpg","http://7xk6om.com1.z0.glb.clouddn.com/saberbg2.jpg","http://7xk6om.com1.z0.glb.clouddn.com/%E5%B1%81%E5%90%95%E5%B0%BE%E7%94%B0%E3%83%9D%E3%83%88%E3%83%95.jpg","http://7xk6om.com1.z0.glb.clouddn.com/四季映姫.jpg","http://7xk6om.com1.z0.glb.clouddn.com/loli.jpg","http://7xk6om.com1.z0.glb.clouddn.com/miku3.jpg","http://7xk6om.com1.z0.glb.clouddn.com/car.jpg","http://7xk6om.com1.z0.glb.clouddn.com/ef1.jpg","http://7xk6om.com1.z0.glb.clouddn.com/ef2.jpg","http://7xk6om.com1.z0.glb.clouddn.com/ef4.jpg","http://7xk6om.com1.z0.glb.clouddn.com/%E5%A6%B9%E3%81%AE%E5%BD%A21.jpg","http://7xk6om.com1.z0.glb.clouddn.com/%E6%B0%B4%E4%B8%ADmiku_2.jpg","http://7xk6om.com1.z0.glb.clouddn.com/websitebg0.jpg","http://7xk6om.com1.z0.glb.clouddn.com/re0.jpg","http://7xk6om.com1.z0.glb.clouddn.com/haitan.jpg","http://7xli4a.com1.z0.glb.clouddn.com/rttw/img/zhuoku116.jpg"];
+    var bgindex = ~~(Math.random()*bgarr.length);
+</script>
+
+
+    <body>  
+<script>
+    document.body.style.backgroundImage="url("+bgarr[bgindex]+")";
+    document.body.style.background="background-size:100%";
+</script>
+
+        
+
+<!--         <div class="top-top">
+            <div class="container">
+                <div class="col-md-5 top-left"><a class="from">{:getOs()}</a></div>
+                <div class="col-md-5 top-right">
+                    <empty name="Think.session.nickname">
+                    	<a href="{:U('Common/loginqq',array("type"=>"qq"))}" class="from" >QQ访问</a>
+					<else />
+						{$Think.session.nickname} <a class='from' href="{:U('Common/out')}">退出</a>
+					</empty>
+                </div>
+            </div>
+        </div> -->
+<div class="container " id="pjax-container">
+{__CONTENT__}
+</div>
+<script type="text/javascript" src="__PUBLIC__/layer-v2.4/layer/layer.js"></script>
+<script src="__JS__/common.js"></script>
+<script src="__JS__/rl_exp.js"></script>    
+<!-- pjax-containerheader -->
+
+        <div id="player1" class="aplayer" style="display:none;"></div>
+        <div id="player3" class="aplayer" style="display:none;"></div>
+        <div id="player4" class="aplayer" style="display:none;"></div>
+        <div id="player5" class="aplayer"></div>
+        <div id="player2" class="aplayer" style="display:none;"></div>
+<script src="__JS__/pjax.js"></script>
+<script type="text/javascript">
+        $(document).pjax('a', '#pjax-container');
+        $(document).on('submit', 'form', function (event) {$.pjax.submit(event, '#pjax-container');}); 
+        $(document).on('pjax:send', function() {
+           NProgress.start();
+          //执行pjax开始，在这里添加要重载的代码，可自行添加loading动画代码。例如你已调用了NProgress，在这里添加 NProgress.start();
+          });
+        $(document).on('pjax:complete', function() {
+          setTimeout(function() { NProgress.done(); $('.fade').removeClass('out'); }, 1000);
+          //执行pjax结束，在这里添加要重载的代码，可自行添加loading动画结束或隐藏代码。例如NProgress的结束代码 NProgress.done();
+          });
+        //     /*banner 初始化*/
+        $(window).load(function() {
+         $('#slider').nivoSlider({
+            effect: 'random',        // 过渡效果
+            controlNav: false,       // 是否显示图片导航控制按钮（,2,3... ）
+            pauseOnHover: true,      // 鼠标县浮时是否停止动画
+            manualAdvance: false,    // 是否手动切换 
+            animSpeed: 100,          // 图片过渡时间   
+            pauseTime: 2000,         // 图片显示时间
+            pauseOnHover: false,
+            manualAdvance: false,
+        });
+        });
+        // $(document).ready(function(){
+        //     $('body').show();
+        //     $('.version').text(NProgress.version);
+        //     NProgress.start();
+        //     setTimeout(function() { NProgress.done(); $('.fade').removeClass('out'); }, 1000);
+        // })
+</script>
+</script>
+<!-- 音乐播放器脚本 -->
+<script src="__PUBLIC__/APlayer/dist/APlayer.min.js"></script>
+<script src="__PUBLIC__/APlayer/demo/demo.js"></script>
+<!-- /音乐播放器脚本 -->
+<div class="container-footer">
+    <div class="container footer">
+        <div class="row footer-all">
+            <div class="col-md-3 hidden-xs">
+                <h4>信息统计</h4>
+                    <p class="foot-box1">
+                        <a><span class="glyphicon glyphicon-comment"></span></a>&nbsp;&nbsp;微说：&nbsp;{$num.say|chenkNum} 条
+                        <span class="foot-box1-r">
+                        <a><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;文章：&nbsp;{$num.article|chenkNum} 篇
+                        </span>
+                    </p> 
+                    <p class="foot-box1">
+                        <a><span class="glyphicon glyphicon-envelope"></span></a>&nbsp;&nbsp;评论：&nbsp;{$num.comment|chenkNum} 条
+                        <span class="foot-box1-r">
+                        <a><span class="glyphicon glyphicon-send"></span></a>&nbsp;&nbsp;留言：&nbsp;{$num.gust|chenkNum} 条
+                        </span>
+                    </p>
+                    <p class="foot-box1">
+                        <a><span class="glyphicon glyphicon-home"></span></a>&nbsp;&nbsp;历时：&nbsp;{$system.createtime|getDay} 天
+                        <span class="foot-box1-r">
+                        <a><span class="glyphicon glyphicon-camera"></span></a>&nbsp;&nbsp;相册：&nbsp;{$num.album|chenkNum} 个
+                        </span>
+                    </p>
+                    <p class="foot-box1">
+                        <a><span class="glyphicon glyphicon-picture"></span></a>&nbsp;&nbsp;图片：&nbsp;{$num.picture|chenkNum} 张
+                        <span class="foot-box1-r">
+                        <a><span class="glyphicon glyphicon-link"></span></a>&nbsp;&nbsp;链接：&nbsp;{$num.link|chenkNum} 条
+                        </span>
+                    </p>
+                    <p class="foot-box1">
+                        <a><span class="glyphicon glyphicon-tree-conifer"></span></a>&nbsp;&nbsp;访问：&nbsp;{$system.hit|chenkNum} 次
+                    </p> 
+            </div>
+            <div class="col-md-3 ">
+                <h4>兴趣交流</h4>
+                    <p class="foot-box1">
+                        QQ号：<a href="http://jq.qq.com/?_wv=1027&k=dSjBgy" target="_blank" class="foot-my"><strong>380003832</strong></a>
+                        <span class="foot-box1-r">
+                        <a><span class="glyphicon glyphicon-heart-empty"></span></a>
+                        &nbsp;<a href="http://user.qzone.qq.com/380003832/infocenter?ptsig=c-nFIUw9w75sQoMCMq7mGlIDmpql-eerkpGxWFYQ-9o_" target="_blank" class="foot-my">&nbsp;QQ空间</a>
+                        </span>
+                    </p>
+                    <p class="foot-box1">
+                        Q群：&nbsp;暂无
+                        <span class="foot-box1-r">
+                        版本：&nbsp;2016.4
+                        </span>
+                    </p> 
+                    <p class="foot-box1">
+                        语言：&nbsp;{$Think.config.CHARSET}
+                        <span class="foot-box1-r">
+                        作者：&nbsp;{$Think.config.AUTHOR}
+                        </span>
+                    </p>
+                    <p class="foot-box1">
+                        特别声明：&nbsp;文明言论&nbsp;&nbsp;以此共勉
+                    </p>
+            </div>
+            <div class="col-md-3 hidden-xs">
+                <h4>推荐文章</h4>
+                    <volist name="f_article" id="vo">
+                    <p class="foot-box3"><a><span class="glyphicon glyphicon-thumbs-up"></span></a>&nbsp;&nbsp;<a href="{:U('/article-'.$vo['a_id'])}" title="{$vo.a_title}" class="foot-my">{$vo.a_title}</a></p>
+                    </volist>
+            </div>
+            <div class="col-md-3 hidden-xs">
+            <h4>相册角</h4>
+                <ul class="picture-ul">
+                    <volist name="foot_album" id="vo">
+                    <li>
+                        <a href="{:U('/album-'.$vo['al_id'])}" target="_blank" title="{$vo.al_name}"><img class="img-rounded img-50" src="{$vo.al_img}" alt="{$vo.al_name}"></a>
+                    </li>
+                    </volist>
+                </ul>
+            </div>
+        </div>
+        <div class="row bottom">
+            <div class="col-md-6 col-sm-5 bottom-left">
+                {$system.copy}
+            </div>     
+            <div class="col-md-6 col-sm-7 bottom-right hidden-xs">
+                {$system.footer}&nbsp;|&nbsp;{$system.icp}
+            </div> 
+        </div>
+    </div>
+</div>
+<div id="toTop" class="hidden-xs" style="display: none;"><span class="glyphicon glyphicon-chevron-up toTop-img"></span></div>
+
+<script src="__JS__/html5.js"></script> 
+<link href="__CSS__/nprogress.css" rel="stylesheet" />
+<script src="__JS__/nprogress.js"></script>
+</body>
+</html>

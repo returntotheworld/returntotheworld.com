@@ -18,7 +18,12 @@ class AlbumController extends CommonController {
 	    $album = M('album')->where('al_view = 1')->limit($Page->firstRow.','.$Page->listRows)->select();
 	    $this->assign('albumList',$album);
 	    $this->assign('page',$show);
-	    $this->display();
+	    if (array_key_exists('HTTP_X_PJAX', $_SERVER) && $_SERVER['HTTP_X_PJAX']) {
+			$this->display('','','','','pjax/'); //浏览器支持Pjax功能，直接渲染输出页面
+		} else {
+			layout(true); //开启模板
+			$this->display(); //浏览器不支持Pjax功能，使用默认的链接响应机制（加载模板）
+		}
 	}
 	  	 
 		 
@@ -51,7 +56,13 @@ class AlbumController extends CommonController {
 			setS("al_content".$id,$al_content);
 		}
 	    $this->assign('al_content',$al_content);
-	    $this->display();
+	    if (array_key_exists('HTTP_X_PJAX', $_SERVER) && $_SERVER['HTTP_X_PJAX']) {
+			$this->display('','','','','pjax/'); //浏览器支持Pjax功能，直接渲染输出页面
+		} else {
+			layout(true); //开启模板
+			$this->display(); //浏览器不支持Pjax功能，使用默认的链接响应机制（加载模板）
+		}
+		
 	  }
 	  
     public function addAlbumContent(){

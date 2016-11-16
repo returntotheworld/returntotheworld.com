@@ -119,6 +119,16 @@ class CommonController extends Controller{
 		$this->msg = S('msg');
         $this->time=$Time; 
     }
+    protected function render($data) {
+		$this->assign('data', $data); //控制器传值到模板
+
+		if (array_key_exists('HTTP_X_PJAX', $_SERVER) && $_SERVER['HTTP_X_PJAX']) {
+			$this->display('','','','','pjax/'); //浏览器支持Pjax功能，直接渲染输出页面
+		} else {
+			layout(true); //开启模板
+			$this->display(); //浏览器不支持Pjax功能，使用默认的链接响应机制（加载模板）
+		}
+	}
 
     public function verify() {
         ob_clean();
@@ -131,8 +141,7 @@ class CommonController extends Controller{
         $verify->useCurve = false;
         $verify->useNoise = false;
         $verify->entry();
-    }
-	
+    }	
 	//QQ登陆
 	public function loginqq($type = null) {
         empty($type) && $this->error('参数错误');
@@ -140,7 +149,6 @@ class CommonController extends Controller{
         $sns = ThinkOauth::getInstance($type);
         redirect($sns->getRequestCodeURL());
     }
-	
 	//QQ登陆回调
 	public function callback($type = null, $code = null) {
         header("Content-type: text/html; charset=utf-8");

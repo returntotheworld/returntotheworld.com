@@ -19,7 +19,12 @@ class FeelController extends CommonController {
         $say = $tmp->where('s_view = 1')->order('s_time desc')->limit($Page->firstRow.','.$Page->listRows)->select();
         $this->assign('say',$say);
         $this->assign('page',$show);
-        $this->display();
+        if (array_key_exists('HTTP_X_PJAX', $_SERVER) && $_SERVER['HTTP_X_PJAX']) {
+			$this->display('','','','','pjax/'); //浏览器支持Pjax功能，直接渲染输出页面
+		} else {
+			layout(true); //开启模板
+			$this->display(); //浏览器不支持Pjax功能，使用默认的链接响应机制（加载模板）
+		}
     }
 	
 	public function  _before_info(){
@@ -50,7 +55,12 @@ class FeelController extends CommonController {
 		$this->up 	=  $tmp->where('s_view !=0 AND s_id <'.$id)->order('s_id desc')->limit(1)->find();
 		$this->down =  $tmp->where('s_view !=0 AND s_id >'.$id)->order('s_id')->limit(1)->find();			
 		$tmp->where(array("s_id"=>$id))->setInc('a_hit');
-		$this->display();
+		if (array_key_exists('HTTP_X_PJAX', $_SERVER) && $_SERVER['HTTP_X_PJAX']) {
+			$this->display('','','','','pjax/'); //浏览器支持Pjax功能，直接渲染输出页面
+		} else {
+			layout(true); //开启模板
+			$this->display(); //浏览器不支持Pjax功能，使用默认的链接响应机制（加载模板）
+		}
 	}
 
 	public function addFeelContent(){

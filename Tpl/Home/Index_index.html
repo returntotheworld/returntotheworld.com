@@ -1,4 +1,4 @@
-	<include file="Public:nav"/>
+<include file="Public:nav"/>
 		<div class="container hidden-xs ppt">
 <!--                 <div id="ppt-main" class="nivoSlider">
                 <notempty name="ppt.0.pp_url">
@@ -65,30 +65,9 @@
 			<button class="load_more" id="load_more_button">接着看</button>  
 			<div class="animation_image" style="display:none;"><img src="__IMG__/ajax-loader.gif"> Loading...</div>  
 		</div>  
-		
 		<!-- /AJAX 加载更多 -->
 		</div>	
 	<include file="Public:sider"/>
-	<include file="Public:foot"/>
-	<script src="__JS__/jquery.nivo.slider.pack.js"></script>
-	 <script type="text/javascript">
-            $(function() {
-                $('#ppt-main').nivoSlider({
-	                //effect: 'random', // 过渡效果  
-				    slices: 15, //effect为切片效果时的数量  
-				    boxCols: 8, //effect为格子效果时的列  
-				    boxRows: 4, //effect为格子效果时的行  
-				    animSpeed: 500, //动画速度  
-				    pauseTime: 3000, //图片切换速度  
-				    startSlide: 0, //从第几张开始  
-				    directionNav: false, //是否显示图片切换按钮(上/下页)  
-				    directionNavHide: true, //是否鼠标经过才显示  
-				    controlNav: false, // 显示序列导航  
-				    controlNavThumbs: false, // 显示图片导航  
-				    //keyboardNav: true, // 键盘控制（左右箭头）PS:建议把代码中的keypress换成keydown,因为在Chrome下
-                });
-            });
-        </script>
         <script type="text/javascript">  
 			$(document).ready(function() {  
 			    var track_click = 1; //track user click on "load more" button, righ now it is 0 click  
@@ -135,5 +114,3 @@
 			        });  
 			});  
 			</script> 
-</body>
-</html>
