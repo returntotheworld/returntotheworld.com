@@ -18,10 +18,16 @@
                                 </div>
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav">
-                                    <li class="{$index} dh"><a href="{:U('/index')}">首页</a></li>
-                                    <li class="{$about} dh"><a href="{:U('/about')}">关于我</a></li>
+                                    <li class="{$index} dh"><a href="{:U('/index')}">大门</a></li>
+                                    <li class="dropdown dh {$about}"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><del>黑历史</del><span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="{:U('/about')}">关于我</a></li>
+                                            <li><a href="{:U('/about/jiang')}">奖状墙</a></li>
+                                            <li class="divider"></li>         
+                                      </ul>
+                                    </li>
                                     <li class="dropdown dh {$class}">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">分类<span class="caret"></span></a>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">精华<span class="caret"></span></a>
                                         <ul class="dropdown-menu" role="menu">
                                         <volist name="pid" id="vo">
                                             <li><a href="{:U('/class-'.$vo['t_id'])}" ><i class="icon-ok-sign"></i> {$vo.t_name}</a></li>
@@ -29,17 +35,25 @@
                                         </volist>           
                                       </ul>
                                     </li>
-                                    <li class="dh {$feel}"><a href="{:U('/feel')}">说说</a></li>
-                                    <li class="dh {$album}"><a href="{:U('/album')}">相册</a></li>
-                                    <li class="dh {$friends}"><a href="{:U('/friends')}">邻居</a></li>
-                                    <li class="dh {$gust}"><a href="{:U('/gust')}">留言板</a></li>
-                                    <li class="dh {$video}"><a href="{:U('/video')}">影视</a></li>
+                                    <li class="dh {$feel}"><a href="{:U('/feel')}">后山</a></li>
+                                    <li class="dh {$album}"><a href="{:U('/album')}">全家福</a></li>
+                                    <li class="dh {$friends}"><a href="{:U('/friends')}">客房</a></li>
+                                    <li class="dh {$gust}"><a href="{:U('/gust')}">地堂</a></li>
+                                    <li class="dh {$video}"><a href="{:U('/video')}">电视房</a></li>
+                                    <li class="dropdown dh "><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">实验屋<span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="{$Think.config.SITE_URL}/index.php/Admin/Login/index" target="_blank">后门</a></li>
+                                            <li><a href="{$Think.config.SITE_URL}/danmu/admin" target="_blank" target="_blank">弹幕控制台</a></li>
+                                            <li class="divider"></li>         
+                                      </ul>
+                                    </li>
+                                    <li class="dh "><a href="http://dh.spcos.com/" target="_blank">隔壁邻舍</a></li>
 
                                 </ul>
                                 <!-- 搜索栏 -->
                                 <div class="search d7">
                                     <form action="{:U('Class/search')}" method="get">
-                                      <input type="text" placeholder="搜索从这里开始..." name="key">
+                                      <input type="text" placeholder="库房找找..." name="key">
                                       <button type="submit"class="glyphicon glyphicon-search"></button>
                                     </form>
                                 </div>

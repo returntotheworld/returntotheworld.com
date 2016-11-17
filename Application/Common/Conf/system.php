@@ -8,7 +8,7 @@
 return array(
 	'WELCOME'	=> '一直隐藏着，就等待你的出现!',
 	'ADMIN_NAME'=> '欧业',
-    'SITE_URL'  => 'http://returntotheworld.com/',
+    'SITE_URL'  => 'http://www.'.$_SERVER['HTTP_HOST'],
     'SITE'      => 'OY',
     'NAME'      => '回这世界',
     'FRAME'     => 'ThinkPHP',

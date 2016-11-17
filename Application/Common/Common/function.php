@@ -263,6 +263,9 @@
 			$table = 'Gust';
 			$params = array('g_email'=>$email);
 			$tmp = 'g_img';
+		}elseif($table=='Video_c'){
+			$params = array('ac_email'=>$email);
+			$tmp = 'ac_img';
 		}
 		$img = M($table)->where($params)->getField($tmp);
         if($img==''){

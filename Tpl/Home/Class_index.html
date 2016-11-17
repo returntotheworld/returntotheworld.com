@@ -22,9 +22,9 @@
 				<div class="post-summary">
 					<div class="clearfix" >           
 						<p class="article-remark"> 
-							<a class="article-img-a image-light" href="{:U('/article-'.$v['a_id'])}"><img src="{$v.a_img}" class="article-img" alt="{$v.a_title}" title="{$v.a_title}" /></a>
+							<a class="article-img-a image-light" href="{:U('/article-'.$v['a_id'])}"><img src="{$v.a_img}" class="article-img" alt="{$v.a_title}" title="{$v.a_title}" width="257" height="166"/></a>
 							{$v.a_remark}
-							<a href="{:U('/article-'.$v['a_id'])}" class="article-look">继续阅读→</a>
+							
 						</p>
 						<footer class="article-footer">
 							<div class="article-footer-l">
@@ -37,6 +37,7 @@
 								<a>1</a>
 							</div>
 							<!--<a><span class="glyphicon glyphicon-time"></span></a>&nbsp;{$v.a_time|getTime}&nbsp;&nbsp;作者：{$v.a_author}&nbsp;&nbsp;分类：[&nbsp;{$v.t_name}&nbsp;]<span class="hidden-xs">&nbsp;&nbsp;访问：&nbsp;{$v.a_hit}&nbsp;</span>-->
+							<a href="{:U('/article-'.$v['a_id'])}" class="article-look">继续阅读</a>
 						</footer>
 					</div>
 				</div>

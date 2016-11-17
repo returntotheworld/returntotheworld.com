@@ -3,7 +3,6 @@ namespace Home\Controller;
 use Think\Controller;
 /**
 * 前端邻居页
-* @date: 2015年10月31日
 * @author: Administrator
 * @return:
 */

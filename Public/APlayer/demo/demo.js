@@ -187,8 +187,13 @@ var ap5 = new APlayer({
 });
 
 window.onblur = function () { 
+    // ap5.volume(0.3)
+    // setTimeout(function(){ap5.pause()},5000);
     ap5.pause();
 }; 
 window.onfocus = function () { 
+    // ap5.volume(0.5);
+    // ap5.play();
+    // setTimeout(function(){ap5.volume(1)},3000);
     ap5.play();
 };

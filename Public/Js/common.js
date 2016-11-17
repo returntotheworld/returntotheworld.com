@@ -394,108 +394,108 @@ $(document).ready(function() {
 
 		
 
-// 		//验证申请链接数据
+		// //验证申请链接数据
 
-// 		$('.btn-add-link').click(function(){
+		// $('.btn-add-link').click(function(){
 
-// 			$("#name").parent(".input-group").removeClass("has-error");
+		// 	$("#name").parent(".input-group").removeClass("has-error");
 
-// 			$("#email").parent(".input-group").removeClass("has-warning");
+		// 	$("#email").parent(".input-group").removeClass("has-warning");
 
-// 			$("#email").parent(".input-group").removeClass("has-error");
+		// 	$("#email").parent(".input-group").removeClass("has-error");
 
-// 			$("#content-text").parent(".form-group").removeClass("has-error");
+		// 	$("#content-text").parent(".form-group").removeClass("has-error");
 
-// 			$("#txt_check").parent(".input-group").removeClass("has-error");
+		// 	$("#txt_check").parent(".input-group").removeClass("has-error");
 
-// 			var jump = $("#jump").val();
+		// 	var jump = $("#jump").val();
 
-// 			var name=$('#name').val();
+		// 	var name=$('#name').val();
 
-// 			var l_url =$('#url').val();
+		// 	var l_url =$('#url').val();
 
-// 			var email=$('#email').val();
+		// 	var email=$('#email').val();
 
-// 			var content_text=$('#content-text').val();
+		// 	var content_text=$('#content-text').val();
 
-// 			var txt_check=$('#txt_check').val();
+		// 	var txt_check=$('#txt_check').val();
 
-// 			if(!name){
+		// 	if(!name){
 
-// 				$("#name").parent(".input-group").addClass("has-error");
+		// 		$("#name").parent(".input-group").addClass("has-error");
 
-// 				return false;
+		// 		return false;
 
-// 			// }else if(!email){
+		// 	// }else if(!email){
 
-// 			// 	$("#email").parent(".input-group").addClass("has-warning");
+		// 	// 	$("#email").parent(".input-group").addClass("has-warning");
 
-// 			// 	return false;
+		// 	// 	return false;
 
-// 			// }else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
+		// 	// }else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
 
-// 			// 	$("#email").parent(".input-group").addClass("has-error");
+		// 	// 	$("#email").parent(".input-group").addClass("has-error");
 
-// 			// 	return false;
+		// 	// 	return false;
 
-// 			// }else if(!content_text){
+		// 	// }else if(!content_text){
 
-// 			// 	$("#content-text").parent(".form-group").addClass("has-error");
+		// 	// 	$("#content-text").parent(".form-group").addClass("has-error");
 
-// 			// 	return false;
+		// 	// 	return false;
 
-// 			// }else if(!txt_check){
+		// 	// }else if(!txt_check){
 
-// 			// 	$("#txt_check").parent(".input-group").addClass("has-error");
+		// 	// 	$("#txt_check").parent(".input-group").addClass("has-error");
 
-// 			// 	return false;
+		// 	// 	return false;
 
-// 			}
+		// 	}
 
-// 			$(".btn-add-link").attr("disabled",true);
+		// 	$(".btn-add-link").attr("disabled",true);
 
-// 			var index = layer.load(1,{time: 5*1000});
-// 			$.ajax({
+		// 	var index = layer.load(1,{time: 5*1000});
+		// 	$.ajax({
 
-// 				type:"post",
+		// 		type:"post",
 
-// 				url:"/index.php/home/Friends/addLink",
+		// 		url:"/index.php/home/Friends/addLink",
 
-// 				async:true,
+		// 		async:true,
 
-// 				dataType:'json',
+		// 		dataType:'json',
 
-// 				data:{"l_name":name,"l_email":email,"l_url":l_url,"l_content":content_text,"txt_check":txt_check,"l_sort":100,"l_view":0},
+		// 		data:{"l_name":name,"l_email":email,"l_url":l_url,"l_content":content_text,"txt_check":txt_check,"l_sort":100,"l_view":0},
 
-// 				success:function(data){
-// 					layer.close(index);
+		// 		success:function(data){
+		// 			layer.close(index);
 
-// 					if(data.att == 1){
-// 						layer.msg(data.msg, {icon: 5,
-// 			                time: 2000, //20s后自动关闭
-// 			            });
+		// 			if(data.att == 1){
+		// 				layer.msg(data.msg, {icon: 5,
+		// 	                time: 2000, //20s后自动关闭
+		// 	            });
 
-// 						$("#txt_check").parent(".input-group").addClass("has-error");
+		// 				$("#txt_check").parent(".input-group").addClass("has-error");
 
-// 						$(".btn-add-link").removeAttr('disabled');
+		// 				$(".btn-add-link").removeAttr('disabled');
 
-// 						return false;						
+		// 				return false;						
 
-// 					}else{
+		// 			}else{
 
-// 						layer.msg(data.msg, {icon: 1,
-// 			                time: 3000, //20s后自动关闭
-// 			            }, function(){
-// 			            	window.location.href=jump;
-// 			            });
+		// 				layer.msg(data.msg, {icon: 1,
+		// 	                time: 3000, //20s后自动关闭
+		// 	            }, function(){
+		// 	            	window.location.href=jump;
+		// 	            });
 
-// 					}
+		// 			}
 
-// 				}
+		// 		}
 
-// 			});
+		// 	});
 
-// 		});
+		// });
 
 		
 
@@ -618,4 +618,4 @@ $(document).ready(function() {
 
 // 		});
 
-// });
+});

@@ -1,0 +1,63 @@
+		<include file="Public:nav"/>
+		<div class="row aerousel">
+			<ol class="breadcrumb">
+				<li><a href="index.html">网站首页</a></li>
+				<li class="active">关于博客&nbsp;|&nbsp;关于我</li>
+			</ol>
+			<div class="col-md-8 row-l about-all">
+				<h4>关于我</h4><hr />
+				<!-- 时光轴 s-->
+
+		
+		<ul class="event_year">
+			<li class="current"><label for="2016">2016</label></li>
+			<li><label for="2015">2015</label></li>
+		</ul>
+		<ul class="event_list">
+			<div>
+				<h3 id="2016">2016</h3>
+				<li>
+				<span>10月</span>
+				<p><span>个人第一套哲学思想观正式命名为“悟性”，其梳理正是人“五性”的重要意义。（成就）</span></p>
+				</li>
+				<li>
+				<li>
+				<span>5月</span>
+				<p><span>正式学习哲学思想，并决意建立自己的哲学思想观。（留影）</span></p>
+				</li>
+				<li>
+				<span>4月</span>
+				<p><span>结束了自己短暂而悲催的自行车生涯。（纪念）</span></p>
+				</li>
+				<li>
+				<span>3月</span>
+				<p><span>同一天参加俩位大学同学结婚庆典，车程跋涉来回超900公里。（成就）</span></p>
+				</li>
+			</div>
+			<div>
+				<h3 id="2015">2015</h3>
+				<li>
+				<span>12月</span>
+				<p><span>成功为自己增重一公斤，创个人三年无突破纪录。（成就）</span></p>
+				</li>
+				<li>
+				<span>3月</span>
+				<p><span>接触佛学。（纪念）</span></p>
+				</li>
+			</div>
+		</ul>
+<script type="text/javascript">
+$(function(){
+    $('label').click(function(){
+        $('.event_year>li').removeClass('current');
+        $(this).parent('li').addClass('current');
+        var year = $(this).attr('for');
+        $('#'+year).parent().prevAll('div').slideUp(800);
+        $('#'+year).parent().slideDown(800).nextAll('div').slideDown(800);
+    });
+});
+</script>
+		<!--  时光轴 d-->
+			</div>
+		<include file="Public:sider"/>
+		

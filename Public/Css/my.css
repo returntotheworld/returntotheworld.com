@@ -85,7 +85,7 @@ a:hover{text-decoration: none;color: #7fecad;}
 .tag-ul{padding: 10px;border: 1px solid #ccc;}
 .tag-ul a{color: white;}
 .tag-ul li{display: inline-block;padding: 5px;margin-bottom: 5px;}
-#toTop {background: url(../Img/icon/goTop.png);position: fixed;right: 20px;bottom: 25px;z-index: 12;display: none;width: 47px;height: 47px;border-radius: 2px;text-align: center;text-indent: -9999px;cursor: pointer;}
+#toTop {background: url(../Img/icon/goTop.png);position: fixed;right: 150px;bottom: 150px;z-index: 12;display: none;width: 47px;height: 47px;border-radius: 2px;text-align: center;text-indent: -9999px;cursor: pointer;}
 /*.breadcrumb{border: 1px solid #ccc;}*/
 
 /*index*/
@@ -102,18 +102,18 @@ article h5 .reprint{display: inline-block;vertical-align: bottom;font-size: 14px
 .aerousel{margin-bottom: 20px;}
 .title_r{float: right;}
 .article-img-a{max-width: 100%;max-height: 100%;border: 1px solid #e8e9e7;overflow: hidden;overflow: hidden;display: block;float: left;margin-right:20px;}
-.article-look{color:#fff;float: right;margin-right: 15px;margin-top: 10px; position:absolute; bottom:50px;right: 40px; padding:0 3px 0 3px;border-radius: 5px;background-color: #5CB85C;}
+.article-look{color:#fff;float: right;width: 100%; height:30px; line-height: 30px; text-align: center;bottom:50px;right: 40px; padding:0 3px 0 3px;border-radius: 5px;background-color: #5CB85C;}
 .article-remark{margin: 0px;line-height: 28px;min-height: 180px;font-size: 16px;}
 .article-tag{ padding: 1px 4px; margin: 2px 3px 3px 2px;background-color: #eee;color: #787977;font-size: 12px;
 
 }
 .article-footer{height: 20px;line-height: 20px;}
-.article-footer-l{width: 65%;float: left;display: block;}
-.article-footer-r{width: 35%;float: right;text-align: right;}
+.article-footer-l{width: auto;float: left;display: block;}
+.article-footer-r{width: auto;float: right;text-align: right;}
 .blog-icon{vertical-align: middle;}
 
 /*about*/
-.about-all{background: #fff;padding-top: 20px;border: 1px solid #ccc;padding-left: 13px !important;padding-right: 13px !important;}
+.about-all{box-shadow: 0 0 0 8px rgba(255,255,255,0.4);background: #fff;padding-top: 20px;border: 1px solid #ccc;padding-left: 13px !important;padding-right: 13px !important;}
 .about{height: auto;float: left;display: block;}
 .about-img{float: left;margin-right: 20px;vertical-align: text-bottom;max-width: 100%;height: auto;}
 .about p,.about-love p{color:#5E5E5E;line-height: 30px;}
@@ -585,4 +585,13 @@ form {
 input {
     line-height: normal;
 }
+/* page */
+.event_year{padding:0px;width:60px;border-bottom:2px solid #DDD;text-align:center;float:left;}
+.event_year li{width: 100%;list-style:none;float: left; border: 1px solid #DDD;height:40px;line-height:40px;background:#FFF;margin-bottom:1px;font-size:18px;color:#828282;}
+.event_year li.current{background:#0066ff;color:#FFF;text-align:left;padding-left:9px;}
+.event_list{padding-left:60px; list-style:none; width:850px;background:url('../Html/jzq/img/dian3.png') 147px 0 repeat-y;margin:10px 0 20px 0;}
+.event_list h3{margin:0 0 10px 80px;font-size:24px;font-family:Georgia;color:#0066ff;padding-left:25px;background:url('../Html/jzq/img/jian.png') 0 -45px no-repeat;height:38px;line-height:30px;font-style:italic;}.event_list li{background:url('../Html/jzq/img/jian.png') 136px -80px no-repeat;}
+.event_list li span{color:#1C3D72;width:80px;text-align:right;float:left;margin-top:10px;}
+.event_list li p{width:680px;margin-left:24px;display:inline-block;padding-left:10px;background:url('../Html/jzq/img/jian.png') -21px 0 no-repeat;line-height:25px;}
+.event_list li p span{width:500px;text-align:left;border:1px solid #DDD;padding:10px 15px;background:#FFF;}width: 100%;
 /*/搜索栏

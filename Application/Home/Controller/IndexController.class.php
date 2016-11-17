@@ -70,7 +70,7 @@ class IndexController extends CommonController {
 					<p class="article-remark"> 
 						<a class="article-img-a image-light hidden-xs" href="/index.php?s=/article-'.$v["a_id"].'.html"><img src="'.$v['a_img'].'" class="article-img" alt="'.$v['a_title'].'" title="'.$v['a_title'].'" /></a>
 						'.$v['a_remark'].'
-						<a href="/index.php?s=/article-'.$v["a_id"].'.html" class="article-look">继续阅读→</a>
+						
 					</p>
 					<footer class="article-footer"> 
 						<div class="article-footer-l">
@@ -82,6 +82,7 @@ class IndexController extends CommonController {
 							<span class="glyphicon glyphicon-comment blog-icon"></span>
 							<a>'.$v['a_num'].'</a>
 						</div>
+						<a href="/index.php?s=/article-'.$v["a_id"].'.html" class="article-look">继续阅读</a>
 					</footer>
 				</div>
 		</article>';

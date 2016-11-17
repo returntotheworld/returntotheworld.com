@@ -2,7 +2,7 @@
     <div class="row aerousel">
         <ol class="breadcrumb">
             <li><a href="index.html">网站首页</a></li>
-            <li class="active">学海无涯&nbsp;|&nbsp;{$info.t_name}</li>
+            <li class="active">学海无涯&nbsp;|&nbsp;{$videoplay.t_name}</li>
         </ol>
         <div class="col-md-8 row-l articles">
 		<h5>
@@ -11,23 +11,23 @@
 			<else />
 				<span class="reprint">【转载】</span>
 			</eq>
-			<a href="{:U('/article-'.$v['a_id'])}">{$info.title}</a>
+			<a href="{:U('/article-'.$v['a_id'])}">{$videoplay.title}</a>
 		</h5>
-           	<div class="a-write">栏目：{$info.t_name}&nbsp;&nbsp;作者：{$info.a_author}&nbsp;&nbsp;阅读：（{$info.a_hit}）<span class="hidden-xs">更新于：{$info.a_time|getTime}</span></div>
-            <div class="a-content"> {$info.idd}
+           	<div class="a-write">栏目：{$videoplay.t_name}&nbsp;&nbsp;作者：{$videoplay.a_author}&nbsp;&nbsp;阅读：（{$videoplay.a_hit}）<span class="hidden-xs">更新于：{$videoplay.a_time|getTime}</span></div>
+            <div class="a-content"> {$videoplay.idd}
 </div>
             <div class="article-copy hidden-xs">
                 <eq name="info.a_original" value="1">
-                	<p>非特殊说明，观点归属{$info.a_author}个人，回这世界博客提供出处.</p>
-                	<p>本文标题：{$info.a_title}</p>
-                	<p>本文网址：<a>{$Think.config.SITE_URL}.com/article-{$info.a_id}.html</a>.</p>
-                	<p>本文标签：<a>{$info.a_keyword}</a></p>
+                	<p>非特殊说明，观点归属{$videoplay.a_author}个人，回这世界博客提供出处.</p>
+                	<p>本文标题：{$videoplay.a_title}</p>
+                	<p>本文网址：<a>{$Think.config.SITE_URL}.com/article-{$videoplay.a_id}.html</a>.</p>
+                	<p>本文标签：<a>{$videoplay.a_keyword}</a></p>
                 <else/>
-                	<p>本文系{$info.a_author}创作，可自由转载、引用，但需署名作者且注明文章出处..</p>
-                	<p>本文标题：{$info.a_title}</p>
+                	<p>本文系{$videoplay.a_author}创作，可自由转载、引用，但需署名作者且注明文章出处..</p>
+                	<p>本文标题：{$videoplay.a_title}</p>
                 	<p>原文网址：<a>功能暂未开放</a>.</p>
-                	<p>本文标签：<a>{$info.a_keyword}</a></p>
-                	发表自：&nbsp;{$info.a_from}&nbsp;&nbsp;位于：{$info.a_ip|getIp}&nbsp;&nbsp;评论：&nbsp;{$common|count}&nbsp;&nbsp;关键词：&nbsp;{$info['a_keyword']?$info['a_keyword']:'暂无标签'}&nbsp;&nbsp;
+                	<p>本文标签：<a>{$videoplay.a_keyword}</a></p>
+                	发表自：&nbsp;{$videoplay.a_from}&nbsp;&nbsp;位于：{$videoplay.a_ip|getIp}&nbsp;&nbsp;评论：&nbsp;{$common|count}&nbsp;&nbsp;关键词：&nbsp;{$videoplay['a_keyword']?$videoplay['a_keyword']:'暂无标签'}&nbsp;&nbsp;
             	</eq>
             </div>
             <hr />
@@ -47,8 +47,8 @@
                 <div class="collapse" id="collapseExample">
                     <div class="well">
                     <div method="post" >
-                    <input id="aid" type="hidden" value="{$info.a_id}" />
-                    <input id="atitle" type="hidden"  value="{$info.a_title}" />
+                    <input id="aid" type="hidden" value="{$videoplay.id}" />
+                    <input id="atitle" type="hidden"  value="{$videoplay.a_title}" />
                     <input id="jump" type="hidden"  value="__SELF__" />
                     <include file="Public:form"/>                   
                     <div class="form-group home-from-box">
@@ -93,3 +93,108 @@
             <p style="text-align:center;">ㄟ( ▔, ▔ )ㄏ没有更多了</p>
         </div>
     <include file="Public:sider"/>
+
+    <script type="text/javascript">
+                //验证文章评论数据
+        $('.btn-add').click(function(){
+            $("#name").parent(".input-group").removeClass("has-error");
+
+            $("#email").parent(".input-group").removeClass("has-warning");
+
+            $("#email").parent(".input-group").removeClass("has-error");
+
+            $("#content-text").parent(".form-group").removeClass("has-error");
+
+            $("#txt_check").parent(".input-group").removeClass("has-error");
+
+            var jump = $("#jump").val();
+
+            var send = $("input[name='send']:checked").val();
+
+            var rember = $("input[name='rember']:checked").val();
+
+            var id = $("#aid").val();
+
+            var title = $("#atitle").val();
+
+            var name=$('#name').val();
+
+            var ac_url =$('#url').val();
+
+            var email=$('#email').val();
+
+            var content_text=$('#content-text').val();
+
+            var txt_check=$('#txt_check').val();
+
+            if(!name){
+
+                $("#name").parent(".input-group").addClass("has-error");
+
+                return false;
+
+            // }else if(!email){
+
+            //  $("#email").parent(".input-group").addClass("has-warning");
+
+            //  return false;
+
+            // }else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
+
+            //  $("#email").parent(".input-group").addClass("has-error");
+
+            //  return false;
+
+            // }else if(!content_text){
+
+            //  $("#content-text").parent(".form-group").addClass("has-error");
+
+            //  return false;
+
+            // }else if(!txt_check){
+
+            //  $("#txt_check").parent(".input-group").addClass("has-error");
+
+            //  return false;
+
+            }
+
+            $(".btn-add").attr("disabled",true);
+            var index = layer.load(1,{time: 5*1000});
+            $.ajax({
+                type:"post",
+                url:"/index.php/home/Video/addVideoContent",
+                async:true,
+
+                dataType:'json',
+
+                data:{"ac_pid":id,"title":title,"ac_name":name,"ac_email":email,"ac_url":ac_url,"ac_content":content_text,"txt_check":txt_check,"send":send,"rember":rember},
+
+                success:function(data){
+                    layer.close(index);
+                    if(data.att == 1){
+                        layer.msg(data.msg, {icon: 5,
+                            time: 2000, //20s后自动关闭
+                        });
+                        $("#txt_check").parent(".input-group").addClass("has-error");
+
+                        $(".btn-add").removeAttr('disabled');
+
+                        return false;                       
+
+                    }else{
+                        
+                        layer.msg(data.msg, {icon: 1,
+                            time: 3000, //20s后自动关闭
+                        }, function(){
+                            window.location.href=jump;
+                        });
+                    }
+
+                }
+            });
+
+        });
+
+</script>
+            <!-- /评论表单 -->

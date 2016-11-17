@@ -40,30 +40,133 @@
 			<input id="jump" type="hidden"  value="__SELF__" />	
 			<div class="input-group home-from-box">
 			  <span class="input-group-addon" id="basic-addon1">名称</span>
-			  <input type="text" class="form-control" placeholder="(必填)网站名称" aria-describedby="basic-addon1" id="name" >
+			  <input type="text" class="form-control" placeholder="(必填)名称" aria-describedby="basic-addon1" id="name" >
 			</div>
 			<div class="input-group home-from-box">
 			  <span class="input-group-addon" id="basic-addon1">邮箱</span>
-			  <input type="email" class="form-control" placeholder="(必填)邮箱" aria-describedby="basic-addon1" id="email">
+			  <input type="email" class="form-control" placeholder="邮箱" aria-describedby="basic-addon1" id="email">
 			</div>
 			<div class="input-group home-from-box">
 			  <span class="input-group-addon" id="basic-addon1">域名</span>
-			  <input type="url" class="form-control" placeholder="(必填) 例：http://www.loveteemo.com" aria-describedby="basic-addon1" id="url">
+			  <input type="url" class="form-control" placeholder="http://returntotheworld.com/" aria-describedby="basic-addon1" id="url">
 			</div>
 			<div class="form-group home-from-box">
 				<textarea class="form-control" id="content-text" id="content" rows="3" placeholder="请简要描述下您的网站"></textarea>
 			</div>
-			<div class="input-group home-from-box ">
+<!-- 			<div class="input-group home-from-box ">
 			    <span class="input-group-addon" id="basic-addon1">验证码</span>
 			    <div class="input-group check-text">
 			      <input type="text" class="form-control" name="txt_check" id="txt_check" placeholder="验证码" >
 			    </div>
 			    <img style="cursor:pointer" class="img"  src="{:U('Home/Common/verify')}" onClick="this.src=this.src+'?'+Math.random();" title="看不清楚?点击刷新验证码?">				    
-			  </div>
+			  </div> -->
 			<div class="form-group home-from-box">
 				<button class="btn btn-default btn-add-link" type="button" value="">提交</button>
 			</div>
 			</form>
 		</div>
+		<script type="text/javascript">
+			//验证申请链接数据
+		$('.btn-add-link').click(function(){
+
+			$("#name").parent(".input-group").removeClass("has-error");
+
+			$("#email").parent(".input-group").removeClass("has-warning");
+
+			$("#email").parent(".input-group").removeClass("has-error");
+
+			$("#content-text").parent(".form-group").removeClass("has-error");
+
+			$("#txt_check").parent(".input-group").removeClass("has-error");
+
+			var jump = $("#jump").val();
+
+			var name=$('#name').val();
+
+			var l_url =$('#url').val();
+
+			var email=$('#email').val();
+
+			var content_text=$('#content-text').val();
+
+			var txt_check=$('#txt_check').val();
+
+			if(!name){
+
+				$("#name").parent(".input-group").addClass("has-error");
+
+				return false;
+
+			// }else if(!email){
+
+			// 	$("#email").parent(".input-group").addClass("has-warning");
+
+			// 	return false;
+
+			// }else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
+
+			// 	$("#email").parent(".input-group").addClass("has-error");
+
+			// 	return false;
+
+			// }else if(!content_text){
+
+			// 	$("#content-text").parent(".form-group").addClass("has-error");
+
+			// 	return false;
+
+			// }else if(!txt_check){
+
+			// 	$("#txt_check").parent(".input-group").addClass("has-error");
+
+			// 	return false;
+
+			}
+
+			$(".btn-add-link").attr("disabled",true);
+
+			var index = layer.load(1,{time: 5*1000});
+			$.ajax({
+
+				type:"post",
+
+				url:"/index.php/home/Friends/addLink",
+
+				async:true,
+
+				dataType:'json',
+
+				data:{"l_name":name,"l_email":email,"l_url":l_url,"l_content":content_text,"txt_check":txt_check,"l_sort":100,"l_view":0},
+
+				success:function(data){
+					layer.close(index);
+
+					if(data.att == 1){
+						layer.msg(data.msg, {icon: 5,
+			                time: 2000, //20s后自动关闭
+			            });
+
+						$("#txt_check").parent(".input-group").addClass("has-error");
+
+						$(".btn-add-link").removeAttr('disabled');
+
+						return false;						
+
+					}else{
+
+						layer.msg(data.msg, {icon: 1,
+			                time: 3000, //20s后自动关闭
+			            }, function(){
+			            	window.location.href=jump;
+			            });
+
+					}
+
+				}
+
+			});
+
+		});
+</script>
 	</div>
 	<include file="Public:sider"/>
