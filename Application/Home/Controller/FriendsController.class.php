@@ -27,15 +27,41 @@ class FriendsController extends CommonController {
 			layout(true); //开启模板
 			$this->display(); //浏览器不支持Pjax功能，使用默认的链接响应机制（加载模板）
 		}
+    }
+    public function index1(){ 
+		$this->assign('friends','active'); 
+        $this->mingzhan= M('link')->where(array('c_id'=>1))->order('hit desc')->field(true)->select();
+		if(!$links=S('links')){
+        	$links = M('link')->where(array('c_id'=>2))->order('hit desc')->field(true)->select();
+			setS("links",$links);
+		}
+		if(!$flinks=S('flinks')){
+        	$flinks = M('link')->order('hit desc')->field(true)->select();
+        	setS("flinks",$flinks);
+		}
+		$this->links=$links;
+		$this->flinks=$flinks;
+        if (array_key_exists('HTTP_X_PJAX', $_SERVER) && $_SERVER['HTTP_X_PJAX']) {
+			$this->display('','','','','pjax/'); //浏览器支持Pjax功能，直接渲染输出页面
+		} else {
+			layout(true); //开启模板
+			$this->display(); //浏览器不支持Pjax功能，使用默认的链接响应机制（加载模板）
+		}
     }	
-	
+    public function linkhit($id=0){
+    	$tmp = M('link');
+    	$tmp->where(array("l_id"=>$id))->setInc('hit');
+    	$mingzhan= M('link')->where(array("l_id"=>$id))->select();
+    	$url=$mingzhan[0]['l_url'];
+    	header('location:'.$url);
+    }	
     public function addLink(){
 		if(!IS_AJAX){
 			$this->error('提交方式不正确',0,0);
 		}else{
-			if(check_verify(I('post.txt_check')) == false){
-        		// $this->ajaxReturn(array("att"=>1,"msg"=>"验证码错误！"));
-        	}
+			// if(check_verify(I('post.txt_check')) == false){
+   //      		$this->ajaxReturn(array("att"=>1,"msg"=>"验证码错误！"));
+   //      	}
 			if(D('Admin/Link')->addH()){
 				$content = "
 				<div style='background-color:#d0d0d0;text-align:center;padding:40px;'>

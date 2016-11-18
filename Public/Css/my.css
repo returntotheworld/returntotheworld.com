@@ -156,9 +156,35 @@ article h5 .reprint{display: inline-block;vertical-align: bottom;font-size: 14px
 .gust{padding-left: 2px !important;padding-right: 2px !important;color: #5E5E5E;}
 
 /*friends*/
-.friends-box{background: #fff;padding: 10px;margin-bottom: 25px;border: 1px solid #ccc;}
-.friends {list-style: none;margin-bottom: 10px;height: auto;padding: 10px;width: 100%;}
-.friends li{margin: 10px;display: inline-block;}
+.friends-box{background: #fff;padding: 10px;margin-bottom: 15px;border: 1px solid #ccc;}
+.friends-box h4{ color: #777;}
+.friends {list-style: none;margin-bottom: 0px;height: auto;padding: 0px;width: 100%;}
+.friends li{margin: 10px;display: inline-block;
+    position: relative;
+    width: 56px;
+    height: 90px;}
+.friends li  a.icon_box{ display: block;
+    width: 56px;
+    height: 85px;
+    background: url(../Img/icon/icon_graybg.gif) left top no-repeat;
+}
+.friends li  a{ 
+	color: #777;
+}
+.friends li .icon_box img {
+    width: 56px;
+    height: 56px;
+    padding: 4px;
+}
+.friends li span {
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    display: block;
+    width: 86px;
+    margin-left: -15px;
+    text-align: center;
+}
 .links{margin-bottom:50px; }
 .link-small{margin-left: 15px;font-size: 12px;}
 

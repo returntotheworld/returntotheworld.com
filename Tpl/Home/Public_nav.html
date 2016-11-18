@@ -37,7 +37,14 @@
                                     </li>
                                     <li class="dh {$feel}"><a href="{:U('/feel')}">后山</a></li>
                                     <li class="dh {$album}"><a href="{:U('/album')}">全家福</a></li>
-                                    <li class="dh {$friends}"><a href="{:U('/friends')}">客房</a></li>
+                                    <!-- <li class="dh {$friends}"><a href="{:U('/friends')}">客房</a></li> -->
+                                    <li class="dropdown dh {$friends}"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">客房<span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="{:U('/friends')}">卧室</a></li>
+                                            <li><a href="{:U('/friends/index1')}">隔壁邻舍</a></li>
+                                            <li class="divider"></li>         
+                                      </ul>
+                                    </li>
                                     <li class="dh {$gust}"><a href="{:U('/gust')}">地堂</a></li>
                                     <li class="dh {$video}"><a href="{:U('/video')}">电视房</a></li>
                                     <li class="dropdown dh "><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">实验屋<span class="caret"></span></a>
@@ -47,7 +54,7 @@
                                             <li class="divider"></li>         
                                       </ul>
                                     </li>
-                                    <li class="dh "><a href="http://dh.spcos.com/" target="_blank">隔壁邻舍</a></li>
+                                    <!-- <li class="dh {$friends}"><a href="{:U('/friends/index1')}">隔壁邻舍</a></li> -->
 
                                 </ul>
                                 <!-- 搜索栏 -->

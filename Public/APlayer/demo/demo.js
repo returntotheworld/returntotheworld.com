@@ -95,7 +95,21 @@ var ap4 = new APlayer({
         }
     ]
 });
-var aarr = ["http://7xli4a.com1.z0.glb.clouddn.com/qzone/audio/%E6%8A%98%E5%AD%90%E6%88%8F.mp3","http://7xli4a.com1.z0.glb.clouddn.com/qzone/audio/%E7%BA%A2%E8%89%B2%E9%AB%98%E8%B7%9F%E9%9E%8B.mp3","http://7xli4a.com1.z0.glb.clouddn.com/qzone/audio/%E8%8A%B1%E9%A6%99.mp3"];
+var aarr = [
+        {
+            title:"リフレクティア",
+            author: 'eufonius',
+            url:"http://sellmoe.qiniudn.com/リフレクティア.mp3",
+            pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
+            lrc: '/Public/APlayer/demo/リフレクティア.lrc'
+        },
+        {
+            title: '花香',
+            author: '周传雄',
+            url: 'http://7xli4a.com1.z0.glb.clouddn.com/qzone/audio/%E8%8A%B1%E9%A6%99.mp3',
+            pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
+            lrc: '/Public/APlayer/demo/あっちゅ～ま青春!.lrc'
+        }];
 var aindex = ~~(Math.random()*aarr.length);
 var ap5 = new APlayer({
     element: document.getElementById('player5'),
@@ -104,7 +118,7 @@ var ap5 = new APlayer({
     showlrc: 3,
     mutex: true,
     theme: '#ad7a86',
-    music: [
+    music: [aarr[aindex],
         // {
         //     title:"随机播放曲目",
         //     author: '未知',
@@ -112,13 +126,13 @@ var ap5 = new APlayer({
         //     pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
         //     lrc: '/Public/APlayer/demo/あっちゅ～ま青春!.lrc'
         // },
-        {
-            title:"リフレクティア",
-            author: 'eufonius',
-            url:"http://sellmoe.qiniudn.com/リフレクティア.mp3",
-            pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
-            lrc: '/Public/APlayer/demo/リフレクティア.lrc'
-        },
+        // {
+        //     title:"リフレクティア",
+        //     author: 'eufonius',
+        //     url:"http://sellmoe.qiniudn.com/リフレクティア.mp3",
+        //     pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
+        //     lrc: '/Public/APlayer/demo/リフレクティア.lrc'
+        // },
         // {
         //     title:"歌曲02",
         //     author: '七森中☆ごらく部',
@@ -141,27 +155,27 @@ var ap5 = new APlayer({
         //     pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
         //     lrc: '/Public/APlayer/demo/あっちゅ～ま青春!.lrc'
         // },
-        // {
-        //     title: '折子戏',
-        //     author: '张国荣',
-        //     url: 'http://7xli4a.com1.z0.glb.clouddn.com/qzone/audio/%E6%8A%98%E5%AD%90%E6%88%8F.mp3',
-        //     pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
-        //     lrc: '/Public/APlayer/demo/あっちゅ～ま青春!.lrc'
-        // },
-        // {
-        //     title: '红色高跟鞋',
-        //     author: '蔡健雅',
-        //     url: 'http://7xli4a.com1.z0.glb.clouddn.com/qzone/audio/%E7%BA%A2%E8%89%B2%E9%AB%98%E8%B7%9F%E9%9E%8B.mp3',
-        //     pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
-        //     lrc: '/Public/APlayer/demo/あっちゅ～ま青春!.lrc'
-        // },
-        // {
-        //     title: '花香',
-        //     author: '周传雄',
-        //     url: 'http://7xli4a.com1.z0.glb.clouddn.com/qzone/audio/%E8%8A%B1%E9%A6%99.mp3',
-        //     pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
-        //     lrc: '/Public/APlayer/demo/あっちゅ～ま青春!.lrc'
-        // },
+        {
+            title: '折子戏',
+            author: '张国荣',
+            url: 'http://7xli4a.com1.z0.glb.clouddn.com/qzone/audio/%E6%8A%98%E5%AD%90%E6%88%8F.mp3',
+            pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
+            lrc: '/Public/APlayer/demo/あっちゅ～ま青春!.lrc'
+        },
+        {
+            title: '红色高跟鞋',
+            author: '蔡健雅',
+            url: 'http://7xli4a.com1.z0.glb.clouddn.com/qzone/audio/%E7%BA%A2%E8%89%B2%E9%AB%98%E8%B7%9F%E9%9E%8B.mp3',
+            pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
+            lrc: '/Public/APlayer/demo/あっちゅ～ま青春!.lrc'
+        },
+        {
+            title: '花香',
+            author: '周传雄',
+            url: 'http://7xli4a.com1.z0.glb.clouddn.com/qzone/audio/%E8%8A%B1%E9%A6%99.mp3',
+            pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
+            lrc: '/Public/APlayer/demo/あっちゅ～ま青春!.lrc'
+        },
         // {
         //     title: 'あっちゅ～ま青春!',
         //     author: '七森中☆ごらく部',
@@ -191,9 +205,9 @@ window.onblur = function () {
     // setTimeout(function(){ap5.pause()},5000);
     ap5.pause();
 }; 
-window.onfocus = function () { 
-    // ap5.volume(0.5);
-    // ap5.play();
-    // setTimeout(function(){ap5.volume(1)},3000);
-    ap5.play();
-};
+// window.onfocus = function () { 
+//     // ap5.volume(0.5);
+//     // ap5.play();
+//     // setTimeout(function(){ap5.volume(1)},3000);
+//     ap5.play();
+// };
