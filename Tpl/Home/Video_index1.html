@@ -1,5 +1,5 @@
 <include file="Public:nav"/>
-    <div class="row aerousel">
+    <div class="row aerousel" id="vdiv">
         <ol class="breadcrumb">
             <li><a href="index.html">网站首页</a></li>
             <li class="active">学海无涯&nbsp;|&nbsp;{$videoplay.t_name}</li>
@@ -11,13 +11,15 @@
 			<else />
 				<span class="reprint">【转载】</span>
 			</eq>
-			<a href="{:U('/article-'.$v['a_id'])}">{$videoplay.title}</a>
+			<a href="javascript:;">{$videoplay.title}</a>
 		</h5>
-           	<div class="a-write">栏目：{$videoplay.t_name}&nbsp;&nbsp;作者：{$videoplay.a_author}&nbsp;&nbsp;阅读：（{$videoplay.a_hit}）<span class="hidden-xs">更新于：{$videoplay.a_time|getTime}</span></div>
+           	<div class="a-write">【影片观看小贴士】:均来自互联网作品，7不太适合网速过慢的用户观看！</div>
             <div class="a-content"> {$videoplay.idd}
 </div>
             <div class="article-copy hidden-xs">
-                <eq name="info.a_original" value="1">
+            <h4>简介</h4>
+            <p>{$videoplay.description}</p>
+<!--                 <eq name="info.a_original" value="1">
                 	<p>非特殊说明，观点归属{$videoplay.a_author}个人，回这世界博客提供出处.</p>
                 	<p>本文标题：{$videoplay.a_title}</p>
                 	<p>本文网址：<a>{$Think.config.SITE_URL}.com/article-{$videoplay.a_id}.html</a>.</p>
@@ -28,7 +30,7 @@
                 	<p>原文网址：<a>功能暂未开放</a>.</p>
                 	<p>本文标签：<a>{$videoplay.a_keyword}</a></p>
                 	发表自：&nbsp;{$videoplay.a_from}&nbsp;&nbsp;位于：{$videoplay.a_ip|getIp}&nbsp;&nbsp;评论：&nbsp;{$common|count}&nbsp;&nbsp;关键词：&nbsp;{$videoplay['a_keyword']?$videoplay['a_keyword']:'暂无标签'}&nbsp;&nbsp;
-            	</eq>
+            	</eq> -->
             </div>
             <hr />
 			<div class="bdsharebuttonbox fenxiang hidden-xs">

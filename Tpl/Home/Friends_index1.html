@@ -6,11 +6,11 @@
 	</ol>
 	<div class="col-md-8 row-l">
 		<div class="friends-box">
-		<h4>名站<small class="link-small">此处为通过QQ登陆本网站</small></h4><hr>
+		<h4>名站<small class="link-small">搜索按Ctrl+F</small></h4><hr>
 		<ul  class="friends">
 		<volist name="mingzhan" id="v">
 		    <li>
-            	<a class="icon_box" href="{:U('/friends/linkhit?id='.$v['l_id'])}"target="_blank">
+            	<a class="icon_box" href="{$Think.config.SITE_URL}/index.php/Home/friends/linkhit?url={$v.l_url}"target="_blank" title="{$v.l_remark}">
                     <img src="{$v.purl}">
                 	<span>{$v.l_name}</span>
                 </a>
@@ -25,24 +25,78 @@
 		</ul>
 		</div>
 		<div class="friends-box">
-		<h4>收藏<small class="link-small">此处为申请友链通过链接</small></h4><hr>
-		<div class="links">
+		<h4>收藏<small class="link-small">此处为不知名但有帮助的入口</small></h4><hr>
+	    <ul class="friends">
+			<volist name="links" id="v">
+			    <li>
+	            	<!-- <a class="icon_box" href="{:U('/friends/linkhit?id='.$v['l_id'])}"target="_blank" title="{$v.l_remark}"> -->
+	            	<a class="icon_box" href="{$Think.config.SITE_URL}/index.php/Home/friends/linkhit?url={$v.l_url}"target="_blank" title="{$v.l_remark}">
+	            	
+	                    <img src="{$v.purl}">
+	                	<span>{$v.l_name}</span>
+	                </a>
+	            </li>
+	        </volist>
+        </ul>
+<!-- 		<div class="links">
 			<ul class="link-ul">
 			<volist name="links" id="v">
 				<li><a href="{:U('/friends/linkhit?id='.$v['l_id'])}" target="_blank" title="{$v.l_remark}">{$v.l_name}</a></li>
 			</volist>
 			</ul>
-		</div>
+		</div> -->
 		</div>
 		<div class="friends-box">
-		<h4>全部<small class="link-small">此处为QQ群友链接</small></h4><hr>
-		<div class="links">
-			<ul class="link-ul">
-				<volist name="flinks" id="v">
-				<li><a href="{:U('/friends/linkhit?id='.$v['l_id'])}" target="_blank" title="{$v.l_remark}">{$v.l_name}</a></li>
-			</volist>
-			</ul>
+		<h4>博客<small class="link-small">因为一篇好文就出现在这。</small></h4><hr>
+	    <ul class="friends">
+			<volist name="flinks4" id="v">
+			    <li>
+	            	<a class="icon_box" href="{$Think.config.SITE_URL}/index.php/Home/friends/linkhit?url={$v.l_url}"target="_blank" title="{$v.l_remark}">
+	                    <img src="{$v.purl}">
+	                	<span>{$v.l_name}</span>
+	                </a>
+	            </li>
+	        </volist>
+        </ul>
 		</div>
+		<div class="friends-box">
+		<h4>兵器<small class="link-small">其实是神奇。</small></h4><hr>
+	    <ul class="friends">
+			<volist name="flinks5" id="v">
+			    <li>
+	            	<a class="icon_box" href="{$Think.config.SITE_URL}/index.php/Home/friends/linkhit?url={$v.l_url}"target="_blank" title="{$v.l_remark}">
+	                    <img src="{$v.purl}">
+	                	<span>{$v.l_name}</span>
+	                </a>
+	            </li>
+	        </volist>
+        </ul>
+		</div>
+		<div class="friends-box">
+		<h4>院校<small class="link-small">系统化充电的地方。</small></h4><hr>
+	    <ul class="friends">
+			<volist name="flinks6" id="v">
+			    <li>
+	            	<a class="icon_box" href="{$Think.config.SITE_URL}/index.php/Home/friends/linkhit?url={$v.l_url}"target="_blank" title="{$v.l_remark}">
+	                    <img src="{$v.purl}">
+	                	<span>{$v.l_name}</span>
+	                </a>
+	            </li>
+	        </volist>
+        </ul>
+		</div>
+		<div class="friends-box">
+		<h4>躺尸<small class="link-small">可能有一天会复活吧。</small></h4><hr>
+	    <ul class="friends">
+			<volist name="flinks7" id="v">
+			    <li>
+	            	<a class="icon_box" href="{$Think.config.SITE_URL}/index.php/Home/friends/linkhit?url={$v.l_url}"target="_blank" title="{$v.l_remark}">
+	                    <img src="{$v.purl}">
+	                	<span>{$v.l_name}</span>
+	                </a>
+	            </li>
+	        </volist>
+        </ul>
 		</div>
 		<div class="home-from">
 			<form  method="post" role="form" >
@@ -61,7 +115,7 @@
 			</div>
 			<div class="input-group home-from-box">
 			  <span class="input-group-addon" id="basic-addon1">图标</span>
-			  <input type="url" class="form-control" placeholder="外链" aria-describedby="basic-addon1" id="purl">
+			  <input type="url" class="form-control" placeholder="外链" aria-describedby="basic-addon1" id="purl" value="/Upload/link_pic/9527.gif">
 			</div>
 			<div class="input-group home-from-box">
 			<span class="input-group-addon" id="basic-addon1">栏目</span>
@@ -69,6 +123,10 @@
 						<option value="0">未分类</option>
 						<option value="1">名站</option>
 						<option value="2">收藏</option>
+						<option value="4">博客</option>
+						<option value="5">兵器</option>
+						<option value="6">院校</option>
+						<!-- <option value="7">躺尸</option> -->
 						</select>
 						
 			</div>
@@ -148,7 +206,7 @@
 
 			}
 
-			$(".btn-add-link").attr("disabled",true);
+			// $(".btn-add-link").attr("disabled",true);
 
 			var index = layer.load(1,{time: 5*1000});
 			$.ajax({
@@ -182,7 +240,7 @@
 						layer.msg(data.msg, {icon: 1,
 			                time: 3000, //20s后自动关闭
 			            }, function(){
-			            	window.location.href=jump;
+			            	// window.location.href=jump;
 			            });
 
 					}

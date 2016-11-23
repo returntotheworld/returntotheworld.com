@@ -39,8 +39,28 @@ class FriendsController extends CommonController {
         	$flinks = M('link')->order('hit desc')->field(true)->select();
         	setS("flinks",$flinks);
 		}
+		if(!$flinks5=S('flinks5')){
+        	$flinks5 = M('link')->where(array('c_id'=>5))->order('hit desc')->field(true)->select();
+        	setS("flinks5",$flinks5);
+		}
+		if(!$flinks6=S('flinks6')){
+        	$flinks6 = M('link')->where(array('c_id'=>6))->order('hit desc')->field(true)->select();
+        	setS("flinks6",$flinks6);
+		}
+		if(!$flinks7=S('flinks7')){
+        	$flinks7 = M('link')->where(array('c_id'=>7))->order('hit desc')->field(true)->select();
+        	setS("flinks7",$flinks7);
+		}
+		if(!$flinks4=S('flinks4')){
+        	$flinks4 = M('link')->where(array('c_id'=>4))->order('hit desc')->field(true)->select();
+        	setS("flinks4",$flinks4);
+		}
 		$this->links=$links;
 		$this->flinks=$flinks;
+		$this->flinks5=$flinks5;
+		$this->flinks6=$flinks6;
+		$this->flinks7=$flinks7;
+		$this->flinks4=$flinks4;
         if (array_key_exists('HTTP_X_PJAX', $_SERVER) && $_SERVER['HTTP_X_PJAX']) {
 			$this->display('','','','','pjax/'); //浏览器支持Pjax功能，直接渲染输出页面
 		} else {
@@ -48,12 +68,13 @@ class FriendsController extends CommonController {
 			$this->display(); //浏览器不支持Pjax功能，使用默认的链接响应机制（加载模板）
 		}
     }	
-    public function linkhit($id=0){
-    	$tmp = M('link');
-    	$tmp->where(array("l_id"=>$id))->setInc('hit');
-    	$mingzhan= M('link')->where(array("l_id"=>$id))->select();
-    	$url=$mingzhan[0]['l_url'];
-    	header('location:'.$url);
+    public function linkhit($url=0){
+
+    	// $tmp = M('link');
+    	// $tmp->where(array("l_id"=>$id))->setInc('hit');
+    	// $mingzhan= M('link')->where(array("l_id"=>$id))->select();
+    	// $url=$mingzhan[0]['l_url'];
+    	header("location:".$url);
     }	
     public function addLink(){
 		if(!IS_AJAX){

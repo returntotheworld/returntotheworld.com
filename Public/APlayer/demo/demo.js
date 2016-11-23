@@ -114,10 +114,12 @@ var aindex = ~~(Math.random()*aarr.length);
 var ap5 = new APlayer({
     element: document.getElementById('player5'),
     narrow: false,
-    autoplay: true,
-    showlrc: 3,
-    mutex: true,
+    autoplay: false,
+    showlrc: false,
+    mutex: false,
     theme: '#ad7a86',
+    loop: false,
+    preload: 'metadata',
     music: [aarr[aindex],
         // {
         //     title:"随机播放曲目",

@@ -1,4 +1,21 @@
-<div class="top-top1" id="mynav"style="height: 50px; line-height: 50px; position: fixed; top: 0px; left: 0px; padding: 0px; margin: 0px; background-color: rgb(50, 50, 49);">
+
+<script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.thinkpage.cn/widget/chameleon.js"))</script>
+<script>tpwidget("init", {
+    "flavor": "slim",
+    "location": "WKMDPF5WVXUT",
+    "geolocation": "disabled",
+    "language": "zh-chs",
+    "unit": "c",
+    "theme": "chameleon",
+    "container": "tp-weather-widget",
+    "bubble": "disabled",
+    "alarmType": "circle",
+    "color": "#FFFFFF",
+    "uid": "UFF1E56C7B",
+    "hash": "a1f1076140bee1a5b8c103262a1204fc"
+});
+tpwidget("show");</script>
+<div class="top-top1" id="mynav"style="height: 50px; line-height: 50px; position: fixed; top: 0px; left: 0px; padding: 0px; margin: 0px; background-color: rgb(50, 50, 49);"><div id="tp-weather-widget" style="float: left;"></div>
         <div class="container ">
             <div class="row header">
     <!--                 <div class="col-md-4 logo">
@@ -49,9 +66,21 @@
                                     <li class="dh {$video}"><a href="{:U('/video')}">电视房</a></li>
                                     <li class="dropdown dh "><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">实验屋<span class="caret"></span></a>
                                         <ul class="dropdown-menu" role="menu">
+                                        <li class="dropdown-submenu">
+                                                <a tabindex="-1" href="javascript:;">解决方案</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="{$Think.config.SITE_URL}/index.php/Home/About/tool" target="_blank" target="_blank">工具技巧总结</a></li>
+                                                    <li><a href="{$Think.config.SITE_URL}/index.php/Home/About/css" target="_blank" target="_blank">CSS解决方案</a></li>
+                                                    <li><a href="{$Think.config.SITE_URL}/index.php/Home/About/web" target="_blank" target="_blank">Web解决方案</a></li>
+                                                    <li><a href="{$Think.config.SITE_URL}/index.php/Home/About/sql" target="_blank" target="_blank">SQL解决方案</a> 
+                                                    </li>
+                                                </ul>
+                                            </li>
                                             <li><a href="{$Think.config.SITE_URL}/index.php/Admin/Login/index" target="_blank">后门</a></li>
                                             <li><a href="{$Think.config.SITE_URL}/danmu/admin" target="_blank" target="_blank">弹幕控制台</a></li>
-                                            <li class="divider"></li>         
+                                            
+                                            <li class="divider"></li> 
+
                                       </ul>
                                     </li>
                                     <!-- <li class="dh {$friends}"><a href="{:U('/friends/index1')}">隔壁邻舍</a></li> -->
@@ -64,12 +93,14 @@
                                       <button type="submit"class="glyphicon glyphicon-search"></button>
                                     </form>
                                 </div>
+
                                 <!-- /搜索栏 --> 
                             </div>
                         </nav>
                     </div> 
                 </div>
             </div>
+
             </div>
         
 

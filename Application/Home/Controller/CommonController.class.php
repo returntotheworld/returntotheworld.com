@@ -60,7 +60,7 @@ class CommonController extends Controller{
 		if(!$album = S('album')){$album = $Album->where(array('al_view'=>1))->limit(9)->select();setS("album", $album);}
 		$this->foot_album=$album;		
 		//------------------------------------------------------右侧------------------------------------------------------------------------
-		if(!$tag = S('tag')){
+		if(!$result = S('result')){
 			$tag = $article->where("a_keyword != '' and a_view > 0")->field('a_keyword,a_id,a_time')->order('a_time desc')->select();
 			for($i=0;$i<=count($tag);$i++){
 				$strt.=$tag[$i]['a_keyword'].',';
@@ -69,13 +69,13 @@ class CommonController extends Controller{
 			$strt = array_unique($strt);
 			for($i=0;$i<=count($strt);$i++){
 				if (!empty($strt[$i])){
-					$tag[$i]['key']=$i+1;
-				    $tag[$i]['a_keyword']=$strt[$i];
+					$result[$i]['key']=$i+1;
+				    $result[$i]['a_keyword']=$strt[$i];
 				}
 				
-			}setS('tag',$tag);
+			}setS('result',$result);
 		}
-		$this->assign('tag',$tag);
+		$this->assign('tag',$result);
         if(!$s_article = S('s_article')){
 	        $arr = $article->where('a_view != 0')->getField('a_id',true);
 	      	$res = array_rand($arr,3);
