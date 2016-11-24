@@ -1,5 +1,5 @@
 <include file="Public:nav"/>
-     	<div class="row aerousel">
+     	<div class="row aerousel" id="vdiv">
       		<ol class="breadcrumb">
 		  	<li><a href="/index.html">网站首页</a></li>
 		  	<li class="active">影视</li>
@@ -11,12 +11,12 @@
 				</div>
 				<h4>请文明观影</h4>
 				<div>
-				<a href="{:U('/video')}"><button class="btn btn-default btn-add-link" type="button" value="">全部</button></a>
-				<a href="{:U('/video/indexcid?id=1')}"><button class="btn btn-default btn-add-link" type="button" value="">因趣</button></a>
-				<a href="{:U('/video/indexcid?id=2')}"><button class="btn btn-default btn-add-link" type="button" value="">舞蹈</button></a>
-				<a href="{:U('/video/indexcid?id=3')}"><button class="btn btn-default btn-add-link" type="button" value="">影视</button></a>
-				<a href="{:U('/video/indexcid?id=4')}"><button class="btn btn-default btn-add-link" type="button" value="">游戏</button></a>
-				<a href="{:U('/video/indexcid?id=5')}"><button class="btn btn-default btn-add-link" type="button" value="">生活</button></a>
+				<a href="{:U('/video').'#vdiv'}"><button class="btn btn-default" type="button" value="">全部</button></a>
+				<a href="{:U('/video/index?id=1').'#vdiv'}"><button class="btn btn-default" type="button" value="">因趣</button></a>
+				<a href="{:U('/video/index?id=2').'#vdiv'}"><button class="btn btn-default" type="button" value="">舞蹈</button></a>
+				<a href="{:U('/video/index?id=3').'#vdiv'}"><button class="btn btn-default" type="button" value="">影视</button></a>
+				<a href="{:U('/video/index?id=4').'#vdiv'}"><button class="btn btn-default" type="button" value="">游戏</button></a>
+				<a href="{:U('/video/index?id=5').'#vdiv'}"><button class="btn btn-default" type="button" value="">生活</button></a>
 				{$page}
 				</div>
 			

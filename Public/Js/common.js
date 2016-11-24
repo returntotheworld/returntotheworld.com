@@ -617,5 +617,104 @@ $(document).ready(function() {
 // 			});
 
 // 		});
+//// 相册特效
+// $('.btn-add').click(function(){
+//             $("#name").parent(".input-group").removeClass("has-error");
 
+//             $("#email").parent(".input-group").removeClass("has-warning");
+
+//             $("#email").parent(".input-group").removeClass("has-error");
+
+//             $("#content-text").parent(".form-group").removeClass("has-error");
+
+//             $("#txt_check").parent(".input-group").removeClass("has-error");
+
+//             var jump = $("#jump").val();
+
+//             var send = $("input[name='send']:checked").val();
+
+//             var rember = $("input[name='rember']:checked").val();
+
+//             var id = $("#aid").val();
+
+//             var title = $("#atitle").val();
+
+//             var name=$('#name').val();
+
+//             var ac_url =$('#url').val();
+
+//             var email=$('#email').val();
+
+//             var content_text=$('#content-text').val();
+
+//             var txt_check=$('#txt_check').val();
+
+//             if(!name){
+
+//                 $("#name").parent(".input-group").addClass("has-error");
+
+//                 return false;
+
+//             // }else if(!email){
+
+//             //  $("#email").parent(".input-group").addClass("has-warning");
+
+//             //  return false;
+
+//             // }else if(!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)){
+
+//             //  $("#email").parent(".input-group").addClass("has-error");
+
+//             //  return false;
+
+//             // }else if(!content_text){
+
+//             //  $("#content-text").parent(".form-group").addClass("has-error");
+
+//             //  return false;
+
+//             // }else if(!txt_check){
+
+//             //  $("#txt_check").parent(".input-group").addClass("has-error");
+
+//             //  return false;
+
+//             }
+
+//             $(".btn-add").attr("disabled",true);
+//             var index = layer.load(1,{time: 5*1000});
+//             $.ajax({
+//                 type:"post",
+//                 url:"/index.php/home/Article/addArticleContent",
+//                 async:true,
+
+//                 dataType:'json',
+
+//                 data:{"ac_pid":id,"title":title,"ac_name":name,"ac_email":email,"ac_url":ac_url,"ac_content":content_text,"txt_check":txt_check,"send":send,"rember":rember},
+
+//                 success:function(data){
+//                     layer.close(index);
+//                     if(data.att == 1){
+//                         layer.msg(data.msg, {icon: 5,
+//                             time: 2000, //20s后自动关闭
+//                         });
+//                         $("#txt_check").parent(".input-group").addClass("has-error");
+
+//                         $(".btn-add").removeAttr('disabled');
+
+//                         return false;                       
+
+//                     }else{
+                        
+//                         layer.msg(data.msg, {icon: 1,
+//                             time: 3000, //20s后自动关闭
+//                         }, function(){
+//                             window.location.href=jump;
+//                         });
+//                     }
+
+//                 }
+//             });
+
+//         });
 });

@@ -37,15 +37,19 @@ class AlbumController extends CommonController {
 	public function look(){
 	    $this->assign('album','active');
 		$id = I('get.id');
+
 		if(!$albums=S("albums".$id)){
 	    	$albums = M('album')->where(array('al_id'=>$id))->find();
 			setS("albums".$id,$albums);
 		}
+		
 	    $this->albums = $albums;
 		if(!$pictureList=S('pictureList'.$id)){
 	    	$pictureList= M('picture')->where(array('p_pid'=>$id))->select();
 			setS("pictureList".$id,$pictureList);
+			$p_count=count($pictureList);
 		}
+		$this->assign('p_count',$p_count);
 	    $this->assign('pictureList',$pictureList);
 		if(!$al_content=S("al_content".$id)){
 			$al_content = M('album_c')->where(array("alc_pid"=>$id))->where("alc_rtime >=0")->select();
@@ -55,6 +59,8 @@ class AlbumController extends CommonController {
             }
 			setS("al_content".$id,$al_content);
 		}
+		$this->up 	=  M('album')->where('al_view !=0 AND al_id <'.$id)->order('al_id desc')->limit(1)->find();
+		$this->down =  M('album')->where('al_view !=0 AND al_id >'.$id)->order('al_id')->limit(1)->find();	
 	    $this->assign('al_content',$al_content);
 	    if (array_key_exists('HTTP_X_PJAX', $_SERVER) && $_SERVER['HTTP_X_PJAX']) {
 			$this->display('','','','','pjax/'); //浏览器支持Pjax功能，直接渲染输出页面

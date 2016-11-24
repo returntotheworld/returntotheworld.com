@@ -13,7 +13,7 @@
 			</eq>
 			<a href="javascript:;">{$videoplay.title}</a>
 		</h5>
-           	<div class="a-write">【影片观看小贴士】:均来自互联网作品，7不太适合网速过慢的用户观看！</div>
+           	<div class="a-write">【影片观看小贴士】:均来自互联网作品，宽带原因不太适合网速过慢的用户观看！</div>
             <div class="a-content"> {$videoplay.idd}
 </div>
             <div class="article-copy hidden-xs">
@@ -40,8 +40,8 @@
 				<a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
 				<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a></div>
 			<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-			<div class="a-up"><p>上一篇：<empty name="up.a_id">&nbsp;没有了<else /><a title='{$up.a_title}' href="{:U('/article-'.$up['a_id'])}">&nbsp;{$up.a_title|msubstr=0,40,'utf-8',ture}</a></empty></p></div>
-            <div class="a-down"><p>下一篇：<empty name="down.a_id">&nbsp;没有了<else /><a title='{$down.a_title}' href="{:U('/article-'.$down['a_id'])}">&nbsp;{$down.a_title|msubstr=0,40,'utf-8',ture}</a></empty></p></div>
+			<div class="a-up"><p>上一篇：<empty name="up.id">&nbsp;没有了<else /><a title='{$up.title}' href="{:U('/video/index1?id='.$up['id']).'#vdiv'}">&nbsp;{$up.title|msubstr=0,40,'utf-8',ture}</a></empty></p></div>
+            <div class="a-down"><p>下一篇：<empty name="down.id">&nbsp;没有了<else /><a title='{$down.title}' href="{:U('/video/index1?id='.$down['id']).'#vdiv'}">&nbsp;{$down.title|msubstr=0,40,'utf-8',ture}</a></empty></p></div>
             <hr />
             <!-- 评论表单 -->
             <div class="home-from">

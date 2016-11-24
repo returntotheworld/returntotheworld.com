@@ -16,14 +16,23 @@ class VideoController extends CommonController {
     public function index(){
 	  	$this->assign('video','active');
 	    $id =I('get.id');
-        if(!$videolist=S('videolist')){
+        if(empty($id)){
+            if(!$videolist=S('videolist')){
+                $tmp = M('video');
+                $count = $tmp->count();
+                $Page  = new \Think\PageHome($count,5);
+                $show  = $Page->show();
+                $videolist = $tmp->order('id desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+                setS("videolist",$videolist);
+            } 
+        }else{
             $tmp = M('video');
-            $count = $tmp->count();
+            $count = $tmp->where(array('cid'=>$id))->count();
             $Page  = new \Think\PageHome($count,5);
             $show  = $Page->show();
-            $videolist = $tmp->order('id desc')->limit($Page->firstRow.','.$Page->listRows)->select();
-            setS("videolist",$videolist);
+            $videolist = $tmp->order('id desc')->where(array('cid'=>$id))->limit($Page->firstRow.','.$Page->listRows)->select();
         }
+        
     	
 		$this->assign('videolist',$videolist);
 		$this->assign('page',$show);
@@ -34,26 +43,12 @@ class VideoController extends CommonController {
             $this->display(); //浏览器不支持Pjax功能，使用默认的链接响应机制（加载模板）
         }
     }
-     public function indexcid(){
-        $this->assign('video','active');
-        $id =I('get.id');
-        $tmp = M('video');
-        $count = $tmp->where(array('cid'=>$id))->count();
-        $Page  = new \Think\PageHome($count,5);
-        $show  = $Page->show();
-        $article = $tmp->order('id desc')->where(array('cid'=>$id))->limit($Page->firstRow.','.$Page->listRows)->select();
-        $this->assign('article',$article);
-        $this->assign('page',$show);
-        if (array_key_exists('HTTP_X_PJAX', $_SERVER) && $_SERVER['HTTP_X_PJAX']) {
-            $this->display('','','','','pjax/'); //浏览器支持Pjax功能，直接渲染输出页面
-        } else {
-            layout(true); //开启模板
-            $this->display('index'); //浏览器不支持Pjax功能，使用默认的链接响应机制（加载模板）
-        }
-    }
     public function index1($id=0){
         $this->assign('video','active');
-    	$article = M('video')->where(array("id"=>$id))->select();
+        $tmp=M('video');
+    	$article = $tmp->where(array("id"=>$id))->select();
+
+
         $article[0]['idd']="<iframe src='/danmu/miniplayer/player.php?id=".$article[0]['id']."' style='height:502px;width:740px;' allowfullscreen frameborder='no'></iframe>";
 		$this->assign('videoplay',$article[0]);
 
@@ -65,6 +60,8 @@ class VideoController extends CommonController {
             }
             setS("common_".$id,$common);
         }
+        $this->up   =  $tmp->where('id <'.$id)->order('id desc')->limit(1)->find();
+        $this->down =  $tmp->where('id >'.$id)->order('id')->limit(1)->find();
         $this->info = $info;
         $this->common = $common;
         if (array_key_exists('HTTP_X_PJAX', $_SERVER) && $_SERVER['HTTP_X_PJAX']) {
