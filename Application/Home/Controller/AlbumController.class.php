@@ -13,7 +13,7 @@ class AlbumController extends CommonController {
 	    $this->assign('album','active');  
 	    $count = M('album')->where('al_view = 1')->count();
 	    $this->assign('count',$count);
-	    $Page  = new \Think\PageHome($count,5);
+	    $Page  = new \Think\PageHome($count,12);
 	    $show  = $Page->show();
 	    $album = M('album')->where('al_view = 1')->limit($Page->firstRow.','.$Page->listRows)->select();
 	    $this->assign('albumList',$album);

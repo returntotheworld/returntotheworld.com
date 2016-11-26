@@ -23,23 +23,43 @@
 						<h5>幻灯设置</h5>
 					</div>
 					<div class="widget-content nopadding">
+					<form action="{:U('Admin/System/addppt')}" method="post" class="form-horizontal" enctype="multipart/form-data" />
+                            <div class="form-group">
+                           		<label class="col-sm-3 col-md-3 col-lg-1 control-label">幻灯新增</label>
+                                <div class=" col-sm-9 col-md-9 col-lg-10">
+                                    <div class="row">
+                                    	<div class="input-group input-group-sm">
+                                    	<input type="file" name="file" />
+                                        </div>
+                                       	<div class="col-md-6">
+                                        	<input type="text" placeholder="指向文章或者url" class="form-control" name="url"/>
+                                        </div>
+                                   </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+								<button type="submit" class="btn btn-success btn-sm">存入数据库</button>  <button type="submit" class="btn btn-danger btn-sm">取消</button>
+							</div>
+						</form>
+						<volist name="ppt" id="ppt" key="k" empty="暂时没有文章">
 						<form action="{:U('Admin/System/pptH')}" method="post" class="form-horizontal" enctype="multipart/form-data" />
-							<input name="id" type="hidden" value="{$ppt.0.pp_id}" />
+							<input name="id" type="hidden" value="{$ppt.pp_id}" />
 							<div class="form-group">
 								<label class="col-sm-3 col-md-3 col-lg-1 control-label">预览</label>
 								<div class="col-sm-9 col-md-9 col-lg-10">
 									<div style="border: 1px solid #999999;min-height: 100px;text-align: center;padding: 2px;">
-										<img src="{$ppt.0.pp_img}" />
+										<img src="{$ppt.pp_img}" width="1175" height="275"/>
 									</div>
 								</div>
 							</div>
 							
 							<div class="form-group">
-                                <label class="col-sm-3 col-md-3 col-lg-1 control-label">幻灯1</label>
+                                <label class="col-sm-3 col-md-3 col-lg-1 control-label">幻灯{$k}</label>
                                 <div class=" col-sm-9 col-md-9 col-lg-10">
                                 	<div class="row">
                                     	<div class="col-md-6">
-                                        	<input type="text" value="{$ppt.0.pp_img}" class="form-control" readonly />
+                                        	<input type="text" value="{$ppt.pp_img}" class="form-control" readonly />
                                         </div>
                                        	<div class="col-md-6">
                                         	<input type="text" placeholder="指向文章或者url" class="form-control" name="url"/>
@@ -49,7 +69,7 @@
                             </div>
                             
                             <div class="form-group">
-                           		<label class="col-sm-3 col-md-3 col-lg-1 control-label">幻灯1修改</label>
+                           		<label class="col-sm-3 col-md-3 col-lg-1 control-label">幻灯{$k}修改</label>
                                 <div class=" col-sm-9 col-md-9 col-lg-10">
                                 	<div class="input-group input-group-sm">
                                     	<input type="file" name="file" />
@@ -61,85 +81,7 @@
 								<button type="submit" class="btn btn-success btn-sm">存入数据库</button>  <button type="submit" class="btn btn-danger btn-sm">取消</button>
 							</div>
 						</form>
-						
-						
-						<form action="{:U('Admin/System/pptH')}" method="post" class="form-horizontal" enctype="multipart/form-data" />
-							<input name="id" type="hidden" value="{$ppt.1.pp_id}" />
-							<div class="form-group">
-								<label class="col-sm-3 col-md-3 col-lg-1 control-label">预览</label>
-								<div class="col-sm-9 col-md-9 col-lg-10">
-									<div style="border: 1px solid #999999;min-height: 100px;text-align: center;padding: 2px;">
-										<img src="{$ppt.1.pp_img}" />
-									</div>
-								</div>
-							</div>
-							
-							<div class="form-group">
-                                <label class="col-sm-3 col-md-3 col-lg-1 control-label">幻灯2</label>
-                                <div class=" col-sm-9 col-md-9 col-lg-10">
-                                	<div class="row">
-                                    	<div class="col-md-6">
-                                        	<input type="text" value="{$ppt.1.pp_img}" class="form-control" readonly />
-                                        </div>
-                                       	<div class="col-md-6">
-                                        	<input type="text" placeholder="指向文章或者url" class="form-control" name="url"/>
-                                        </div>
-                                   </div>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                           		<label class="col-sm-3 col-md-3 col-lg-1 control-label">幻灯2修改</label>
-                                <div class=" col-sm-9 col-md-9 col-lg-10">
-                                	<div class="input-group input-group-sm">
-                                    	<input type="file" name="file" />
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="form-actions">
-								<button type="submit" class="btn btn-success btn-sm">存入数据库</button>  <button type="submit" class="btn btn-danger btn-sm">取消</button>
-							</div>
-						</form>
-						
-						<form action="{:U('Admin/System/pptH')}" method="post" class="form-horizontal" enctype="multipart/form-data" />
-							<input name="id" type="hidden" value="{$ppt.2.pp_id}" />
-							<div class="form-group">
-								<label class="col-sm-3 col-md-3 col-lg-1 control-label">预览</label>
-								<div class="col-sm-9 col-md-9 col-lg-10">
-									<div style="border: 1px solid #999999;min-height: 100px;text-align: center;padding: 2px;">
-										<img src="{$ppt.2.pp_img}" />
-									</div>
-								</div>
-							</div>
-							
-							<div class="form-group">
-                                <label class="col-sm-3 col-md-3 col-lg-1 control-label">幻灯2</label>
-                                <div class=" col-sm-9 col-md-9 col-lg-10">
-                                	<div class="row">
-                                    	<div class="col-md-6">
-                                        	<input type="text" value="{$ppt.2.pp_img}" class="form-control" readonly />
-                                        </div>
-                                       	<div class="col-md-6">
-                                        	<input type="text" placeholder="指向文章或者url" class="form-control" name="url"/>
-                                        </div>
-                                   </div>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                           		<label class="col-sm-3 col-md-3 col-lg-1 control-label">幻灯2修改</label>
-                                <div class=" col-sm-9 col-md-9 col-lg-10">
-                                	<div class="input-group input-group-sm">
-                                    	<input type="file" name="file" />
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="form-actions">
-								<button type="submit" class="btn btn-success btn-sm">存入数据库</button>  <button type="submit" class="btn btn-danger btn-sm">取消</button>
-							</div>
-						</form>
+						</volist>
 					</div>
 				</div>						
 			</div>

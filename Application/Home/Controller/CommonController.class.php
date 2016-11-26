@@ -117,7 +117,13 @@ class CommonController extends Controller{
 	        }setS('time',$Time);setS('msg',$msg);
 		}
 		$this->msg = S('msg');
-        $this->time=$Time; 
+        $this->time=$Time;
+        if(!$ppt1=S('ppt1')){$ppt1 = M('ppt')->where(array("pp_view"=>1))->order("pp_time desc")->select();setS("ppt1", $ppt1);}
+        foreach($ppt1 as $k=>$v){
+            $data_date[$k] ='"'.$v['pp_img'].'"';
+        $ppt1_r['ppt1'] = implode(',', $data_date);                                                        // 拼接报价数据格式                                                              // 拼接时间数据格式
+        }
+        $this->ppt1_r=$ppt1_r;
     }
     protected function render($data) {
 		$this->assign('data', $data); //控制器传值到模板

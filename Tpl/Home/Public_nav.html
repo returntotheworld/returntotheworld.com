@@ -59,6 +59,12 @@ tpwidget("show");</script>
                                         <ul class="dropdown-menu" role="menu">
                                             <li><a href="{:U('/friends')}">卧室</a></li>
                                             <li><a href="{:U('/friends/index1')}">隔壁邻舍</a></li>
+                                            <li><empty name="Think.session.nickname">
+                        <a href="{:U('Common/loginqq',array("type"=>"qq"))}" class="from" >QQ访问</a>
+                    <else />
+                        {$Think.session.nickname} <a class='from' href="{:U('Common/out')}">退出</a>
+                    </empty></li>
+                    <li><a href="{$Think.config.SITE_URL}/Feed" target="_blank" target="_blank">RSS订阅</a></li>
                                             <li class="divider"></li>         
                                       </ul>
                                     </li>
@@ -78,7 +84,6 @@ tpwidget("show");</script>
                                             </li>
                                             <li><a href="{$Think.config.SITE_URL}/index.php/Admin/Login/index" target="_blank">后门</a></li>
                                             <li><a href="{$Think.config.SITE_URL}/danmu/admin" target="_blank" target="_blank">弹幕控制台</a></li>
-                                            
                                             <li class="divider"></li> 
 
                                       </ul>

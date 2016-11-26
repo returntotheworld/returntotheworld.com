@@ -97,26 +97,26 @@ var ap4 = new APlayer({
 });
 var aarr = [
         {
-            title:"リフレクティア",
-            author: 'eufonius',
-            url:"http://sellmoe.qiniudn.com/リフレクティア.mp3",
+            title: 'Papillon',
+            author: 'Secret Garden',
+            url: 'http://spiralcats.b0.upaiyun.com/music/Secret Garden - Papillon.mp3',
             pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
-            lrc: '/Public/APlayer/demo/リフレクティア.lrc'
+            lrc: 'http://spiralcats.b0.upaiyun.com/music/Secret Garden - Papillon.lrc'
         },
         {
-            title: '花香',
-            author: '周传雄',
-            url: 'http://7xli4a.com1.z0.glb.clouddn.com/qzone/audio/%E8%8A%B1%E9%A6%99.mp3',
+            title: '欢迎曲',
+            author: '快乐',
+            url: 'http://spiralcats.b0.upaiyun.com/music/欢迎曲.mp3',
             pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
-            lrc: '/Public/APlayer/demo/あっちゅ～ま青春!.lrc'
-        }];
+            lrc: 'http://spiralcats.b0.upaiyun.com/music/欢迎曲.lrc'
+        },];
 var aindex = ~~(Math.random()*aarr.length);
 var ap5 = new APlayer({
     element: document.getElementById('player5'),
     narrow: false,
-    autoplay: false,
-    showlrc: false,
-    mutex: false,
+    autoplay: true,
+    showlrc: 3,
+    mutex: true,
     theme: '#ad7a86',
     loop: false,
     preload: 'metadata',
@@ -136,14 +136,6 @@ var ap5 = new APlayer({
         //     lrc: '/Public/APlayer/demo/リフレクティア.lrc'
         // },
         // {
-        //     title:"歌曲02",
-        //     author: '七森中☆ごらく部',
-        //     url:"http://www.haook.cn/mp3test/2.mp3",
-        //     pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
-        //     lrc: '/Public/APlayer/demo/あっちゅ～ま青春!.lrc'
-        // },
-
-        // {
         //     title:"歌曲03",
         //     author: '七森中☆ごらく部',
         //     url:"http://www.haook.cn/mp3test/3.mp3",
@@ -157,34 +149,113 @@ var ap5 = new APlayer({
         //     pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
         //     lrc: '/Public/APlayer/demo/あっちゅ～ま青春!.lrc'
         // },
+
+        {
+            title: '陪我看日出',
+            author: '蔡淳佳',
+            url: 'http://spiralcats.b0.upaiyun.com/music/蔡淳佳 - 陪我看日出.mp3',
+            pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
+            lrc: 'http://spiralcats.b0.upaiyun.com/music/王俊凯-陪我看日出.lrc'
+        },
+        {
+            title: '命运(浪漫满屋主题曲)',
+            author: 'Why',
+            url: 'http://spiralcats.b0.upaiyun.com/music/Why - 운명.mp3',
+            pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
+            lrc: 'http://spiralcats.b0.upaiyun.com/music/香香-命运(浪漫满屋国语版主题曲).lrc'
+        },
+        {
+            title: '难念的经',
+            author: '周华健',
+            url: 'http://spiralcats.b0.upaiyun.com/music/周华健 - 难念的经.mp3',
+            pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
+            lrc: 'http://spiralcats.b0.upaiyun.com/music/周华健-难念的经.lrc'
+        },
+        {
+            title: '小幸运',
+            author: '田馥甄',
+            url: 'http://spiralcats.b0.upaiyun.com/music/金玟岐 - 小幸运（Cover 田馥甄）.mp3',
+            pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
+            lrc: 'http://spiralcats.b0.upaiyun.com/music/小幸运.lrc'
+        },
+        {
+            title: '美しきもの',
+            author: 'Sound Horizon',
+            url: 'http://spiralcats.b0.upaiyun.com/music/Sound Horizon - 美しきもの.mp3',
+            pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
+            lrc: 'http://spiralcats.b0.upaiyun.com/music/Sound Horizon - 美しきもの.lrc'
+        },
+        {
+            title: 'Papillon',
+            author: 'Secret Garden',
+            url: 'http://spiralcats.b0.upaiyun.com/music/Secret Garden - Papillon.mp3',
+            pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
+            lrc: 'http://spiralcats.b0.upaiyun.com/music/Secret Garden - Papillon.lrc'
+        },
+        {
+            title: 'LUBOV',
+            author: 'LUBOV',
+            url: 'http://spiralcats.b0.upaiyun.com/music/LUBOV.mp3',
+            pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
+            lrc: 'http://spiralcats.b0.upaiyun.com/music/LUBOV.lrc'
+        },
+        {
+            title: '太多',
+            author: 'Sound Horizon',
+            url: 'http://spiralcats.b0.upaiyun.com/music/太多.mp3',
+            pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
+            lrc: 'http://spiralcats.b0.upaiyun.com/music/太多.lrc'
+        },
+        {
+            title: 'I Miss You',
+            author: '罗百吉',
+            url: 'http://spiralcats.b0.upaiyun.com/music/罗百吉 - I Miss You.mp3',
+            pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
+            lrc: 'http://spiralcats.b0.upaiyun.com/music/罗百吉 - I Miss You.lrc'
+        },
+        {
+            title: '直到世界的尽头',
+            author: '灌篮高手',
+            url: 'http://spiralcats.b0.upaiyun.com/music/灌篮高手 - 直到世界的尽头.mp3',
+            pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
+            lrc: 'http://spiralcats.b0.upaiyun.com/music/灌篮高手 - 直到世界的尽头.lrc'
+        },
+        {
+            title: '香水有毒',
+            author: '小爱',
+            url: 'http://spiralcats.b0.upaiyun.com/music/小爱 - 香水有毒.mp3',
+            pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
+            lrc: 'http://spiralcats.b0.upaiyun.com/music/小爱 - 香水有毒.lrc'
+        },
+        {
+            title: '心痛2009',
+            author: '群星',
+            url: 'http://spiralcats.b0.upaiyun.com/music/心痛2009.mp3',
+            pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
+            lrc: 'http://spiralcats.b0.upaiyun.com/music/心痛2009.lrc'
+        },
         {
             title: '折子戏',
             author: '张国荣',
             url: 'http://7xli4a.com1.z0.glb.clouddn.com/qzone/audio/%E6%8A%98%E5%AD%90%E6%88%8F.mp3',
             pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
-            lrc: '/Public/APlayer/demo/あっちゅ～ま青春!.lrc'
+            lrc: 'http://spiralcats.b0.upaiyun.com/music/黄阅-折子戏.lrc'
         },
         {
             title: '红色高跟鞋',
             author: '蔡健雅',
             url: 'http://7xli4a.com1.z0.glb.clouddn.com/qzone/audio/%E7%BA%A2%E8%89%B2%E9%AB%98%E8%B7%9F%E9%9E%8B.mp3',
             pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
-            lrc: '/Public/APlayer/demo/あっちゅ～ま青春!.lrc'
+            lrc: 'http://spiralcats.b0.upaiyun.com/music/蔡健雅-红色高跟鞋.lrc'
         },
         {
             title: '花香',
             author: '周传雄',
             url: 'http://7xli4a.com1.z0.glb.clouddn.com/qzone/audio/%E8%8A%B1%E9%A6%99.mp3',
             pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
-            lrc: '/Public/APlayer/demo/あっちゅ～ま青春!.lrc'
+            lrc: 'http://spiralcats.b0.upaiyun.com/music/杨乃文-花香.lrc'
         },
-        // {
-        //     title: 'あっちゅ～ま青春!',
-        //     author: '七森中☆ごらく部',
-        //     url: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.mp3',
-        //     pic: 'http://devtest.qiniudn.com/あっちゅ～ま青春!.jpg',
-        //     lrc: '/Public/APlayer/demo/あっちゅ～ま青春!.lrc'
-        // },
+
         // {
         //     title: 'secret base~君がくれたもの~',
         //     author: '茅野愛衣',
@@ -204,12 +275,12 @@ var ap5 = new APlayer({
 
 window.onblur = function () { 
     // ap5.volume(0.3)
-    // setTimeout(function(){ap5.pause()},5000);
+    // setTimeout(function(){ap5.pause()},3000);
     ap5.pause();
 }; 
-// window.onfocus = function () { 
-//     // ap5.volume(0.5);
-//     // ap5.play();
-//     // setTimeout(function(){ap5.volume(1)},3000);
-//     ap5.play();
-// };
+window.onfocus = function () { 
+    // ap5.volume(0.5);
+    // ap5.play();
+    // setTimeout(function(){ap5.volume(1)},3000);
+    ap5.play();
+};

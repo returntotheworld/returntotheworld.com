@@ -7,12 +7,12 @@ use Think\Controller;
 * @author: Administrator
 * @return:
 */
-class SystemController extends AuthController{
+class VideoController extends AuthController{
 			
 	public function index(){
-		$this->assign("system","active open");
-		$this->assign("systembasic","class='active'");
-		$this->info = M('system')->find();
+		$this->assign("video","active open");
+		$this->assign("videobasic","class='active'");
+		$this->info = M('video')->find();
 		$this->display();
 	}
 	
@@ -22,7 +22,7 @@ class SystemController extends AuthController{
 		}else{
 			$data = I('post.');
 			$data['footer'] = $_POST['footer'];
-			if(M('System')->where("id=1")->save($data))
+			if(M('Video')->add($data))
 				$data = array("error"=>0,"msg"=>"修改系统基本设置完成!");
 			else
 				$data = array("error"=>0,"msg"=>"你没有修改任何信息!");			
@@ -48,8 +48,7 @@ class SystemController extends AuthController{
 	public function ppt(){
 		$this->assign("system","active open");
 		$this->assign("systemppt","class='active'");
-		$ppt = M('ppt')->select();
-		$this->assign("ppt",$ppt);
+		$this->ppt = M('ppt')->select();
 		$this->display();
 	}
 	
@@ -68,32 +67,6 @@ class SystemController extends AuthController{
 		       $url = "/Public/Img/ppt/".$file['savepath'].$file['savename'];
 			   M('ppt')->save(array("pp_id"=>I('post.id'),"pp_url"=>I('post.url'),"pp_img"=>$url,"pp_time"=>time(),"pp_from"=>getOS(),"pp_ip"=>get_client_ip(),"pp_root"=>session('uname'),"pp_view"=>1));
 			   $this->success("修改完成！",'ppt');
-		    }
-	    }	
-	}
-		public function addppt(){
-	    $upload = new \Think\Upload();
-	    $upload->maxSize   =     3145728 ;
-	    $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');
-	    $upload->rootPath  =     './Public/Img/ppt/';
-		$upload->autoSub   =	false;
-	    $upload->saveName  =	'time';
-	    $info   =   $upload->upload();
-	    if(!$info) {
-	        $this->error($upload->getError());
-	    }else{
-	         foreach($info as $file){
-		       $url = "/Public/Img/ppt/".$file['savepath'].$file['savename'];
-		       $data = array(
-		       "pp_url"=>I('post.url'),
-		       "pp_img"=>$url,
-		       "pp_time"=>time(),
-		       "pp_from"=>getOS(),
-		       "pp_ip"=>get_client_ip(),
-		       "pp_root"=>session('uname'),
-		       "pp_view"=>1);
-			   M('ppt')->add($data);
-			   $this->success("新增完成！",'ppt');
 		    }
 	    }	
 	}	
