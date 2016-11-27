@@ -95,10 +95,14 @@ class ArticleController extends CommonController {
 				cookie('email',I('post.ac_email'),3600); 
 				cookie('url',I('post.ac_url'),3600); 
 			}
-			if($static)
+			if($static){
 				$data = array("error"=>0,"msg"=>"评论完成!");
-			else
+				$tmp = M('article');
+    	        $tmp->where(array("a_id"=>I('post.ac_pid')))->setInc('a_num');
+			}
+			else{
 				$data = array("error"=>1,"msg"=>"评论时发生错误!");			
+			}
 		}		
 		$this->ajaxReturn($data);	
     }

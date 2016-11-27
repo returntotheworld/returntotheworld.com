@@ -40,16 +40,43 @@ tpwidget("show");</script>
                                         <ul class="dropdown-menu" role="menu">
                                             <li><a href="{:U('/about')}">关于我</a></li>
                                             <li><a href="{:U('/about/jiang')}">奖状墙</a></li>
+<!--                                             <li><a href="{:U('/about/jiang')}">阅览排行</a></li>
+                                            <li><a href="{:U('/about/jiang')}">文章人气排行</a></li> -->
                                             <li class="divider"></li>         
                                       </ul>
                                     </li>
                                     <li class="dropdown dh {$class}">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">精华<span class="caret"></span></a>
                                         <ul class="dropdown-menu" role="menu">
+                                            <li class="dropdown-submenu">
+                                                <a tabindex="-1" href="javascript:;">排行榜</a>
+                                                    <ul class="dropdown-menu">
+                                                    <li class="dropdown-submenu">
+                                                        <a tabindex="-1" href="javascript:;">阅览排名</a>
+                                                            <ul class="dropdown-menu">
+                                                                <volist name="hits" id="v" key="k">
+                    <li><a href="{:U('/article-'.$v['a_id'])}" >[{$k}]{$v.a_title|mb_substr=0,15,'utf-8'}({$v.a_hit})</a></li>
+                </volist>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="dropdown-submenu">
+                                                        <a tabindex="-1" href="javascript:;">评论排名</a>
+                                                            <ul class="dropdown-menu">
+                                                                <volist name="nums" id="v" key="k">
+                    <li><a href="{:U('/article-'.$v['a_id'])}" >[{$k}]{$v.a_title|mb_substr=0,15,'utf-8'}({$v.a_num})</a></li>
+                </volist>
+                                                            </ul>
+                                                        </li>
+<!--                                                         <li><a href="{$Think.config.SITE_URL}/Feed" target="_blank">阅览排名</a></li>
+                                                        <li><a href="{$Think.config.SITE_URL}/Feed/it" target="_blank">评论排名</a></li> -->
+                                                    </ul>
+                                                </li>
+                                            <li class="divider"></li>
                                         <volist name="pid" id="vo">
                                             <li><a href="{:U('/class-'.$vo['t_id'])}" ><i class="icon-ok-sign"></i> {$vo.t_name}</a></li>
+                                        </volist>  
                                             <li class="divider"></li>
-                                        </volist>           
+                                            
                                       </ul>
                                     </li>
                                     <li class="dh {$feel}"><a href="{:U('/feel')}">后山</a></li>
@@ -57,15 +84,23 @@ tpwidget("show");</script>
                                     <!-- <li class="dh {$friends}"><a href="{:U('/friends')}">客房</a></li> -->
                                     <li class="dropdown dh {$friends}"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">客房<span class="caret"></span></a>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="{:U('/friends')}">卧室</a></li>
-                                            <li><a href="{:U('/friends/index1')}">隔壁邻舍</a></li>
+                                          <li class="dropdown-submenu">
+                                                <a tabindex="-1" href="javascript:;">RSS订阅室</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="{$Think.config.SITE_URL}/Feed" target="_blank">综合类订阅</a></li>
+                                                        <li><a href="{$Think.config.SITE_URL}/Feed/it" target="_blank">计算机类订阅</a></li>
+                                                        <li><a href="{$Think.config.SITE_URL}/Feed/culture" target="_blank">文化类订阅</a></li>
+                                                    </ul>
+                                                </li>
+                                            
                                             <li><empty name="Think.session.nickname">
-                        <a href="{:U('Common/loginqq',array("type"=>"qq"))}" class="from" >QQ访问</a>
-                    <else />
-                        {$Think.session.nickname} <a class='from' href="{:U('Common/out')}">退出</a>
-                    </empty></li>
-                    <li><a href="{$Think.config.SITE_URL}/Feed" target="_blank" target="_blank">RSS订阅</a></li>
-                                            <li class="divider"></li>         
+                                                <a href="{:U('Common/loginqq',array("type"=>"qq"))}" class="from" >QQ访问通道</a>
+                                            <else />
+                                                {$Think.session.nickname} <a class='from' href="{:U('Common/out')}">退出</a>
+                                            </empty></li>
+                                           <li><a href="{:U('/friends')}">卧室</a></li>
+                                            <li><a href="{:U('/friends/index1')}">隔壁邻舍</a></li>
+                                            <li class="divider"></li>    
                                       </ul>
                                     </li>
                                     <li class="dh {$gust}"><a href="{:U('/gust')}">地堂</a></li>

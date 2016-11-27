@@ -70,8 +70,8 @@ class FriendsController extends CommonController {
     }	
     public function linkhit($url=0){
 
-    	// $tmp = M('link');
-    	// $tmp->where(array("l_id"=>$id))->setInc('hit');
+    	$tmp = M('link');
+    	$tmp->where(array("l_url"=>$url))->setInc('hit');
     	// $mingzhan= M('link')->where(array("l_id"=>$id))->select();
     	// $url=$mingzhan[0]['l_url'];
     	header("location:".$url);
@@ -101,8 +101,9 @@ class FriendsController extends CommonController {
 				sendEmail(C('MAIL_USERNAME'),'您的'.C("NAME").'上的博客有了新的友情链接申请',$content);
 				$data = array("error"=>0,"msg"=>"评论完成!");
 			}
-			else
+			else{
 				$data = array("error"=>1,"msg"=>"评论时发生错误!");			
+			}
 		}		
 		$this->ajaxReturn($data);	
     }

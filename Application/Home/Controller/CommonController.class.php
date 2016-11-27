@@ -102,7 +102,9 @@ class CommonController extends Controller{
         $this->assign('s_content',$s_content);
 		if(!$gusts = S('gusts')){$gusts = $Gust->where('g_rtime>0')->order('g_time desc')->limit(5)->select();setS("gusts", $gusts);}
 		$this->gusts = $gusts;         
-        if(!$hits = S('hits')){$hits = $article->where("a_view != 0")->order('a_hit desc')->limit(7)->select();setS('hits',$hits);}
+        if(!$hits = S('hits')){$hits = $article->where("a_view != 0")->order('a_hit desc')->limit(10)->select();setS('hits',$hits);}
+        if(!$nums = S('nums')){$nums = $article->where("a_view != 0")->order('a_num desc')->limit(10)->select();setS('nums',$nums);}
+        $this->nums = $nums;
 		$this->hits = $hits;
 		if(!$Time = S('time')){
 			$time1 = $article->order('a_time desc')->getField('a_time');

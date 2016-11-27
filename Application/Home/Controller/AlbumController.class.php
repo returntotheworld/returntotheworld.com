@@ -118,10 +118,12 @@ class AlbumController extends CommonController {
 				cookie('email',I('post.alc_email'),3600); 
 				cookie('url',I('post.alc_url'),3600); 
 			}
-			if($static)
+			if($static){
 				$data = array("error"=>0,"msg"=>"评论完成!");
-			else
+			}
+			else{
 				$data = array("error"=>1,"msg"=>"评论时发生错误!");			
+			}
 		}		
 		$this->ajaxReturn($data);	
     } 
