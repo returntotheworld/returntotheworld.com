@@ -272,14 +272,14 @@ var ap5 = new APlayer({
         // }
     ]
 });
-
+ap5.volume(0.4);
 window.onblur = function () { 
-    // ap5.volume(0.3)
+    ap5.volume(0.4);
     // setTimeout(function(){ap5.pause()},3000);
     ap5.pause();
 }; 
 window.onfocus = function () { 
-    // ap5.volume(0.5);
+    ap5.volume(0.4);
     // ap5.play();
     // setTimeout(function(){ap5.volume(1)},3000);
     ap5.play();

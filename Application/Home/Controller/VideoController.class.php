@@ -16,21 +16,19 @@ class VideoController extends CommonController {
     public function index(){
 	  	$this->assign('video','active');
 	    $id =I('get.id');
-        if(empty($id)){
-            if(!$videolist=S('videolist')){
+        $cid =I('get.cid');
+        if(empty($cid)){
                 $tmp = M('video');
                 $count = $tmp->count();
                 $Page  = new \Think\PageHome($count,5);
                 $show  = $Page->show();
                 $videolist = $tmp->order('id desc')->limit($Page->firstRow.','.$Page->listRows)->select();
-                setS("videolist",$videolist);
-            } 
         }else{
             $tmp = M('video');
-            $count = $tmp->where(array('cid'=>$id))->count();
+            $count = $tmp->where(array('cid'=>$cid))->count();
             $Page  = new \Think\PageHome($count,5);
             $show  = $Page->show();
-            $videolist = $tmp->order('id desc')->where(array('cid'=>$id))->limit($Page->firstRow.','.$Page->listRows)->select();
+            $videolist = $tmp->order('id desc')->where(array('cid'=>$cid))->limit($Page->firstRow.','.$Page->listRows)->select();
         }
         
     	

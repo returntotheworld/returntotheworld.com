@@ -326,3 +326,51 @@
 		}
 		return $str;
 	}
+	// 财务收支类型
+	function statustype($opertype){
+    	static $type = array(
+            // Informational 1xx
+            0 => '无效',
+            1 => '收入',
+            2 => '支出',
+    	);
+    	if(isset($type[$opertype])) {
+    	return $type[$opertype];
+       }
+       return false;
+
+    }
+    // 财务类型
+	function cidtype($opertype){
+    	static $type = array(
+            // Informational 1xx
+            0 => '未分类',
+            1 => '伙食',
+            2 => '交通',
+            3 => '礼尚',
+            4 => '住宿',
+            5 => '投资',
+            6 => '消费',
+            7 => '用品',
+    	);
+    	if(isset($type[$opertype])) {
+    	return $type[$opertype];
+       }
+       return false;
+
+    }
+    // 财务变化类型
+	function locationtype($opertype){
+    	static $type = array(
+            // Informational 1xx
+            0 => '现金',
+            1 => '银行',
+            2 => '债权',
+            3 => '债务',
+    	);
+    	if(isset($type[$opertype])) {
+    	return $type[$opertype];
+       }
+       return false;
+
+    }

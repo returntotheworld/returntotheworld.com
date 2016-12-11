@@ -10,7 +10,7 @@ use Think\Controller;
 class AuthController extends Controller{
 	public function _initialize(){
 		if(!session("uid")){
-			$this->redirect("/Login/index");
+			$this->redirect("index.php/Admin/Login/index");
 		}
 	}
 }

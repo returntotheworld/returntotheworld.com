@@ -15,7 +15,7 @@ return array(
         '__CSS__'   =>  '/Public/Css',
         '__IMG__'   =>  '/Public/Img',   
     ),
-    'URL_MODEL' =>3,    
+    'URL_MODEL' =>2,    
     'URL_ROUTER_ON' => true,   
     'URL_ROUTE_RULES' => array(
     	'/^index$/'           	=>    'Index/index',

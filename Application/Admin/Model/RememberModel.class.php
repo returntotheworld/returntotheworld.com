@@ -2,20 +2,19 @@
 namespace Admin\Model;
 use Think\Model;
 /**
-* 文章评论模型
-* @date: 2015年11月1日
+* 文章模型
+* @date: 2015年10月21日
 * @author: Administrator
 * @return:
 */
-class VideoModel extends Model{
+class RememberModel extends Model{
 	
 	protected $_auto = array(
-
-		array('ac_img','ac_email',self::MODEL_INSERT,'field'),
-		array('ac_img','check_img',self::MODEL_INSERT,'function'),
-		array('ac_ip','get_client_ip',self::MODEL_INSERT,'function'),
-		array('ac_time','time',self::MODEL_INSERT,'function'),	
-		array('ac_from','getOs',self::MODEL_INSERT,'function'),	
+		array('a_time','strtotime',self::MODEL_BOTH,'function'),
+		array('a_content','htmlspecialchars_decode',self::MODEL_BOTH,'function'),
+		array('a_ip','get_client_ip',self::MODEL_BOTH,'function'),
+		array('a_from','getOs',self::MODEL_BOTH,'function'),
+		array('a_img','makeImg',self::MODEL_BOTH,'function'),
 	);
 	
 	public function addH(){

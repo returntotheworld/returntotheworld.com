@@ -115,7 +115,52 @@
 					<li class="submenu {$video}">
 						<a href="#"><i class="fa fa-windows"></i> <span>影视设置</span> <i class="arrow fa fa-chevron-right"></i></a>
 						<ul>
-							<li {$videobasic}><a href="{:U('Admin/Video/index')}">新增内容</a></li>
+							<!-- <li {$videoadd}><a href="{:U('Admin/Video/index')}">新增内容</a></li> -->
+							<li {$videoadd}><a href="{:U('Admin/Video/index')}">新增</a></li>
+							<li {$videolist}><a href="{:U('Admin/Video/videoList')}">列表</a></li>
+							<!--<li {$systemone}><a onclick="alert('单页设置开发中')">单页设置</a></li>-->
+							<!-- <li {$videoemail}><a href="{:U('Admin/Video/email')}">邮件设置</a></li> -->
+							<!-- <li {$videoppt}><a href="{:U('Admin/Video/ppt')}">幻灯设置</a></li> -->
+							<!--<li><a href="#" onclick="alert('高级功能开发中')">高级设置</a></li>-->
+						</ul>
+					</li>
+					<li class="submenu {$contacts}">
+						<a href="#"><i class="fa fa-windows"></i> <span>联系人设置</span> <i class="arrow fa fa-chevron-right"></i></a>
+						<ul>
+							<li {$contactsadd}><a href="{:U('Admin/Contacts/index')}">新增</a></li>
+							<li {$contactslist}><a href="{:U('Admin/Contacts/contactsList')}">列表</a></li>
+							<!-- <li {$videoemail}><a href="{:U('Admin/Video/email')}">邮件设置</a></li> -->
+							<!-- <li {$videoppt}><a href="{:U('Admin/Video/ppt')}">幻灯设置</a></li> -->
+							<!--<li><a href="#" onclick="alert('高级功能开发中')">高级设置</a></li>-->
+						</ul>
+					</li>
+					<li class="submenu {$password}">
+						<a href="#"><i class="fa fa-windows"></i> <span>账户库设置</span> <i class="arrow fa fa-chevron-right"></i></a>
+						<ul>
+							<li {$passwordadd}><a href="{:U('Admin/Password/index')}">新增</a></li>
+							<li {$passwordlist}><a href="{:U('Admin/Password/passwordList')}">账户列表</a></li>
+							<!--<li {$systemone}><a onclick="alert('单页设置开发中')">单页设置</a></li>-->
+							<!-- <li {$videoemail}><a href="{:U('Admin/Video/email')}">邮件设置</a></li> -->
+							<!-- <li {$videoppt}><a href="{:U('Admin/Video/ppt')}">幻灯设置</a></li> -->
+							<!--<li><a href="#" onclick="alert('高级功能开发中')">高级设置</a></li>-->
+						</ul>
+					</li>
+					<li class="submenu {$money}">
+						<a href="#"><i class="fa fa-windows"></i> <span>财务设置</span> <i class="arrow fa fa-chevron-right"></i></a>
+						<ul>
+							<li {$moneyadd}><a href="{:U('Admin/Money/index')}">新增</a></li>
+							<li {$moneylist}><a href="{:U('Admin/Money/moneyList')}">收支列表</a></li>
+							<!--<li {$systemone}><a onclick="alert('单页设置开发中')">单页设置</a></li>-->
+							<!-- <li {$videoemail}><a href="{:U('Admin/Video/email')}">邮件设置</a></li> -->
+							<!-- <li {$videoppt}><a href="{:U('Admin/Video/ppt')}">幻灯设置</a></li> -->
+							<!--<li><a href="#" onclick="alert('高级功能开发中')">高级设置</a></li>-->
+						</ul>
+					</li>
+					<li class="submenu {$remember}">
+						<a href="#"><i class="fa fa-windows"></i> <span>记事设置</span> <i class="arrow fa fa-chevron-right"></i></a>
+						<ul>
+							<li {$rememberadd}><a href="{:U('Admin/Remember/index')}">新增</a></li>
+							<li {$rememberlist}><a href="{:U('Admin/Remember/rememberList')}">记事列表</a></li>
 							<!--<li {$systemone}><a onclick="alert('单页设置开发中')">单页设置</a></li>-->
 							<!-- <li {$videoemail}><a href="{:U('Admin/Video/email')}">邮件设置</a></li> -->
 							<!-- <li {$videoppt}><a href="{:U('Admin/Video/ppt')}">幻灯设置</a></li> -->

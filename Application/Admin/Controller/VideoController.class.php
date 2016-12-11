@@ -11,11 +11,69 @@ class VideoController extends AuthController{
 			
 	public function index(){
 		$this->assign("video","active open");
-		$this->assign("videobasic","class='active'");
-		$this->info = M('video')->find();
-		$this->display();
+		$this->assign("videoadd","class='active'");
+		$this->tag = M('tag')->where(array("t_view"=>1))->select();
+        $this->display();
 	}
-	
+	public function videoList(){
+        $this->assign("video","active open");
+        $this->assign("videolist","class='active'");
+        $Article    = M('video'); 
+        $count  = $Article->count();
+        $this->assign("num",$count);
+        $Page   = new \Think\Page($count,500);
+        $show   = $Page->show();
+        $list   = $Article->order('id desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $this->assign('List',$list);
+        $this->assign('page',$show);
+        $this->display();
+        }
+	public function videoAdd(){
+        if(!IS_AJAX){
+            $this->error('提交方式不正确',0,0);
+        }else{
+            if(D('video')->addH())
+                $data = array("error"=>0,"msg"=>"添加完成!");
+            else
+                $data = array("error"=>1,"msg"=>"添加时发生错误!");            
+        }
+        $this->ajaxReturn($data);   
+        }
+        public function videoEdit(){
+        $this->tag = M('tag')->where(array("t_view"=>1))->select();
+        $this->assign("video","active open");
+        $this->assign("videolist","class='active'");
+        $info = M('video')->where(array("id"=>I('get.id')))->find();
+        if(!$info)
+            $this->error('参数错误!',0,0);
+        else{
+            $this->assign("info",$info);
+            $this->display('index');
+        }
+    }
+    
+    public function videoEditH(){
+        if(!IS_AJAX){
+            $this->error('提交方式不正确',0,0);
+        }else{
+            if(D('video')->editH())
+                $data = array("error"=>0,"msg"=>"修改完成!");
+            else
+                $data = array("error"=>1,"msg"=>"修改时发生错误!");            
+        }
+        $this->ajaxReturn($data);           
+    }
+    public function videoDel(){
+		if(!IS_AJAX){
+			$this->error('提交方式不正确',0,0);
+		}else{
+			if(M('video')->where(array("id"=>I('post.id')))->delete())
+				$data = array("error"=>0,"msg"=>"删除完成!");
+			else
+				$data = array("error"=>1,"msg"=>"删除时发生错误!");
+		}
+		$this->ajaxReturn($data);
+	}
 	public function basic(){
 		if(!IS_AJAX){
 			$this->error('提交方式不正确',0,0);

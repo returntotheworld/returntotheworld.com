@@ -8,14 +8,30 @@
 		<div class="friends-box">
 		<h4>名站<small class="link-small">搜索按Ctrl+F</small></h4><hr>
 		<ul  class="friends">
-		<volist name="mingzhan" id="v">
-		    <li>
-            	<a class="icon_box" href="{$Think.config.SITE_URL}/index.php/Home/friends/linkhit?url={$v.l_url}"target="_blank" title="{$v.l_remark}">
-                    <img src="{$v.purl}">
-                	<span>{$v.l_name}</span>
-                </a>
-            </li>
+		<volist name="mingzhan" id="v" key="k">
+            <eq name="v.purl" value="">
+                <li>
+	                <a class="icon_box" href="{$Think.config.SITE_URL}/index.php/Home/friends/linkhit?url={$v.l_url}"target="_blank" title="{$v.l_remark}">
+	                    <div class="logo-bg default-logo-bg-{$k % 12}"><i>{$v.l_name|msubstr=0,1,'utf-8'}</i></div>
+	                	<span>{$v.l_name}</span>
+	                </a>
+                </li>
+			<else />
+			    <li>
+	            	<a class="icon_box" href="{$Think.config.SITE_URL}/index.php/Home/friends/linkhit?url={$v.l_url}"target="_blank" title="{$v.l_remark}">
+	                    <img src="{$v.purl}" onerror="nofind();" >
+	                	<span>{$v.l_name}</span>
+	                </a>
+	            </li>
+            </eq>
         </volist>
+        <script type="text/JavaScript">
+			function nofind(){
+			var img=event.srcElement;
+			img.src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAYAAACohjseAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAK8AAACvABQqw0mAAAABZ0RVh0Q3JlYXRpb24gVGltZQAwOS8yMi8xNqv0rSwAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzQGstOgAAADH0lEQVRogd3bTYiVVRzH8c8cLSunnEmNVqkTBS2MDMGMapdEJQYtWrRSKBCsxlq2bOXCihFJQUEQrGVlZbbLMoY2ZqtMp7EgKHzLl0ENoxbnuXMvt7lzX7znnrnPFx44z7nn8Px+PPd5zjn/838GnjjyvJvkXqzE/ViOFUXdYtyFwaLdIG4pyjdwuShfwSWcwx/4Fb8Ux49FXcfM76DPEJ7DM3gK93V43eGiPDxbQ/yOr/EVPsWFdi400MYdfByv4wUsaOciXeRvHMT7+LaVDqGFNg/hEI7iJfnMwa14Ed/gMB5o1qGZwa04Jv4d5xrrcBxvztaokcF52It35b1jzbgd27Fbg/dJI4M7sCmRqBS8in0YqP9hJoNbsDmxoBS8jLfqK+sNjmBbT+Sk4R11L556g2O4o2dyus9t2FlbUWtwjTiA9ztP47HKSa3B0d5rScbWSqFicBAb8mhJwgYsompwnTimlIUFislJxeD6fFqSsZ6qwbUZhaRiLdHgEB7MqyUJI1ga8IgZpjgl4dGghSVHHzMSxBBDWRkJYhylrCwPWJJbRUKWBM2DPv3McNkNLg5i7LKs3BnESFVpaSVs2M8sDFiYW0VC5pf9DgqYyi0iITfKfgengrihUVqCuDdXVi4Hbe639Rlny27wQsDZ3CoSci5gMreKhEwGnM6tIiGTASdzq0jIRMAP+De3kkQcC/gLP+dWkoAJnKlM1b7LqSQR41TXg59lFJKKg1QNHsbVfFq6znUxt2fa4BQ+zian+3yimGPXLpfG8mhJwvZKodbgOL7svZaucwjfV07qF7yjuNZTOd3lmpgwOE29wRNqNvD7kLdxqrZippDFLnzQEzndZT/eq69sFJN5DXuSyukuu7DRDFPORgb/wSt4w9x+Jq+Kz9xmUfP/aBZVG8MqxaA5x/hCzBXfMVujVsKGP+FZMWvhI3GWkIvr+BCrxbSziWYd2klKHy+ORapJ6U9Kv0P8G46IY/Tn4uqnZTrJur+IA8UBS/Gw6mcFy3AP7hb3HoeKdvNUt+ouqT4zF3FeDH79KRqaFD8rOI4zHWic5j83Gn7poMMWOgAAAABJRU5ErkJggg==";
+			img.onerror=null; 
+			}
+        </script>
 <!-- 		<volist name="mingzhan" id="v">
 			<li>
 				<img src="{$v.q_img}" title="{$v.q_name}.最近登陆{$v.q_num}次" class="img-circle img-50">
@@ -28,14 +44,21 @@
 		<h4>收藏<small class="link-small">此处为不知名但有帮助的入口</small></h4><hr>
 	    <ul class="friends">
 			<volist name="links" id="v">
-			    <li>
-	            	<!-- <a class="icon_box" href="{:U('/friends/linkhit?id='.$v['l_id'])}"target="_blank" title="{$v.l_remark}"> -->
-	            	<a class="icon_box" href="{$Think.config.SITE_URL}/index.php/Home/friends/linkhit?url={$v.l_url}"target="_blank" title="{$v.l_remark}">
-	            	
-	                    <img src="{$v.purl}">
-	                	<span>{$v.l_name}</span>
-	                </a>
-	            </li>
+				<eq name="v.purl" value="">
+	                <li>
+		                <a class="icon_box" href="{$Think.config.SITE_URL}/index.php/Home/friends/linkhit?url={$v.l_url}"target="_blank" title="{$v.l_remark}">
+		                    <div class="logo-bg default-logo-bg-{$k % 12}"><i>{$v.l_name|msubstr=0,1,'utf-8'}</i></div>
+		                	<span>{$v.l_name}</span>
+		                </a>
+	                </li>
+				<else />
+				    <li>
+		            	<a class="icon_box" href="{$Think.config.SITE_URL}/index.php/Home/friends/linkhit?url={$v.l_url}"target="_blank" title="{$v.l_remark}">
+		                    <img src="{$v.purl}" onerror="nofind();" >
+		                	<span>{$v.l_name}</span>
+		                </a>
+		            </li>
+	            </eq>
 	        </volist>
         </ul>
 <!-- 		<div class="links">
@@ -50,12 +73,21 @@
 		<h4>博客<small class="link-small">因为一篇好文就出现在这。</small></h4><hr>
 	    <ul class="friends">
 			<volist name="flinks4" id="v">
-			    <li>
-	            	<a class="icon_box" href="{$Think.config.SITE_URL}/index.php/Home/friends/linkhit?url={$v.l_url}"target="_blank" title="{$v.l_remark}">
-	                    <img src="{$v.purl}">
-	                	<span>{$v.l_name}</span>
-	                </a>
-	            </li>
+				<eq name="v.purl" value="">
+	                <li>
+		                <a class="icon_box" href="{$Think.config.SITE_URL}/index.php/Home/friends/linkhit?url={$v.l_url}"target="_blank" title="{$v.l_remark}">
+		                    <div class="logo-bg default-logo-bg-{$k % 12}"><i>{$v.l_name|msubstr=0,1,'utf-8'}</i></div>
+		                	<span>{$v.l_name}</span>
+		                </a>
+	                </li>
+				<else />
+				    <li>
+		            	<a class="icon_box" href="{$Think.config.SITE_URL}/index.php/Home/friends/linkhit?url={$v.l_url}"target="_blank" title="{$v.l_remark}">
+		                    <img src="{$v.purl}" onerror="nofind();" >
+		                	<span>{$v.l_name}</span>
+		                </a>
+		            </li>
+	            </eq>
 	        </volist>
         </ul>
 		</div>
@@ -63,12 +95,21 @@
 		<h4>兵器<small class="link-small">其实是神奇。</small></h4><hr>
 	    <ul class="friends">
 			<volist name="flinks5" id="v">
-			    <li>
-	            	<a class="icon_box" href="{$Think.config.SITE_URL}/index.php/Home/friends/linkhit?url={$v.l_url}"target="_blank" title="{$v.l_remark}">
-	                    <img src="{$v.purl}">
-	                	<span>{$v.l_name}</span>
-	                </a>
-	            </li>
+				<eq name="v.purl" value="">
+	                <li>
+		                <a class="icon_box" href="{$Think.config.SITE_URL}/index.php/Home/friends/linkhit?url={$v.l_url}"target="_blank" title="{$v.l_remark}">
+		                    <div class="logo-bg default-logo-bg-{$k % 12}"><i>{$v.l_name|msubstr=0,1,'utf-8'}</i></div>
+		                	<span>{$v.l_name}</span>
+		                </a>
+	                </li>
+				<else />
+				    <li>
+		            	<a class="icon_box" href="{$Think.config.SITE_URL}/index.php/Home/friends/linkhit?url={$v.l_url}"target="_blank" title="{$v.l_remark}">
+		                    <img src="{$v.purl}" onerror="nofind();" >
+		                	<span>{$v.l_name}</span>
+		                </a>
+		            </li>
+	            </eq>
 	        </volist>
         </ul>
 		</div>
@@ -76,12 +117,21 @@
 		<h4>院校<small class="link-small">系统化充电的地方。</small></h4><hr>
 	    <ul class="friends">
 			<volist name="flinks6" id="v">
-			    <li>
-	            	<a class="icon_box" href="{$Think.config.SITE_URL}/index.php/Home/friends/linkhit?url={$v.l_url}"target="_blank" title="{$v.l_remark}">
-	                    <img src="{$v.purl}">
-	                	<span>{$v.l_name}</span>
-	                </a>
-	            </li>
+				<eq name="v.purl" value="">
+	                <li>
+		                <a class="icon_box" href="{$Think.config.SITE_URL}/index.php/Home/friends/linkhit?url={$v.l_url}"target="_blank" title="{$v.l_remark}">
+		                    <div class="logo-bg default-logo-bg-{$k % 12}"><i>{$v.l_name|msubstr=0,1,'utf-8'}</i></div>
+		                	<span>{$v.l_name}</span>
+		                </a>
+	                </li>
+				<else />
+				    <li>
+		            	<a class="icon_box" href="{$Think.config.SITE_URL}/index.php/Home/friends/linkhit?url={$v.l_url}"target="_blank" title="{$v.l_remark}">
+		                    <img src="{$v.purl}" onerror="nofind();" >
+		                	<span>{$v.l_name}</span>
+		                </a>
+		            </li>
+	            </eq>
 	        </volist>
         </ul>
 		</div>
@@ -89,12 +139,21 @@
 		<h4>躺尸<small class="link-small">可能有一天会复活吧。</small></h4><hr>
 	    <ul class="friends">
 			<volist name="flinks7" id="v">
-			    <li>
-	            	<a class="icon_box" href="{$Think.config.SITE_URL}/index.php/Home/friends/linkhit?url={$v.l_url}"target="_blank" title="{$v.l_remark}">
-	                    <img src="{$v.purl}">
-	                	<span>{$v.l_name}</span>
-	                </a>
-	            </li>
+				<eq name="v.purl" value="">
+	                <li>
+		                <a class="icon_box" href="{$Think.config.SITE_URL}/index.php/Home/friends/linkhit?url={$v.l_url}"target="_blank" title="{$v.l_remark}">
+		                    <div class="logo-bg default-logo-bg-{$k % 12}"><i>{$v.l_name|msubstr=0,1,'utf-8'}</i></div>
+		                	<span>{$v.l_name}</span>
+		                </a>
+	                </li>
+				<else />
+				    <li>
+		            	<a class="icon_box" href="{$Think.config.SITE_URL}/index.php/Home/friends/linkhit?url={$v.l_url}"target="_blank" title="{$v.l_remark}">
+		                    <img src="{$v.purl}" onerror="nofind();" >
+		                	<span>{$v.l_name}</span>
+		                </a>
+		            </li>
+	            </eq>
 	        </volist>
         </ul>
 		</div>
@@ -115,7 +174,8 @@
 			</div>
 			<div class="input-group home-from-box">
 			  <span class="input-group-addon" id="basic-addon1">图标</span>
-			  <input type="url" class="form-control" placeholder="外链" aria-describedby="basic-addon1" id="purl" value="/Upload/link_pic/9527.gif">
+			  <!-- <input type="file"  name="purl" id="purl"> -->
+			  <input type="url" class="form-control" placeholder="外链" aria-describedby="basic-addon1" id="purl" value="">
 			</div>
 			<div class="input-group home-from-box">
 			<span class="input-group-addon" id="basic-addon1">栏目</span>

@@ -92,7 +92,7 @@
 
             		$.ajax({
             			type:"post",
-            			url:"/Admin/Login/in",
+            			url:"/index.php/Admin/Login/in",
             			async:true,
 
             			data:{"user":user,"password":password},
@@ -105,7 +105,7 @@
 
             				}else{
 
-            					succ("登陆成功",'欢迎回来!'+data.msg,"/Admin/Index");
+            					succ("登陆成功",'欢迎回来!'+data.msg,"/index.php/Admin/Index");
 
             				}
 

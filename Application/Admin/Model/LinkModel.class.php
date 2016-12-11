@@ -24,6 +24,27 @@ class LinkModel extends Model{
 	);
 	
 	public function addH(){
+
+			// import('ORG.Net.UploadFile');
+			// $upload = new \Think\Upload();
+		 //    $upload->maxSize   =     3145728 ;
+		 //    $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');
+		 //    $upload->rootPath  =     './Public/Img/ppt/';
+			// $upload->autoSub   =	false;
+		 //    $upload->saveName  =	'time';
+		 //    $info   =   $upload->upload();
+		 //    if(!$info) {
+		 //        $this->error($upload->getError());
+		 //    }else{
+		 //         foreach($info as $file){
+			//       $url = "/Public/Img/ppt/".$file['savepath'].$file['savename'];
+			//        $data = array(
+			//        "l_name"=>I('post.l_name'),
+			//        "purl"=>$url,
+			// 	   M('link')->add($data);
+			// 	   return TRUE;
+			//     }
+		 //    }
 		if(!$this->create())
 			return $this->getError();
 		else{

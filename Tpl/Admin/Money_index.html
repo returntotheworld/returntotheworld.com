@@ -1,23 +1,23 @@
 <include file="Public:header"/>			
 <div id="content">
 	<div id="content-header">
-		<empty name="info['a_id']">
-		<h1>发表视频</h1>
+		<empty name="info['id']">
+		<h1>发表财务</h1>
 		<else />
-		<h1>修改视频</h1>
+		<h1>修改财务</h1>
 		</empty>
 		<div class="btn-group">
-			<a href="{:U('Admin/Video/videoList')}" class="btn btn-large" title="视频列表"><i class="fa fa-tasks"></i></a>
-			<a href="{:U('Admin/Video/videoContentList')}" class="btn btn-large" title="视频评论"><i class="fa fa-comment"></i></a>
+			<a href="{:U('Admin/Money/moneyList')}" class="btn btn-large" title="财务列表"><i class="fa fa-tasks"></i></a>
+<!-- 			<a href="{:U('Admin/Article/articleContentList')}" class="btn btn-large" title="财务评论"><i class="fa fa-comment"></i></a> -->
 		</div>
 	</div>
 	<div id="breadcrumb">
 		<a href="index.html" title="Go to Home" class="tip-bottom"><i class="fa fa-home"></i> 首页</a>
 		<a href="#">发布内容</a>
-		<empty name="info['a_id']">
-		<a href="#" class="current">发表视频</a>
+		<empty name="info['id']">
+		<a href="#" class="current">发表财务</a>
 		<else />
-		<a href="#" class="current">修改视频</a>
+		<a href="#" class="current">修改财务</a>
 		</empty>
 	</div>
 	<div class="container-fluid">
@@ -28,38 +28,66 @@
 						<span class="icon">
 							<i class="fa fa-flask"></i>									
 						</span>
-						<empty name="info['a_id']">
-						<h5>发表视频</h5>
+						<empty name="info['id']">
+						<h5>发表财务</h5>
 						<else />
-						<h5>修改视频</h5>
-						<input id="aid" value="{$info.a_id}" type="hidden"/>
+						<h5>修改财务</h5>
+						<input id="aid" value="{$info.id}" type="hidden"/>
 						</empty>
 					</div>
 					<div class="widget-content nopadding">
 						<form method="get" class="form-horizontal">
 							<div class="form-group">
-								<label class="col-sm-3 col-md-3 col-lg-1 control-label">视频标题</label>
+								<label class="col-sm-3 col-md-3 col-lg-1 control-label">金额</label>
 								<div class="col-sm-9 col-md-9 col-lg-10">
-									<input type="text" class="form-control input-sm" id="title" value="{$info.title}"/>
+									<input type="text" class="form-control input-sm" id="money" value="{$info.money}"/>
 								</div>
 							</div>
-							
 							<div class="form-group">
-								<label class="col-sm-3 col-md-3 col-lg-1 control-label">视频类别</label>
+								<label class="col-sm-3 col-md-3 col-lg-1 control-label">收支类型</label>
+								<div class="col-sm-9 col-md-9 col-lg-10">
+									<select id="status">
+										<!-- <volist name="tag" id="v">
+											<option value="{$v.t_id}" <if condition="$info['pid'] eq $v['t_id']">selected</if> >{$v.t_name}</option>
+										</volist> -->
+										<option value="{$info.status}">{$info.status|statustype}</option>
+										<option value="0">无效</option>
+											<option value="1">收入</option>
+											<option value="2">支出</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 col-md-3 col-lg-1 control-label">财务类别</label>
 								<div class="col-sm-9 col-md-9 col-lg-10">
 									<select id="tag">
 										<!-- <volist name="tag" id="v">
 											<option value="{$v.t_id}" <if condition="$info['pid'] eq $v['t_id']">selected</if> >{$v.t_name}</option>
 										</volist> -->
+										<option value="{$info.cid}">{$info.cid|cidtype}</option>
 										<option value="0">未分类</option>
-											<option value="1">因趣</option>
-											<option value="2">舞蹈</option>
-											<option value="3">影视</option>
-											<option value="4">游戏</option>
-											<option value="5">生活</option>
-											<option value="6">短片</option>
-											<option value="7">广告</option>
-											<!-- <option value="7">躺尸</option> -->
+											<option value="1">伙食</option>
+											<option value="2">交通</option>
+											<option value="3">礼尚</option>
+											<option value="4">住宿</option>
+											<option value="5">投资</option>
+											<option value="6">消费</option>
+											<option value="7">用品</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 col-md-3 col-lg-1 control-label">变化位置</label>
+								<div class="col-sm-9 col-md-9 col-lg-10">
+									<select id="location">
+										<!-- <volist name="tag" id="v">
+											<option value="{$v.t_id}" <if condition="$info['pid'] eq $v['t_id']">selected</if> >{$v.t_name}</option>
+										</volist> -->
+										<option value="{$info.location}">{$info.location|locationtype}</option>
+										<option value="0">现金</option>
+											<option value="1">银行</option>
+											<option value="2">债权</option>
+											<option value="3">债务</option>
 									</select>
 								</div>
 							</div>
@@ -76,7 +104,7 @@
 							</div>
 							
 							                                                   
-                            <div class="form-group">
+<!--                             <div class="form-group">
                                 <label class="col-sm-3 col-md-3 col-lg-1 control-label">封面</label>
 								<div class="col-sm-9 col-md-9 col-lg-10">
 					                <div class="imageBox-article">
@@ -84,23 +112,23 @@
 					                    <div class="spinner" style="display: none">Loading...</div>
 					                </div>
 					                <notempty name="info['id']">
-					                	<input id="img" value="{$info.coveraddress}" type="hidden" />
+					                	<input id="img" value="{$info.a_img}" type="hidden" />
 					                </notempty>
 									<input type="file" id="file"/>
 								</div>
-                            </div>
+                            </div> -->
 							
-							<div class="form-group">
-								<label class="col-sm-3 col-md-3 col-lg-1 control-label">视频地址</label>
+<!-- 							<div class="form-group">
+								<label class="col-sm-3 col-md-3 col-lg-1 control-label">描述</label>
 								<div class="col-sm-9 col-md-9 col-lg-10">
-									<textarea rows="3" class="form-control" id="address">{$info.address}</textarea>
+									<textarea rows="3" class="form-control" id="remark">{$info.a_remark}</textarea>
 								</div>
-							</div>
+							</div> -->
 
 							<div class="form-group">
-								<label class="col-sm-3 col-md-3 col-lg-1 control-label">视频介绍</label>
+								<label class="col-sm-3 col-md-3 col-lg-1 control-label">财务内容</label>
 								<div class="col-sm-9 col-md-9 col-lg-10">
-									<script id="container" name="description" type="text/plain">{$info.description}</script>
+									<script id="container" name="content" type="text/plain">{$info.content}</script>
 								</div>
 							</div>
 							
@@ -109,7 +137,7 @@
                                 <div class=" col-sm-9 col-md-9 col-lg-10">
                                 	<div class="input-group input-group-sm">
 										<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    	<input type="text" <empty name="info['a_id']">value="{:date("Y-m-d H:i:s",time())}"<else />value="{$info.a_time|date="Y-m-d H:i:s",###}"</empty> class="form-control input-sm" id="time"/>
+                                    	<input type="text" <empty name="info['id']">value="{:date("Y-m-d H:i:s",time())}"<else />value="{$info.time|date="Y-m-d H:i:s",###}"</empty> class="form-control input-sm" id="time"/>
                                     </div>
                                 </div>
                             </div>
@@ -136,7 +164,7 @@
                                 <div class=" col-sm-9 col-md-9 col-lg-10">
                                 	<div class="input-group input-group-sm">
 										<span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    	<input type="text" <empty name="infp['a_id']">value="{$Think.config.ADMIN_NAME}"<else />value="{$info.a_author}"</empty>  class="form-control input-sm" id="root"/>
+                                    	<input type="text" <empty name="infp['id']">value="{$Think.config.ADMIN_NAME}"<else />value="{$info.a_author}"</empty>  class="form-control input-sm" id="root"/>
                                     </div>
                                 </div>
                             </div>
@@ -146,7 +174,7 @@
                                 <div class=" col-sm-9 col-md-9 col-lg-10">
                                 	<div class="input-group input-group-sm">
 										<span class="input-group-addon"><i class="fa fa-fire"></i></span>
-                                    	<input type="text" <empty name="info['id']">value="{$Think.config.HIT}"<else />value="{$info.count}"</empty> class="form-control input-sm" id="hit"/>
+                                    	<input type="text" <empty name="info['id']">value="{$Think.config.HIT}"<else />value="{$info.a_hit}"</empty> class="form-control input-sm" id="hit"/>
                                     </div>
                                 </div>
                             </div>
@@ -197,28 +225,30 @@
         this.files = [];
     	});
 	    $('#addA').click(function(){
-	    	var title = $('#title').val();
+	    	var money = $('#money').val();
 	    	var tag = $('#tag').val();
 	    	var keyword = $('#keyword').val();
-	    	var address = $('#address').val();
-	    	var img = cropper.getDataURL();
-	    	var description = UE.getEditor('container').getContent();
+	    	// var remark = $('#remark').val();
+	    	// var img = cropper.getDataURL();
+	    	var content = UE.getEditor('container').getContent();
 	    	var time = $('#time').val();
 	    	var show = $('input[name="show"]:checked').val();
 	    	var org = $('input[name="org"]:checked').val();
 	    	var root = $('#root').val();
 	    	var hit = $('#hit').val();
+	    	var status = $('#status').val();
+	    	var location = $('#location').val();
 	    	// if(!title){
-	    	// 	err("视频标题不能为空!");
+	    	// 	err("财务标题不能为空!");
 	    	// 	return false;
 	    	// }else if(!tag){
-	    	// 	err("视频类别不能为空!");
+	    	// 	err("财务类别不能为空!");
 	    	// 	return false;
 	    	// }else if(!keyword){
 	    	// 	err("关键词不能为空!");
 	    	// 	return false;
-	    	// }else if(!address){
-	    	// 	err("视频描述不能为空!");
+	    	// }else if(!remark){
+	    	// 	err("财务描述不能为空!");
 	    	// 	return false;
 	    	// }else if(!content){
 	    	// 	err("正文不能为空!");
@@ -242,12 +272,12 @@
 	    	$("#addA").attr("disabled",true);
 	    	$.ajax({
 	    		type:"post",
-	    		url:"/index.php/Admin/Video/videoAdd",
+	    		url:"/index.php/Admin/Money/moneyAdd",
 	    		async:true,
-	    		data:{"title":title,"address":address,"coveraddress":img,"keyword":keyword,"cid":tag,"addtime":time,"description":description,"view":show,"count":hit,"a_original":org,"a_author":root},
+	    		data:{"money":money,"keyword":keyword,"cid":tag,"time":time,"content":content,"a_view":show,"a_hit":hit,"a_original":org,"a_author":root,"status":status,"location":location},
 				success:function(data){
 					if(data.error==0){
-						succ("添加视频完成!",data.msg,"/index.php/Admin/Video/videoList");
+						succ("添加财务完成!",data.msg,"/index.php/Admin/Money/moneyList");
 					}else{
 						err(data.msg);
 						$("#addA").removeAttr('disabled');
@@ -261,29 +291,31 @@
 	    });
 	    
 	    $('#editA').click(function(){
-	    	var img = cropper.getDataURL();
-	    	var id = $('#id').val();
-	    	var title = $('#title').val();
+	    	// var img = cropper.getDataURL();
+	    	var aid = $('#aid').val();
+	    	var money = $('#money').val();
 	    	var tag = $('#tag').val();
 	    	var keyword = $('#keyword').val();
-	    	var address = $('#address').val();
-	    	var description = UE.getEditor('container').getContent();
+	    	// var remark = $('#remark').val();
+	    	var content = UE.getEditor('container').getContent();
 	    	var time = $('#time').val();
 	    	var show = $('input[name="show"]:checked').val();
 	    	var org = $('input[name="org"]:checked').val();
 	    	var root = $('#root').val();
 	    	var hit = $('#hit').val();
+	    	var status = $('#status').val();
+	    	var location = $('#location').val();
 	    	// if(!title){
-	    	// 	err("视频标题不能为空!");
+	    	// 	err("财务标题不能为空!");
 	    	// 	return false;
 	    	// }else if(!tag){
-	    	// 	err("视频类别不能为空!");
+	    	// 	err("财务类别不能为空!");
 	    	// 	return false;
 	    	// }else if(!keyword){
 	    	// 	err("关键词不能为空!");
 	    	// 	return false;
-	    	// }else if(!address){
-	    	// 	err("视频描述不能为空!");
+	    	// }else if(!remark){
+	    	// 	err("财务描述不能为空!");
 	    	// 	return false;
 	    	// }else if(!content){
 	    	// 	err("正文不能为空!");
@@ -307,12 +339,12 @@
 	    	$("#editA").attr("disabled",true);
 	    	$.ajax({
 	    		type:"post",
-	    		url:"/index.php/Admin/Video/videoEditH",
+	    		url:"/index.php/Admin/Money/moneyEditH",
 	    		async:true,
-	    		data:{"coveraddress":img,"id":id,"title":title,"address":address,"keyword":keyword,"cid":tag,"addtime":time,"description":description,"view":show,"count":hit,"a_original":org,"a_author":root},
+	    		data:{"id":aid,"money":money,"keyword":keyword,"cid":tag,"time":time,"content":content,"a_view":show,"a_hit":hit,"a_original":org,"a_author":root,"status":status,"location":location},
 				success:function(data){
 					if(data.error==0){
-						succ("修改视频完成!",data.msg,"/index.php/Admin/Video/videoList");
+						succ("修改财务完成!",data.msg,"/index.php/Admin/Money/moneyList");
 					}else{
 						err(data.msg);
 						$("#editA").removeAttr('disabled');

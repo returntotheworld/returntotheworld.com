@@ -2,22 +2,22 @@
 <div id="content">
 	<div id="content-header">
 		<empty name="info['a_id']">
-		<h1>发表视频</h1>
+		<h1>发表记事</h1>
 		<else />
-		<h1>修改视频</h1>
+		<h1>修改记事</h1>
 		</empty>
 		<div class="btn-group">
-			<a href="{:U('Admin/Video/videoList')}" class="btn btn-large" title="视频列表"><i class="fa fa-tasks"></i></a>
-			<a href="{:U('Admin/Video/videoContentList')}" class="btn btn-large" title="视频评论"><i class="fa fa-comment"></i></a>
+			<a href="{:U('Admin/Article/articleList')}" class="btn btn-large" title="记事列表"><i class="fa fa-tasks"></i></a>
+			<a href="{:U('Admin/Article/articleContentList')}" class="btn btn-large" title="记事评论"><i class="fa fa-comment"></i></a>
 		</div>
 	</div>
 	<div id="breadcrumb">
 		<a href="index.html" title="Go to Home" class="tip-bottom"><i class="fa fa-home"></i> 首页</a>
 		<a href="#">发布内容</a>
 		<empty name="info['a_id']">
-		<a href="#" class="current">发表视频</a>
+		<a href="#" class="current">发表记事</a>
 		<else />
-		<a href="#" class="current">修改视频</a>
+		<a href="#" class="current">修改记事</a>
 		</empty>
 	</div>
 	<div class="container-fluid">
@@ -29,37 +29,28 @@
 							<i class="fa fa-flask"></i>									
 						</span>
 						<empty name="info['a_id']">
-						<h5>发表视频</h5>
+						<h5>发表记事</h5>
 						<else />
-						<h5>修改视频</h5>
+						<h5>修改记事</h5>
 						<input id="aid" value="{$info.a_id}" type="hidden"/>
 						</empty>
 					</div>
 					<div class="widget-content nopadding">
 						<form method="get" class="form-horizontal">
 							<div class="form-group">
-								<label class="col-sm-3 col-md-3 col-lg-1 control-label">视频标题</label>
+								<label class="col-sm-3 col-md-3 col-lg-1 control-label">记事标题</label>
 								<div class="col-sm-9 col-md-9 col-lg-10">
-									<input type="text" class="form-control input-sm" id="title" value="{$info.title}"/>
+									<input type="text" class="form-control input-sm" id="title" value="{$info.a_title}"/>
 								</div>
 							</div>
 							
 							<div class="form-group">
-								<label class="col-sm-3 col-md-3 col-lg-1 control-label">视频类别</label>
+								<label class="col-sm-3 col-md-3 col-lg-1 control-label">记事类别</label>
 								<div class="col-sm-9 col-md-9 col-lg-10">
 									<select id="tag">
-										<!-- <volist name="tag" id="v">
+										<volist name="tag" id="v">
 											<option value="{$v.t_id}" <if condition="$info['pid'] eq $v['t_id']">selected</if> >{$v.t_name}</option>
-										</volist> -->
-										<option value="0">未分类</option>
-											<option value="1">因趣</option>
-											<option value="2">舞蹈</option>
-											<option value="3">影视</option>
-											<option value="4">游戏</option>
-											<option value="5">生活</option>
-											<option value="6">短片</option>
-											<option value="7">广告</option>
-											<!-- <option value="7">躺尸</option> -->
+										</volist>
 									</select>
 								</div>
 							</div>
@@ -69,38 +60,38 @@
 								<div class="col-sm-9 col-md-9 col-lg-10">
 									<div class="input-group input-group-sm">
 										<span class="input-group-addon"><i class="fa fa-quote-left"></i></span>
-										<input type='text' class="form-control input-sm" placeholder="多个关键词用英文“,”隔开" id="keyword" value="{$info.keyword}"/>
+										<input type='text' class="form-control input-sm" placeholder="多个关键词用英文“,”隔开" id="keyword" value="{$info.a_keyword}"/>
 										<span class="input-group-addon"><i class="fa fa-quote-right"></i></span>
 									</div>
 								</div>											
 							</div>
 							
 							                                                   
-                            <div class="form-group">
+<!--                             <div class="form-group">
                                 <label class="col-sm-3 col-md-3 col-lg-1 control-label">封面</label>
 								<div class="col-sm-9 col-md-9 col-lg-10">
 					                <div class="imageBox-article">
 					                    <div class="thumbBox-article"></div>
 					                    <div class="spinner" style="display: none">Loading...</div>
 					                </div>
-					                <notempty name="info['id']">
-					                	<input id="img" value="{$info.coveraddress}" type="hidden" />
+					                <notempty name="info['a_id']">
+					                	<input id="img" value="{$info.a_img}" type="hidden" />
 					                </notempty>
 									<input type="file" id="file"/>
 								</div>
-                            </div>
+                            </div> -->
 							
 							<div class="form-group">
-								<label class="col-sm-3 col-md-3 col-lg-1 control-label">视频地址</label>
+								<label class="col-sm-3 col-md-3 col-lg-1 control-label">描述</label>
 								<div class="col-sm-9 col-md-9 col-lg-10">
-									<textarea rows="3" class="form-control" id="address">{$info.address}</textarea>
+									<textarea rows="3" class="form-control" id="remark">{$info.a_remark}</textarea>
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label class="col-sm-3 col-md-3 col-lg-1 control-label">视频介绍</label>
+								<label class="col-sm-3 col-md-3 col-lg-1 control-label">记事内容</label>
 								<div class="col-sm-9 col-md-9 col-lg-10">
-									<script id="container" name="description" type="text/plain">{$info.description}</script>
+									<script id="container" name="content" type="text/plain">{$info.a_content}</script>
 								</div>
 							</div>
 							
@@ -146,12 +137,12 @@
                                 <div class=" col-sm-9 col-md-9 col-lg-10">
                                 	<div class="input-group input-group-sm">
 										<span class="input-group-addon"><i class="fa fa-fire"></i></span>
-                                    	<input type="text" <empty name="info['id']">value="{$Think.config.HIT}"<else />value="{$info.count}"</empty> class="form-control input-sm" id="hit"/>
+                                    	<input type="text" <empty name="info['a_id']">value="{$Think.config.HIT}"<else />value="{$info.a_hit}"</empty> class="form-control input-sm" id="hit"/>
                                     </div>
                                 </div>
                             </div>
 							<div class="form-actions">
-								<empty name="info['id']">
+								<empty name="info['a_id']">
 								<button type="button" class="btn btn-success btn-sm" id="addA">存入数据库</button>&nbsp;&nbsp;  
 								<else />
 								<button type="button" class="btn btn-success btn-sm" id="editA">存入数据库</button>&nbsp;&nbsp;  
@@ -200,54 +191,54 @@
 	    	var title = $('#title').val();
 	    	var tag = $('#tag').val();
 	    	var keyword = $('#keyword').val();
-	    	var address = $('#address').val();
-	    	var img = cropper.getDataURL();
-	    	var description = UE.getEditor('container').getContent();
+	    	var remark = $('#remark').val();
+	    	// var img = cropper.getDataURL();
+	    	var content = UE.getEditor('container').getContent();
 	    	var time = $('#time').val();
 	    	var show = $('input[name="show"]:checked').val();
 	    	var org = $('input[name="org"]:checked').val();
 	    	var root = $('#root').val();
 	    	var hit = $('#hit').val();
-	    	// if(!title){
-	    	// 	err("视频标题不能为空!");
-	    	// 	return false;
-	    	// }else if(!tag){
-	    	// 	err("视频类别不能为空!");
-	    	// 	return false;
-	    	// }else if(!keyword){
-	    	// 	err("关键词不能为空!");
-	    	// 	return false;
-	    	// }else if(!address){
-	    	// 	err("视频描述不能为空!");
-	    	// 	return false;
-	    	// }else if(!content){
-	    	// 	err("正文不能为空!");
-	    	// 	return false;
-	    	// }else if(!time){
-	    	// 	err("发表时间不能为空!");
-	    	// 	return false;
-	    	// }else if(!show){
-	    	// 	err("请选择是否显示!");
-	    	// 	return false;
-	    	// }else if(!org){
-	    	// 	err("请选择是否原创!");
-	    	// 	return false;
-	    	// }else if(!root){
-	    	// 	err("作者不能为空!");
-	    	// 	return false;
-	    	// }else if(!hit){
-	    	// 	err("默认点击量不能为空!");
-	    	// 	return false;
-	    	// }
+	    	if(!title){
+	    		err("记事标题不能为空!");
+	    		return false;
+	    	}else if(!tag){
+	    		err("记事类别不能为空!");
+	    		return false;
+	    	}else if(!keyword){
+	    		err("关键词不能为空!");
+	    		return false;
+	    	}else if(!remark){
+	    		err("记事描述不能为空!");
+	    		return false;
+	    	}else if(!content){
+	    		err("正文不能为空!");
+	    		return false;
+	    	}else if(!time){
+	    		err("发表时间不能为空!");
+	    		return false;
+	    	}else if(!show){
+	    		err("请选择是否显示!");
+	    		return false;
+	    	}else if(!org){
+	    		err("请选择是否原创!");
+	    		return false;
+	    	}else if(!root){
+	    		err("作者不能为空!");
+	    		return false;
+	    	}else if(!hit){
+	    		err("默认点击量不能为空!");
+	    		return false;
+	    	}
 	    	$("#addA").attr("disabled",true);
 	    	$.ajax({
 	    		type:"post",
-	    		url:"/index.php/Admin/Video/videoAdd",
+	    		url:"/index.php/Admin/Remember/rememberAdd",
 	    		async:true,
-	    		data:{"title":title,"address":address,"coveraddress":img,"keyword":keyword,"cid":tag,"addtime":time,"description":description,"view":show,"count":hit,"a_original":org,"a_author":root},
+	    		data:{"a_title":title,"a_remark":remark,"a_keyword":keyword,"pid":tag,"a_time":time,"a_content":content,"a_view":show,"a_hit":hit,"a_original":org,"a_author":root},
 				success:function(data){
 					if(data.error==0){
-						succ("添加视频完成!",data.msg,"/index.php/Admin/Video/videoList");
+						succ("添加记事完成!",data.msg,"/index.php/Admin/Remember/rememberList");
 					}else{
 						err(data.msg);
 						$("#addA").removeAttr('disabled');
@@ -261,58 +252,58 @@
 	    });
 	    
 	    $('#editA').click(function(){
-	    	var img = cropper.getDataURL();
-	    	var id = $('#id').val();
+	    	// var img = cropper.getDataURL();
+	    	var aid = $('#aid').val();
 	    	var title = $('#title').val();
 	    	var tag = $('#tag').val();
 	    	var keyword = $('#keyword').val();
-	    	var address = $('#address').val();
-	    	var description = UE.getEditor('container').getContent();
+	    	var remark = $('#remark').val();
+	    	var content = UE.getEditor('container').getContent();
 	    	var time = $('#time').val();
 	    	var show = $('input[name="show"]:checked').val();
 	    	var org = $('input[name="org"]:checked').val();
 	    	var root = $('#root').val();
 	    	var hit = $('#hit').val();
-	    	// if(!title){
-	    	// 	err("视频标题不能为空!");
-	    	// 	return false;
-	    	// }else if(!tag){
-	    	// 	err("视频类别不能为空!");
-	    	// 	return false;
-	    	// }else if(!keyword){
-	    	// 	err("关键词不能为空!");
-	    	// 	return false;
-	    	// }else if(!address){
-	    	// 	err("视频描述不能为空!");
-	    	// 	return false;
-	    	// }else if(!content){
-	    	// 	err("正文不能为空!");
-	    	// 	return false;
-	    	// }else if(!time){
-	    	// 	err("发表时间不能为空!");
-	    	// 	return false;
-	    	// }else if(!show){
-	    	// 	err("请选择是否显示!");
-	    	// 	return false;
-	    	// }else if(!org){
-	    	// 	err("请选择是否原创!");
-	    	// 	return false;
-	    	// }else if(!root){
-	    	// 	err("作者不能为空!");
-	    	// 	return false;
-	    	// }else if(!hit){
-	    	// 	err("默认点击量不能为空!");
-	    	// 	return false;
-	    	// }
+	    	if(!title){
+	    		err("记事标题不能为空!");
+	    		return false;
+	    	}else if(!tag){
+	    		err("记事类别不能为空!");
+	    		return false;
+	    	}else if(!keyword){
+	    		err("关键词不能为空!");
+	    		return false;
+	    	}else if(!remark){
+	    		err("记事描述不能为空!");
+	    		return false;
+	    	}else if(!content){
+	    		err("正文不能为空!");
+	    		return false;
+	    	}else if(!time){
+	    		err("发表时间不能为空!");
+	    		return false;
+	    	}else if(!show){
+	    		err("请选择是否显示!");
+	    		return false;
+	    	}else if(!org){
+	    		err("请选择是否原创!");
+	    		return false;
+	    	}else if(!root){
+	    		err("作者不能为空!");
+	    		return false;
+	    	}else if(!hit){
+	    		err("默认点击量不能为空!");
+	    		return false;
+	    	}
 	    	$("#editA").attr("disabled",true);
 	    	$.ajax({
 	    		type:"post",
-	    		url:"/index.php/Admin/Video/videoEditH",
+	    		url:"/index.php/Admin/Remember/rememberEditH",
 	    		async:true,
-	    		data:{"coveraddress":img,"id":id,"title":title,"address":address,"keyword":keyword,"cid":tag,"addtime":time,"description":description,"view":show,"count":hit,"a_original":org,"a_author":root},
+	    		data:{"a_id":aid,"a_title":title,"a_remark":remark,"a_keyword":keyword,"pid":tag,"a_time":time,"a_content":content,"a_view":show,"a_hit":hit,"a_original":org,"a_author":root},
 				success:function(data){
 					if(data.error==0){
-						succ("修改视频完成!",data.msg,"/index.php/Admin/Video/videoList");
+						succ("修改记事完成!",data.msg,"/index.php/Admin/Remember/rememberList");
 					}else{
 						err(data.msg);
 						$("#editA").removeAttr('disabled');

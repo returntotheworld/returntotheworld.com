@@ -62,19 +62,21 @@ class CommonController extends Controller{
 		//------------------------------------------------------右侧------------------------------------------------------------------------
 		if(!$result = S('result')){
 			$tag = $article->where("a_keyword != '' and a_view > 0")->field('a_keyword,a_id,a_time')->order('a_time desc')->select();
-			for($i=0;$i<=count($tag);$i++){
+			for($i=0;$i<=count($tag);$i++){//合并所有数据
 				$strt.=$tag[$i]['a_keyword'].',';
 			}
-			$strt = explode(',', $strt);
-			$strt = array_unique($strt);
-			for($i=0;$i<=count($strt);$i++){
+			$strt_all = explode(',', $strt);//分隔数据集
+			$strt = array_unique($strt_all);//去掉重复值
+			for($i=0;$i<=count($strt_all);$i++){//重新二维赋值
 				if (!empty($strt[$i])){
-					$result[$i]['key']=$i+1;
+					$result[$i]['key']=$i;
 				    $result[$i]['a_keyword']=$strt[$i];
 				}
 				
-			}setS('result',$result);
+			}
+			setS('result',$result);
 		}
+		
 		$this->assign('tag',$result);
         if(!$s_article = S('s_article')){
 	        $arr = $article->where('a_view != 0')->getField('a_id',true);
